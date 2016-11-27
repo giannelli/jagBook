@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+
+    <xi:include href="./bookinfo.xml" /> <!-- ISBN, website, other metadata -->
+    
+    <book xml:id="jag-book">
+        <title>John Giannelli</title>
+        <subtitle>Musings on Sage Math</subtitle>
+
+        <xi:include href="./frontmatter.xml" />
+
+        <xi:include href="preliminaries.xml" />
+        <xi:include href="matrices.xml" />
+
+        <xi:include href="./backmatter.xml" />
+    </book>
+</mathbook>
