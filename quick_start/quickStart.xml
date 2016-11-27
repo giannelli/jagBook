@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mathbook>
+    <article xml:id="quick">
+        <title>John Giannelli</title>
+
+        <introduction>
+            <p>Currently learning SageMath</p>
+        </introduction>
+
+        <section xml:id="section-short">
+            <title>Sage Matrices</title>
+
+            <subsubsection>
+                <title>Constructing Matrices</title>
+                <ol>
+                    <li>
+                        <p>
+                            Specify number of rows (2) and columns (3).
+                        </p>
+                        <sage>
+                            <input>
+                                A = matrix(QQ, 2, 3, [1, 2, 3, 4, 5, 6])
+                                A
+                            </input>
+                            <output>
+                                [1 2 3]
+                                [4 5 6]
+                            </output>
+                        </sage>
+                    </li>
+                    <li>
+                        <p>
+                            Infer the rows and cols from [] lists.
+                        </p>
+                        <sage>
+                            <input>
+                                B = matrix(QQ, [[1, 2, 3], [4, 5, 6]])
+                                B
+                            </input>
+                            <output>
+                                [1 2 3]
+                                [4 5 6]
+                            </output>
+                        </sage>
+                    </li>
+                    <li>
+                        <p>
+                            Specify just the number of rows.
+                        </p>
+                        <sage>
+                            <input>
+                                C = matrix(QQ, 2, [1, 2, 3, 4, 5, 6])
+                                C
+                            </input>
+                            <output>
+                                [1 2 3]
+                                [4 5 6]
+                            </output>
+                        </sage>
+                    </li>
+
+                </ol>
+            </subsubsection>
+
+            <subsubsection>
+                <title>Sage Objects And Types</title>
+
+                        <p>
+                            The parent of a Matrix
+                        </p>
+                        <sage>
+                            <input>
+                                A = matrix(CC, [[1, 2*I, 3], [4, 5*I, 6]])
+                                A.parent()
+                            </input>
+                            <output>
+                                Full MatrixSpace of 2 by 3 dense matrices over Complex Field with 53 bits of precision
+                            </output>
+                        </sage>
+                        <sage>
+                            <input>
+                                B = matrix(2, 3, [[1, 2/3, 3], [4, 5, 6]])
+                                B.parent()
+                            </input>
+                            <output>
+                                Full MatrixSpace of 2 by 3 dense matrices over Rational Field
+                            </output>
+                        </sage>
+                        <sage>
+                            <input>
+                                C = matrix(2, 3, [[1, sin(2.2), 3], [4, 5, 6]])
+                                C.base_ring()
+                            </input>
+                            <output>
+                                Real Field with 53 bits of precision
+                            </output>
+                        </sage>
+            </subsubsection>
+
+            <p>
+                <p>One more paragraph. Some equation
+                    <men>\rho = \alpha^2 + \beta^4</men>
+                </p>
+            </p>
+
+            <p>
+                <figure>
+                    <image source="images/jag.jpg" width="20%"/>
+                    <caption>My GitHub Avatar</caption>
+                </figure>
+            </p>
+
+            <p>Units example:</p>
+            <quantity>
+                <mag>20.7</mag>
+                <unit prefix="kilo" base="gram"/>
+                <unit base="meter"/>
+                <per base="second" exp="2"/>
+            </quantity>
+
+            <subsubsection>
+                <title>Basic Commands</title>
+                <p>
+                    SageMath has a built-in dot product command <c>u.dot_product(v)</c>. This
+                    will return the dot product of the vectors <m>u</m> and <m>v</m>.
+                </p>
+                <sage>
+                    <input>
+                        u = vector([1,1,1]); v = vector([-1,0,1])
+                        u.dot_product(v)
+                    </input>
+                    <output>0</output>
+                </sage>
+            </subsubsection>
+
+
+        </section>
+
+        <section xml:id="section-multiple-paragraph">
+            <title>Endings</title>
+
+            <p>This is a longer sentence that is followed by another sentence.
+                Two sentences, and a second paragraph to follow.
+            </p>
+
+            <p>One more paragraph. If the two sides of a right triangle have
+                lengths <m>a</m> and <m>b</m> and the hypotenuse has length <m>c</m>,
+                then the equation <men>a^2 + b^2 = c^2</men> will always hold.
+            </p>
+
+
+            <console>
+                <prompt>pi@raspberrypi:~/chp02 $</prompt>
+                <input>gdb ./intAndFloat</input>
+                <output>
+                    GNU gdb (Raspbian 7.7.1+dfsg-5) 7.7.1 Copyright (C) 2014 Free Software Foundation, Inc. License
+                    GPLv3+: GNU GPL version 3 or later http://gnu.org/licenses/gpl.html> This is free software: you are
+                    free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law. Type "show
+                    copying" and "show warranty" for details. This GDB was configured as "arm-linux-gnueabihf". Type
+                    "show configuration" for configuration details. For bug reporting instructions, please see:
+                    http://www.gnu.org/software/gdb/bugs/>. Find the GDB manual and other documentation resources online
+                    at: http://www.gnu.org/software/gdb/documentation/>. For help, type "help". Type "apropos word" to
+                    search for commands related to "word"... Reading symbols from ./intAndFloat...done.
+                </output>
+                <prompt>(gdb)</prompt>
+                <input>li</input>
+                <output>
+                    1 /* 2 * intAndFloat.c 3 * Using printf to display an integer and a float. 4 * Bob Plantz - 18 Nov
+                    2015 5 */ 6 #include stdio.h 7 8 int main(void) 9 { 10 int anInt = 19088743;
+                </output>
+                <prompt>(gdb)</prompt>
+                <input/>
+                <output>
+                    11 float aFloat = 19088.743; 12 13 printf("The integer is %d and the float is %f\n", anInt, aFloat);
+                    14 15 return 0; 16 } 17 18
+                </output>
+            </console>
+        </section>
+
+        <section>
+            <title>Exercises</title>
+            <exercise number="1">
+                <statement>
+                    <p>Execute the statement <c>R = Integers(40)</c> to create the set <c>[0,1,2,...,39]</c>  This is a
+                        group under addition mod <m>40</m>, which we will ignore. Instead we are interested in the
+                        subset of elements which have an inverse under <em>multiplication</em> mod <m>40</m>. Determine
+                        how big this subgroup is by executing the command <c>R.unit_group_order()</c>, and then obtain a
+                        list of these elements with <c>R.list_of_elements_of_multiplicative_group()</c>.
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise number="2">
+                <statement>
+                    <p>You can create elements of this group by coercing regular integers into <c>U</c>, such as with
+                        the statement <c>a = U(7)</c>. (Don't confuse this with our mathematical notation <m>U(40)</m>.)
+                        This will tell Sage that you want to view <m>7</m> as an element of <m>U</m>, subject to the
+                        corresponding operations. Determine the elements of the cyclic subgroup of <m>U</m> generated by <m>
+                            7
+                        </m> with a list comprehension as follows:
+                    </p>
+
+                    <sage type="display">
+                        <input>
+                            R = Integers(40)
+                            a = R(7)
+                            [a^i for i in srange(16)]
+                        </input>
+                    </sage>
+
+                    <p>What is the order of <m>7</m> in <m>U(40)</m>?
+                    </p>
+                </statement>
+            </exercise>
+        </section>
+    </article>
+</mathbook>
