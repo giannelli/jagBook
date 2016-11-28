@@ -4,13 +4,32 @@
 
 
     <introduction>
+
+        <p> Sage is a powerful OpenSource system with the goal of being a viable alternative to Magma, Mathematica, Maple, and Matlab.
+            In this initial chapter we will consider how to get up and running with SageMath.</p>
+
         <p>
-            There are several approaches to using Sage Math: using sage math online, downloading the
-            source and running locally, using SageMath Cells embedded in your own web documents,
-            and even installing android or iOS Apps on your phone or tablet.
+            There are several approaches to using Sage Math:
         </p>
-        <p>This section has notes for some of these methods.
-        </p>
+
+        <ul>
+            <li>
+                <p>Using SageMath online.
+                </p>
+            </li>
+            <li>
+                <p>Downloading the source and running locally.
+                </p>
+            </li>
+            <li>
+                <p>using SageMath Cells embedded in your own web documents</p>
+            </li>
+            <li>
+                <p>Installing Android or iOS Apps on your phone or tablet.</p>
+            </li>
+        </ul>
+
+        <p>We will now look at some of these methods.</p>
     </introduction>
 
     <section xml:id="section-note-on-proofs">
@@ -25,6 +44,7 @@
                 have to set up an account but these are free for basic usage.
             </p>
 
+            <p> Once you have set up an account you ... TBD</p>
 
         </introduction>
 
