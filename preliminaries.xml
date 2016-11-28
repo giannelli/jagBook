@@ -14,12 +14,10 @@
 
         <ul>
             <li>
-                <p>Using SageMath online.
-                </p>
+                <p>Using SageMath online.</p>
             </li>
             <li>
-                <p>Downloading the source and running locally.
-                </p>
+                <p>Downloading the source and running locally.</p>
             </li>
             <li>
                 <p>using SageMath Cells embedded in your own web documents</p>
@@ -35,8 +33,6 @@
     <section xml:id="section-note-on-proofs">
         <title>SageMath Online</title>
 
-        <introduction>
-
             <p>
                 Probably the easiest way to familiarise yourself with SageMath is to use a Sage Math Cloud Server.
                 From the main <url href="http://www.sagemath.org">SageMath</url> page select the
@@ -44,70 +40,19 @@
                 have to set up an account but these are free for basic usage.
             </p>
 
-            <p> Once you have set up an account you ... TBD</p>
+            <p> Once you have set up an account you can then create a project and a SageMath Worksheet.
+                There are full instructions here <url href="http://doc.sagemath.org/html/en/prep/Logging-On.html">Logging On</url>.</p>
 
-        </introduction>
+            <p>Screenshots of sample session - TBD</p>
 
-        <subsection>
-            <title>Some Cautions and Suggestions</title>
+    </section>
 
-            <p>There are several different strategies for proving propositions. In addition to using different methods
-                of proof, students often make some common mistakes when they are first learning how to prove theorems.
-                To aid students who are studying abstract mathematics for the first time, we list here some of the
-                difficulties that they may encounter and some of the strategies of proof available to them. It is a good
-                idea to keep referring back to this list as a reminder. (Other techniques of proof will become apparent
-                throughout this chapter and the remainder of the text.)
-            </p>
+    <section>
+        <title>Running From Source</title>
 
-            <ul>
-                <li>
-                    <p>A theorem cannot be proved by example; however, the standard way to show that a statement is not
-                        a theorem is to provide a counterexample.
-                    </p>
-                </li>
-                <li>
-                    <p>Quantifiers are important. Words and phrases such as <em>only</em>, <em>for all</em>, <em>for
-                        every</em>, and <em>for some</em> possess different meanings.
-                    </p>
-                </li>
-                <li>
-                    <p>Never assume any hypothesis that is not explicitly stated in the theorem.
-                        <em>You cannot take things for granted.</em>
-                    </p>
-                </li>
-                <li>
-                    <p>Suppose you wish to show that an object <em>exists</em> and is <em>unique</em>. First show that
-                        there actually is such an object. To show that it is unique, assume that there are two such
-                        objects, say <m>r</m> and <m>s</m>, and then show that <m>r = s</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>Sometimes it is easier to prove the contrapositive of a statement. Proving the statement
-                        <q>If <m>p</m>, then
-                            <m>q</m>
-                        </q>
-                        is exactly the same as proving the statement
-                        <q>If not <m>q</m>, then not <m>p</m>.
-                        </q>
-                    </p>
-                </li>
-                <li>
-                    <p>Although it is usually better to find a direct proof of a theorem, this task can sometimes be
-                        difficult. It may be easier to assume that the theorem that you are trying to prove is false,
-                        and to hope that in the course of your argument you are forced to make some statement that
-                        cannot possibly be true.
-                    </p>
-                </li>
-            </ul>
-
-            <p>Remember that one of the main objectives of higher mathematics is proving theorems. Theorems are tools
-                that make new and productive applications of mathematics possible. We use examples to give insight into
-                existing theorems and to foster intuitions as to what new theorems might be true. Applications,
-                examples, and proofs are tightly interconnected<mdash/>much more so than they may seem at first
-                appearance.
-            </p>
-
-        </subsection>
+        <p>Details of github project - TBD</p>
+        <p>Details of building - TBD</p>
+        <p>Sample command line session - TBD</p>
 
     </section>
 
