@@ -191,8 +191,77 @@
     <section>
         <title>Running From Source</title>
 
-        <p>Details of github project - TBD</p>
-        <p>Details of building - TBD</p>
+        <p>The SageMath source is hosted on here <url href="https://git.sagemath.org/sage.git/">SageMath GitHub</url>.
+            To download and build the source you will need the appropriate development environment set up.  This is not detailed here
+            and assumes some familiarity with git and make.  Full details can be found <url href="http://doc.sagemath.org/html/en/installation/source.html">here</url>.
+            At a minimum you will need a POSIX compliant shell with GCC, make, perl, and python.
+        </p>
+        <p>Once you have a build environment setup then grab the source from the git repository.  This may take a few minutes depending on your network speed.</p>
+
+
+        <paragraphs xml:id="make-sage">
+        <console>
+            <prompt>--- ~/dev »</prompt>
+            <input>git clone git://github.com/sagemath/sage.git</input>
+            <output>
+                Cloning into 'sage'...
+                remote: Counting objects: 448266, done.
+                remote: Compressing objects: 100% (268/268), done.
+                remote: Total 448266 (delta 157), reused 0 (delta 0), pack-reused 447997
+                Receiving objects: 100% (448266/448266), 152.82 MiB | 11.21 MiB/s, done.
+                Resolving deltas: 100% (341065/341065), done.
+            </output>
+            <prompt>--- ~/dev »</prompt>
+            <input>cd sage</input>
+            <prompt>--- dev/sage ‹master› »</prompt>
+            <input>git checkout develop</input>
+            <output>
+                Branch develop set up to track remote branch develop from origin.
+                Switched to a new branch 'develop'
+            </output>
+            <prompt>--- dev/sage ‹develop› »</prompt>
+            <input>make</input>
+            <output>
+                make build/make/Makefile
+                make[1]: Entering directory `/home/dev/sage'
+                make[1]: `build/make/Makefile' is up to date.
+                make[1]: Leaving directory `/home/dev/sage'
+                build/bin/sage-logger \
+                "cd build/make &amp;&amp; ./install 'all'" logs/install.log
+                *** ALL ENVIRONMENT VARIABLES BEFORE BUILD: ***
+                ...
+                        &lt;and so on, and so forth, for quite some time ...&gt;
+                ...
+                Testing that Sage starts...
+                [2016-12-01 14:31:59] SageMath version 7.5.beta4, Release Date: 2016-11-24
+                Forcing sage-location, probably because a new package was installed.
+                Updating various hardcoded paths...
+                (Please wait at most a few minutes.)
+                DO NOT INTERRUPT THIS.
+                Done updating paths.
+                Yes, Sage starts.
+                make[2]: Leaving directory `/home/dev/sage/build/make'
+                make[1]: Leaving directory `/home/dev/sage/build/make'
+
+                real	29m58.528s
+                user	32m33.566s
+                sys	7m0.240s
+                Sage build/upgrade complete!
+
+                To install small scripts to directly run Sage's versions of GAP,
+                the PARI/GP interpreter, Maxima, or Singular etc. (by typing e.g.
+                just 'gap' or 'gp') into a standard 'bin' directory, start Sage
+                by typing 'sage' (or './sage') and enter something like
+
+                install_scripts('/usr/local/bin')
+
+                at the Sage command prompt ('sage:').
+
+            </output>
+            <prompt>--- dev/sage ‹develop› »</prompt>
+        </console>
+        </paragraphs>
+
         <p>Sample command line session - TBD</p>
 
     </section>
