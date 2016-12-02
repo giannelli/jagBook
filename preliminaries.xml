@@ -192,14 +192,12 @@
         <title>Running From Source</title>
 
         <p>The SageMath source is hosted on here <url href="https://git.sagemath.org/sage.git/">SageMath GitHub</url>.
-            To download and build the source you will need the appropriate development environment set up.  This is not detailed here
-            and assumes some familiarity with git and make.  Full details can be found <url href="http://doc.sagemath.org/html/en/installation/source.html">here</url>.
+            To download and build the source you will need the appropriate development environment set up. This is not detailed here
+            and assumes some familiarity with git and make. Full details can be found <url href="http://doc.sagemath.org/html/en/installation/source.html">here</url>.
             At a minimum you will need a POSIX compliant shell with GCC, make, perl, and python.
         </p>
-        <p>Once you have a build environment setup then grab the source from the git repository.  This may take a few minutes depending on your network speed.</p>
+        <p>Once you have a build environment setup then grab the source from the git repository. This may take a few minutes depending on your network speed.</p>
 
-
-        <paragraphs xml:id="make-sage">
         <console>
             <prompt>--- ~/dev »</prompt>
             <input>git clone git://github.com/sagemath/sage.git</input>
@@ -230,7 +228,7 @@
                 "cd build/make &amp;&amp; ./install 'all'" logs/install.log
                 *** ALL ENVIRONMENT VARIABLES BEFORE BUILD: ***
                 ...
-                        &lt;and so on, and so forth, for quite some time ...&gt;
+                &lt;and so on, and so forth, for quite some time ...&gt;
                 ...
                 Testing that Sage starts...
                 [2016-12-01 14:31:59] SageMath version 7.5.beta4, Release Date: 2016-11-24
@@ -243,9 +241,9 @@
                 make[2]: Leaving directory `/home/dev/sage/build/make'
                 make[1]: Leaving directory `/home/dev/sage/build/make'
 
-                real	29m58.528s
-                user	32m33.566s
-                sys	7m0.240s
+                real 29m58.528s
+                user 32m33.566s
+                sys 7m0.240s
                 Sage build/upgrade complete!
 
                 To install small scripts to directly run Sage's versions of GAP,
@@ -260,9 +258,39 @@
             </output>
             <prompt>--- dev/sage ‹develop› »</prompt>
         </console>
-        </paragraphs>
+        <p/>
 
-        <p>Sample command line session - TBD</p>
+        <subsubsection>
+            <title>Running SageMath Notebook from the command line</title>
+            <console>
+                <prompt>--- ~/dev »</prompt>
+                <input>./sage --notebook</input>
+            </console>
+            <figure>
+                <image source="images/sageNotebookStart.png"/>
+                <caption>Starting sage notebook from the command line.</caption>
+            </figure>
+            <figure>
+                <image source="images/sageNotebookSession.png"/>
+                <caption>The Notebook session at localhost:8080.</caption>
+            </figure>
+            <p>
+                You can now start using this local session equivalently to SageMathCloud sessions with the
+                benefit of gaining the full resources of your local machine and being able to work offline.
+            </p>
+        </subsubsection>
+
+        <subsubsection>
+            <title>Running SageMath From the command line</title>
+
+            <p>You can also run SageMath directly from the command line.  You may want to do this for quick tests or as part of your development cycle.</p>
+
+            <figure>
+                <image source="images/sageCommandLineSession.png"/>
+                <caption>A sample sage command line session.</caption>
+            </figure>
+
+        </subsubsection>
 
     </section>
 
