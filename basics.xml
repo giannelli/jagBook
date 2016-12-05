@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<chapter xml:id="basics" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Basic Sage Commands</title>
+
+    <introduction>
+        <p>Here you will find a hotch potch of some basic SageMath concepts</p>
+    </introduction>
+
+    <section>
+        <title>How to define functions</title>
+
+        <sage>
+            <input>
+                def f(z): return 2*z^3 - z^2 - 7*z + 2
+                type(f)
+            </input>
+            <output>
+                &lt;type 'function'&gt;
+            </output>
+        </sage>
+
+        <sage>
+            <input>
+                f(2)
+            </input>
+            <output>
+                0
+            </output>
+        </sage>
+
+        <sage>
+            <input>
+                plot(f, -2, 3)
+            </input>
+        </sage>
+
+        <sage>
+            <input>
+                f(x) = (cos(x)-1)/x^2
+                show(f)
+            </input>
+        </sage>
+        <sage>
+            <input>
+                f(3)
+            </input>
+            <output>
+                1/9*cos(3) - 1/9
+            </output>
+        </sage>
+        <sage>
+            <input>
+                show(f(pi))
+            </input>
+            <output>
+                -2/pi^2
+            </output>
+        </sage>
+        <sage>
+            <input>
+                plot(f(x), (-2*pi, 2*pi),ymin = -1, ymax = 1)
+            </input>
+        </sage>
+    </section>
+</chapter>
