@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<chapter xml:id="basics" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="basics">
     <title>Basic Sage Commands</title>
 
     <introduction>
@@ -62,4 +62,42 @@
             </input>
         </sage>
     </section>
+
+    <section>
+        <title>Symbolic Expressions</title>
+
+        <p>The expand method</p>
+        <sage>
+            <input>
+                z = (x+1)^3
+                show(z)
+            </input>
+            <output>(x+1)^3</output>
+        </sage>
+
+        <sage>
+            <input>
+                z2 = z.expand()
+                show(z2)
+            </input>
+            <output>x^3 + 3*x^2 + 3*x + 1</output>
+        </sage>
+        <p>Notice how the <code>show()</code> method displays the output in a nicer manner.  Without it you will see the less pretty output: <pre>x^3 + 3*x^2 + 3*x + 1</pre> </p>
+
+        <p>Now the reverse!  Perform a <code>factor()</code> on the expanded equation.</p>
+        <sage>
+            <input>
+                show(z2.factor())
+            </input>
+            <output>x^3 + 3*x^2 + 3*x + 1</output>
+        </sage>
+    </section>
+
+    <section>
+        <title>Declaring Variables</title>
+
+        <p></p>
+
+    </section>
+
 </chapter>
