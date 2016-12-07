@@ -96,7 +96,19 @@
     <section>
         <title>Declaring Variables</title>
 
-        <p></p>
+        <subsection>
+            <title>Use SageMath to solve differential equations</title>
+
+            <p>Consider the equation <m>\frac{dy}{dx} and \frac{d^2 u}{dx^2}y</m></p>
+
+        </subsection>
+        <sage>
+            <input>
+                z = (x+1)^3
+                show(z)
+            </input>
+            <output>(x+1)^3</output>
+        </sage>
 
     </section>
 
