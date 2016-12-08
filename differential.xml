@@ -3,13 +3,184 @@
     <title>Differential Equations</title>
 
     <introduction>
-        <p>Gilbert Strang, and Cleve Moler. RES.18-009 Learn Differential Equations: Up Close with Gilbert Strang and Cleve Moler. Fall 2015.
-            Massachusetts Institute of Technology: <url href="https://ocw.mit.edu/resources/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/">
-                MIT OpenCourseWare</url>.</p>
+        <p>Gilbert Strang, and Cleve Moler. RES.18-009 Learn Differential Equations: Up Close with Gilbert Strang and
+            Cleve Moler. Fall 2015.
+            Massachusetts Institute of Technology: <url
+                    href="https://ocw.mit.edu/resources/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/">
+                MIT OpenCourseWare</url>.
+        </p>
     </introduction>
 
-    <section xml:id="section-math-induction">
+    <section xml:id="first-order-de">
         <title>First Order Differential Equations</title>
 
+        <p>For this first example, we'll look at a simple problem so that we can concentrate on the SageMath commands
+            without having to deal with the mathematical details.
+        </p>
+
+        <men>\frac{dy}{dx} + y(x) - 3 = 0</men>
+        <men>y(0) = 1</men>
+
+        <subsection>
+            <title>The General Solution</title>
+
+            <p>First define <m>y</m> as a function of
+                <m>x</m>
+            </p>
+
+            <sage>
+                <input>
+                    y = function('y')(x)
+                    y
+                </input>
+                <output>y(x)</output>
+            </sage>
+
+            <p>Next define our DE. Notice the '<code>==</code>' rather than the '<code>=</code>' when setting the RHS to
+                zero.
+                We are defining a sage variable '<m>de</m>' to <em>hold</em> the differential equation. The first
+                '<code>=</code>'
+                is to set the variable <m>de</m> equal to our DE.
+            </p>
+
+            <sage>
+                <input>
+                    de = derivative(y,x) + y - 3 == 0
+                    de
+                </input>
+                <output>y(x) + diff(y(x), x) - 3 == 0</output>
+            </sage>
+
+            <p>The <code>derivative(y,x)</code> is a Sage <em>method</em> that is passed a <em>function</em>, in this
+                case <m>y</m>.
+                Of course, this has been defined above as <m>y(x)</m>. The <code>derivative()</code> method also takes
+                one or more additional
+                arguments for the equation variable, in this case <m>x</m>.
+            </p>
+
+            <p>This is a good point to talk about the Sage help facility.</p>
+            <p>Try the following:</p>
+
+            <sage>
+                <input>
+                    derivative?
+                </input>
+            </sage>
+
+            <p>This is a typical <em>Docstring</em> output detailing the <em>signature</em> (the required arguments) and
+                details on how to use the method.
+            </p>
+
+            <p>Notice that an alias for this method id <code>diff</code>. In other words an alias for <code>
+                derivative(y,x)
+            </code> would be <code>diff(y,x)</code>.
+            </p>
+
+            <p>Now for the general solution. For this we use the <code>desolve()</code> method - <em>
+                d</em>ifferential <em>e</em>quation <em>solve</em>.
+                Try using '<code>desolve?</code>' to list the built in documentation.
+            </p>
+
+            <sage>
+                <input>
+                    desolve(de,y)
+                </input>
+                <output>(_C + 3*e^x)*e^(-x)</output>
+            </sage>
+
+            <p>This is the general solution as can be seen by the <m>_C</m> constant.
+            </p>
+            <p>Lets now do two things: store the solution into a variable, and display the solution in a prettier
+                format:
+            </p>
+
+            <sage>
+                <input>
+                    sol_gen = desolve(de,y)
+                    show(sol_gen)
+                </input>
+                <output>(_C + 3*e^x)*e^(-x)</output>
+            </sage>
+        </subsection>
+        <subsection>
+            <title>Initial Conditions</title>
+
+            <p>The initial condition for this equation is <m>y(0) = 1</m>. That is, at <m>x = 0, y = 1</m>.
+            </p>
+
+            <p>From the <em>Docstring</em> for <code>desolve()</code> you can see :
+                <ul>
+                    <li>"ics" - (optional) the initial or boundary conditions</li>
+                    <li>for a first-order equation, specify the initial "x" and "y"</li>
+                </ul>
+            </p>
+            <p>So lets try it. Notice the [0,1] for the [x,y] initial conditions.</p>
+            <sage>
+                <input>
+                    sol_initial_con = desolve(de,y,ics=[0,1])
+                    show(sol_initial_con)
+                </input>
+                <output>(3*e^x - 2)*e^(-x)</output>
+            </sage>
+
+            <p>Here we have again stored the solution to a variable <code>sol_initial_con</code> and used <code>show()
+            </code> to pretty=print the output.
+            </p>
+        </subsection>
+        <subsection>
+            <title>Plotting the Solution</title>
+
+            <p>Have a look at the <em>Docstring</em> for method <code>plot()</code> (plot?).
+            </p>
+
+            <p>From this you can see that how to graph from <m>x=0..5</m> and set the minimum y using <m>ymin</m>:
+            </p>
+            <sage>
+                <input>
+                    p_exact = plot(sol_initial_con, (x,0,5), ymin=0, color='red')
+                    p_exact
+                </input>
+            </sage>
+            <p>Spend some time studying the other options.</p>
+        </subsection>
+
+        <subsection>
+            <title>Numerical Solution</title>
+
+            <p>In practice most DE ar not solvable analytically and we have to resort to numerical methods.</p>
+            <p>This is a good point to talk about the <em>tab</em> key and auto-completion.</p>
+
+            <p>Tab completion will not work in Sage Cells (what yo are using in this document)
+                but only from a Sage Math Online sessions.<xref ref="sage-online"/></p>
+
+            <p>To illustrate, from an online workbook type <em>desolve</em> and press the tab key. All of the methods and actions
+            that are possible to complete the method are displayed in a dop-down list.  See the diagram below.</p>
+            <figure>
+                <image source="images/tab_completion.png"/>
+                <caption>Tab completion from a Sage Cloud Session.</caption>
+            </figure>
+
+            <p>From the dropdown select the <code>desolve_rk4</code> method.  If required, now type '?' to display a description of this method.</p>
+            <sage>
+                <input>
+                    desolve_rk4?
+                </input>
+            </sage>
+
+            <sage>
+                <input>
+                    sol_numeric = desolve_rk4(de,y,ics=[0,1], end_points=5, step=0.05)
+                    p_numeric = points(sol_numeric)
+                    p_numeric
+                </input>
+            </sage>
+
+            <p>These two solutions can be plotted together.  As can be expected the <m>+</m> operator acting on two plots will display them together.</p>
+            <sage>
+                <input>
+                    p_exact + p_numeric
+                </input>
+            </sage>
+        </subsection>
     </section>
 </chapter>
