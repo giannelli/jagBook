@@ -64,8 +64,9 @@
     </section>
 
     <section>
-        <title>Symbolic Expressions</title>
+        <title>Symbolic Manipulation</title>
 
+        <p>Sage not only solves equations numerically but also allows for symbolic manipulation. The page will give several illustrative examples.</p>
         <p>The expand method</p>
         <sage>
             <input>
@@ -98,29 +99,24 @@
     </section>
 
     <section>
-        <title>Declaring Variables</title>
+        <title>Declaring Variables and Plotting</title>
 
-        <p>Sage allows us to solve equations not only numerically but <en>symbolically</en>.  To make this possible we have to be able to define variables that are used in the symbollic manipulation.</p>
-        <p>We will demonstrate this using a complete differential equation example.</p>
+        <p>Sage allows us to solve equations not only numerically but <en>symbolically</en>.
+            To make this possible we have to be able to define variables that are used in the symbolic manipulation.</p>
+        <p>We will demonstrate this using a complete differential equation example. Taking this approach has the additional
+        advantage of introducing some other Sage methods.</p>
 
         <subsection>
             <title>Use SageMath to solve differential equations</title>
 
-            <p>Let's learn how to describe and solve differential equations (DEs) with Sage. Unfortunately, as with most
-                computer algebra systems, Sage won't allow the user to describe DEs in an intuitive way, and sometimes
-                getting a particular result requires nothing less than sneakiness and trickery.
-            </p>
+            <p>First we have to know how to describe a differential equation (DE) with Sage.
+                The syntax may not be obvious but the are ample examples in the documentation.</p>
 
             <p>Sage can solve a large class of first-order and second-order Ordinary Differential Equations (ODEs) as
-                well as Initial Value Problems (IVPs). This page is meant to show accessible solutions and methods for
-                most common kinds of DEs, but it doesn't exhaustively detail all that Sage is capable of.
+                well as Initial Value Problems (IVPs). The chapter on differential equations <xref ref="differential" autoname="yes" /> will
+                go into more details.  This particular example just uses DE to illustrate how variables are declared and used.
             </p>
 
-            <p>While using Sage for these examples, remember that unknown named variables must be predeclared — if a
-                variable declaration isn't included in an example and you get an error about an undefined variable or an
-                error message that has no obvious explanation, be sure to add a declaration for each variable that is
-                used, like this:
-            </p>
             <sage>
                 <input>
                     var('a b c x y z')
@@ -169,8 +165,7 @@
 
             <ul>
                 <li>
-                    <m>var('r c t')</m>
-                    tells Sage to predeclare the variables that will be used.
+                    <code>var('r c t')</code> tells Sage to pre-declare the variables that will be used.
                 </li>
                 <li>
                     <m>y = function('y')(t)</m>
