@@ -112,7 +112,7 @@
                     ...
                     Testing that Sage starts...
                     [2016-12-01 14:31:59] SageMath version 7.5.beta4, Release Date: 2016-11-24
-                    Forcing sage-location, probably because a new package was installed.
+                    Forcing Sage-location, probably because a new package was installed.
                     Updating various hardcoded paths...
                     (Please wait at most a few minutes.)
                     DO NOT INTERRUPT THIS.
@@ -149,7 +149,7 @@
             </console>
             <figure>
                 <image source="images/sageNotebookStart.png"/>
-                <caption>Starting sage notebook from the command line.</caption>
+                <caption>Starting Sage notebook from the command line.</caption>
             </figure>
             <figure>
                 <image source="images/sageNotebookSession.png"/>
@@ -168,7 +168,7 @@
 
             <figure>
                 <image source="images/sageCommandLineSession.png"/>
-                <caption>A sample sage command line session.</caption>
+                <caption>A sample Sage command line session.</caption>
             </figure>
 
         </subsection>
