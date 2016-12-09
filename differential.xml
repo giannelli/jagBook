@@ -18,7 +18,8 @@
         <subsection>
             <title>First Example</title>
 
-            <p>For this first example, we'll look at a simple problem so that we can concentrate on the SageMath commands
+            <p>For this first example, we'll look at a simple problem so that we can concentrate on the SageMath
+                commands
                 without having to deal with the mathematical details.
             </p>
 
@@ -40,7 +41,8 @@
                     <output>y(x)</output>
                 </sage>
 
-                <p>Next define our DE. Notice the '<code>==</code>' rather than the '<code>=</code>' when setting the RHS to
+                <p>Next define our DE. Notice the '<code>==</code>' rather than the '<code>=</code>' when setting the
+                    RHS to
                     zero.
                     We are defining a Sage variable '<m>de</m>' to <em>hold</em> the differential equation. The first
                     '<code>=</code>'
@@ -55,9 +57,11 @@
                     <output>y(x) + diff(y(x), x) - 3 == 0</output>
                 </sage>
 
-                <p>The <code>derivative(y,x)</code> is a Sage <em>method</em> that is passed a <em>function</em>, in this
+                <p>The <code>derivative(y,x)</code> is a Sage <em>method</em> that is passed a <em>function</em>, in
+                    this
                     case <m>y</m>.
-                    Of course, this has been defined above as <m>y(x)</m>. The <code>derivative()</code> method also takes
+                    Of course, this has been defined above as <m>y(x)</m>. The <code>derivative()</code> method also
+                    takes
                     one or more additional
                     arguments for the equation variable, in this case <m>x</m>.
                 </p>
@@ -71,7 +75,8 @@
                     </input>
                 </sage>
 
-                <p>This is a typical <em>Docstring</em> output detailing the <em>signature</em> (the required arguments) and
+                <p>This is a typical <em>Docstring</em> output detailing the <em>signature</em> (the required arguments)
+                    and
                     details on how to use the method.
                 </p>
 
@@ -105,6 +110,9 @@
                     </input>
                     <output>(_C + 3*e^x)*e^(-x)</output>
                 </sage>
+                <p>
+                    <men>{\left(C + 3 \, e^{x}\right)} e^{\left(-x\right)}</men>
+                </p>
             </subsubsection>
             <subsubsection>
                 <title>Initial Conditions</title>
@@ -127,7 +135,11 @@
                     <output>(3*e^x - 2)*e^(-x)</output>
                 </sage>
 
-                <p>Here we have again stored the solution to a variable <code>sol_initial_con</code> and used <code>show()
+                <p>
+                    <men>{\left(3 \, e^{x} - 2\right)} e^{\left(-x\right)}</men>
+                </p>
+                <p>Here we have again stored the solution to a variable <code>sol_initial_con</code> and used <code>
+                    show()
                 </code> to pretty=print the output.
                 </p>
             </subsubsection>
@@ -160,7 +172,8 @@
                     <xref ref="sage-online"/>
                 </p>
 
-                <p>To illustrate, from an online workbook type <em>desolve</em> and press the tab key. All of the methods and actions
+                <p>To illustrate, from an online workbook type <em>desolve</em> and press the tab key. All of the
+                    methods and actions
                     that are possible to complete the method are displayed in a dop-down list. See the diagram below.
                 </p>
                 <figure>
@@ -168,7 +181,8 @@
                     <caption>Tab completion from a Sage Cloud Session.</caption>
                 </figure>
 
-                <p>From the dropdown select the <code>desolve_rk4</code> method. If required, now type '?' to display a description of this method.
+                <p>From the dropdown select the <code>desolve_rk4</code> method. If required, now type '?' to display a
+                    description of this method.
                 </p>
                 <sage>
                     <input>
@@ -184,7 +198,8 @@
                     </input>
                 </sage>
 
-                <p>These two solutions can be plotted together. As can be expected the <m>+</m> operator acting on two plots will display them together.
+                <p>These two solutions can be plotted together. As can be expected the <m>+</m> operator acting on two
+                    plots will display them together.
                 </p>
                 <sage>
                     <input>
@@ -197,10 +212,14 @@
         <subsection>
             <title>Second Example</title>
 
-            <p>This second example models the relationship between a continuous waveform and a dependent system. The differential equation looks like this:</p>
+            <p>This second example models the relationship between a continuous waveform and a dependent system. The
+                differential equation looks like this:
+            </p>
             <men>y(t) + rc\frac{dy}{dt}(t) = sin(\omega t)</men>
             <p>For this equation there is no initial value setting because the system being modeled is continuous.
-                This equation models natural systems that have a driving sinusoidal waveform. Here is the process for solving it:</p>
+                This equation models natural systems that have a driving sinusoidal waveform. Here is the process for
+                solving it:
+            </p>
 
             <sage>
                 <input>
@@ -210,11 +229,16 @@
                     des = desolve(de,[y,t])
                     show(des)
                 </input>
-                <output>(_C - (omega*cos(omega*t) - sin(omega*t)/(c*r))*e^(t/(c*r))/((omega^2 + 1/(c^2*r^2))*c*r))*e^(-t/(c*r))</output>
+                <output>(_C - (omega*cos(omega*t) - sin(omega*t)/(c*r))*e^(t/(c*r))/((omega^2 +
+                    1/(c^2*r^2))*c*r))*e^(-t/(c*r))
+                </output>
             </sage>
 
             <p>
-                <men>{\left(C - \frac{{\left(\omega \cos\left(\omega t\right) - \frac{\sin\left(\omega t\right)}{c r}\right)} e^{\left(\frac{t}{c r}\right)}}{{\left(\omega^{2} + \frac{1}{c^{2} r^{2}}\right)} c r}\right)} e^{\left(-\frac{t}{c r}\right)}</men>
+                <men>{\left(C - \frac{{\left(\omega \cos\left(\omega t\right) - \frac{\sin\left(\omega t\right)}{c
+                    r}\right)} e^{\left(\frac{t}{c r}\right)}}{{\left(\omega^{2} + \frac{1}{c^{2} r^{2}}\right)} c
+                    r}\right)} e^{\left(-\frac{t}{c r}\right)}
+                </men>
             </p>
 
             <p>
@@ -224,13 +248,17 @@
             </p>
 
             <p>
-                First, when the <code>desolve()</code> function does not get an explicit initial value specification as in this case,
-                Sage automatically assigns a variable to represent it. In the result shown  the initial value variable is <m>c</m>.
+                First, when the <code>desolve()</code> function does not get an explicit initial value specification as
+                in this case,
+                Sage automatically assigns a variable to represent it. In the result shown the initial value variable is <m>
+                c</m>.
                 The <m>c</m> variable assigned by <code>desolve()</code> is key to creating the desired equation.
             </p>
 
             <p>
-                Second, notice the appearance of the <m>e^{\left(\frac{t}{c r}\right)}</m> and <m>e^{\left(-\frac{t}{c r}\right)}</m> terms in the result.
+                Second, notice the appearance of the <m>e^{\left(\frac{t}{c r}\right)}</m> and <m>e^{\left(-\frac{t}{c
+                r}\right)}
+            </m> terms in the result.
                 These are present because the DE solver wrongly assumes that an initial value is present or needed.
                 The secret to putting this equation into the desired form is to remove these exponential terms.
                 What you need to do is set the constant <em>C</em> ( <em>_C</em> in the raw Sage response) to zero:
@@ -245,17 +273,217 @@
             </sage>
 
             <p>
-                <men>-\frac{c \omega r \cos\left(\omega t\right) - \sin\left(\omega t\right)}{c^{2} \omega^{2} r^{2} + 1}</men>
+                <men>-\frac{c \omega r \cos\left(\omega t\right) - \sin\left(\omega t\right)}{c^{2} \omega^{2} r^{2} +
+                    1}
+                </men>
             </p>
 
         </subsection>
     </section>
 
+    <section xml:id="second-order-de">
+        <title>Second Order Differential Equations</title>
+
+
+        <subsection>
+            <title>First Example</title>
+
+            <p>For this first example, we'll look at a harmonic oscillator problem with unit constants.</p>
+
+            <men>\frac{d^2 y}{dx^2} + y(x) = 0</men>
+            <p>Initial conditions:</p>
+            <men>y(0) = 0</men>
+            <men>\frac{dy}{dx}(0) = 1</men>
+
+            <subsubsection>
+                <title>The General Solution</title>
+
+                <p>As before, we define <m>y(x)</m> and our DE. Notice the <m>2</m> as the third argument to the <code>
+                    diff()
+                </code> method.
+                    This tells the method to differentiate twice. We could have used <code>diff(y,x,x)</code> instead.
+                    Notice also we are using the alias <em>diff</em> for <em>derivative</em>.
+                </p>
+
+                <sage>
+                    <input>
+                        y = function('y')(x)
+                        harmonic = diff(y,x,2) + y == 0
+                        harmonic
+                    </input>
+                    <output>y(x) + diff(y(x), x, x) == 0</output>
+                </sage>
+
+                <p>Now obtain the general solution:</p>
+
+                <sage>
+                    <input>
+                        sol_general = desolve(harmonic,y)
+                        show(sol_general)
+                    </input>
+                    <output>_K2*cos(x) + _K1*sin(x)</output>
+                </sage>
+
+                <p>This is the general solution as can be seen by the <m>K_1,K_2</m> constants.
+                </p>
+
+                <p>
+                    <men>K_{2} \cos\left(x\right) + K_{1} \sin\left(x\right)</men>
+                </p>
+            </subsubsection>
+            <subsubsection>
+                <title>Initial Conditions</title>
+
+                <p>From the <em>Docstring</em> for <code>desolve</code> we find that <m>ics</m> should be <m>[0,0,1]</m> so
+                    lets try it.
+                </p>
+                <sage>
+                    <input>
+                        sol_initial_con = desolve(harmonic,y,ics=[0,0,1])
+                        show(sol_initial_con)
+                    </input>
+                    <output>sin(x)</output>
+                </sage>
+
+                <p>
+                    <men>\sin\left(x\right)</men>
+                </p>
+                <p>Here we have again stored the solution to a variable <code>sol_initial_con</code> and used <code>
+                    show()
+                </code> to pretty=print the output.
+                </p>
+
+                <p>Try using some other initial conditions, for example,
+                    <m>[0,1,1]</m>
+                </p>
+                <sage>
+                    <input>
+                        sol_initial_con = desolve(harmonic,y,ics=[0,1,1])
+                        show(sol_initial_con)
+                    </input>
+                    <output>sin(x)</output>
+                </sage>
+
+                <p>
+                    <men>\cos\left(x\right) + \sin\left(x\right)</men>
+                </p>
+
+                <p>As you can see these two <em>particular</em> solutions are instances of the <em>general</em> solution
+                    given above.
+                </p>
+            </subsubsection>
+
+            <subsubsection>
+                <title>Symbolic Differential Equations</title>
+
+                <p>Lets now try and solve the same equation this time with a mass <m>m</m> and spring constant <m>k</m>.
+                </p>
+
+                <men>m\frac{d^2 y}{dx^2} + ky(x) = 0</men>
+
+                <p>Now we have to define additional variables for the two constants. It is also useful to add some
+                    constraints onto these variables.
+                    We do this using the <code>assume()</code> method:
+                </p>
+                <sage>
+                    <input>
+                        y = function('y')(x)
+                        m = var('m')
+                        k = var('k')
+                        assume(m>0)
+                        assume(k>0)
+                        harmonic2 = m*diff(y,x,2) + k*y == 0
+                        sol2=desolve(harmonic2,y,ivar=x)
+                        show(sol2)
+                    </input>
+                    <output>_K2*cos(sqrt(k)*x/sqrt(m)) + _K1*sin(sqrt(k)*x/sqrt(m))</output>
+                </sage>
+
+                <p>
+                    <men>K_{2} \cos\left(\frac{\sqrt{k} x}{\sqrt{m}}\right) + K_{1} \sin\left(\frac{\sqrt{k}
+                        x}{\sqrt{m}}\right)
+                    </men>
+                </p>
+
+                <p>Notice that we had to specify which of the variables <m>(x,m,k)</m> is the independent variable using
+                    the <code>ivar=x</code> argument.
+                </p>
+
+            </subsubsection>
+        </subsection>
+
+    </section>
+
+    <section xml:id="system-of-de">
+        <title>Systems Of Equations</title>
+
+
+        <subsection>
+            <title>First Example</title>
+
+            <p>Lets look at the following pair of coupled first order differential equations:</p>
+
+            <men>\frac{dx}{dt} + y(t) = 0</men>
+            <men>\frac{dy}{dt} - x(t) = 0</men>
+
+            <p>Initial conditions:</p>
+            <men>y(0) = 1</men>
+            <men>x(0) = 2</men>
+
+            <p>You should now be comfortable with defining the variables, the functions, and the initial conditions.
+                The only difference is the use of the <code>desolve_system()</code> method. So lets jump straight in:
+            </p>
+
+            <sage>
+                <input>
+                    t = var('t')
+                    x = function('x')(t)
+                    y = function('y')(t)
+                    de1 = diff(x,t) + y == 0
+                    de2 = diff(y,t) - x == 0
+                    solution = desolve_system([de1,de2],[x,y],ics=[0,1,2])
+                    show(solution)
+                </input>
+                <output>y(x) + diff(y(x), x, x) == 0</output>
+            </sage>
+
+            <p>Try this for fun:</p>
+            <sage>
+                <input>
+                    t = var('t')
+                    x = function('x')(t)
+                    y = function('y')(t)
+                    de1 = diff(x,t) + y == t*cos(3*t)
+                    de2 = diff(y,t) - x == sin(t)
+                    sol = desolve_system([de1,de2],[x,y],ics=[0,0,0])
+                    sol
+                    solnx, solny = sol[0].rhs(), sol[1].rhs()
+                    solnx;solny
+
+                    #p1 = plot(solnx,(-2*pi,2*pi), color='red')
+                    #p2 = plot(solny,(-2*pi,2*pi), color='green')
+                    #p1+p2
+                    #plot([solnx,solny],(0,20*pi))
+                    parametric_plot((solnx,solny), (t,0, 50*pi))
+                </input>
+            </sage>
+            <sage>
+                <input>
+                    plot([solnx,solny],(0,20*pi))
+                </input>
+            </sage>
+
+            <p>A controlled explosion!</p>
+        </subsection>
+
+    </section>
+
     <references>
-        <title>References and Suggested Readings</title>
+        <title>References (and places I plagiarized)</title>
 
         <biblio type="raw">
-            Strang, Gilbert and Moler, Cleve <title>Learn Differential Equations: Up Close with Gilbert Strang and Cleve Moler</title>.
+            Strang, Gilbert and Moler, Cleve <title>Learn Differential Equations: Up Close with Gilbert Strang and Cleve
+            Moler</title>.
             RES.18-009 Fall 2015. Massachusetts Institute of Technology:
             <url
                     href="https://ocw.mit.edu/resources/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/">
@@ -266,6 +494,16 @@
         <biblio type="raw">
             Lutus, Paul <title>Applying Sage To Physics - Differential Equations</title>.
             <url href="http://arachnoid.com/sage/differential1.html">Arachnoid - Mathematics - Sage</url>
+        </biblio>
+
+        <biblio type="raw">
+            <title>Dr Underwood's Physics YouTube page</title>.
+            <url href="https://www.youtube.com/watch?v=KdXKW6IP_Qc">Differential Equations in Sage - Part 1</url>
+        </biblio>
+
+        <biblio type="raw">
+            <title>Dr Underwood's Physics YouTube page</title>.
+            <url href="https://www.youtube.com/watch?v=546in5004jU">Differential Equations in Sage - Part 2</url>
         </biblio>
 
     </references>
