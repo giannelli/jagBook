@@ -161,6 +161,33 @@
             </subsubsection>
 
             <subsubsection>
+                <title>Plotting the Vector Field</title>
+
+                <p>Lets re-write our original equation as:</p>
+
+                <men>\frac{dy}{dx} = 3 - y(x)</men>
+
+                <p>There is a nice function <code>plot_slope_field()</code> that can be used to plot this equation over a range of <m>x</m> and <m>y</m>.</p>
+
+                <p>Previously we defined <m>y</m> as a function.  Here we have to redefine it as a variable.</p>
+                <sage>
+                    <input>
+                        y = var('y')
+                        p_slope_field = plot_slope_field(3 - y, (x,0,5), (y,0,5))
+                        p_slope_field
+                    </input>
+                </sage>
+                <p>If you plot this together with exact plot from above you can see that slope plot gives us a view of all the whole equation and
+                not just a particular solution for a single set of initial conditions.</p>
+
+                <sage>
+                    <input>
+                        p_slope_field + p_exact
+                    </input>
+                </sage>
+            </subsubsection>
+
+            <subsubsection>
                 <title>Numerical Solution</title>
 
                 <p>In practice most DE ar not solvable analytically and we have to resort to numerical methods.</p>
@@ -469,7 +496,7 @@
             </sage>
             <sage>
                 <input>
-                    plot([solnx,solny],(0,20*pi))
+                    plot([solnx,solny],(0,50*pi))
                 </input>
             </sage>
 
@@ -479,7 +506,7 @@
     </section>
 
     <references>
-        <title>References (and places I plagiarized)</title>
+        <title>References (places I plagiarized)</title>
 
         <biblio type="raw">
             Strang, Gilbert and Moler, Cleve <title>Learn Differential Equations: Up Close with Gilbert Strang and Cleve
