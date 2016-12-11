@@ -85,6 +85,24 @@
                 </code> would be <code>diff(y,x)</code>.
                 </p>
 
+                <exercise number="1">
+                    <title>Find out how to get help </title>
+                    <statement>
+                        <p>Find all <m>x \in {\mathbb Z}</m> satisfying each of the following equations.</p>
+                        <ol cols="2">
+                            <li><p><m>3x \equiv 2 \pmod{7}</m></p></li>
+                            <li><p><m>5x + 1 \equiv 13 \pmod{23}</m></p></li>
+                            <li><p><m>5x + 1 \equiv 13 \pmod{26}</m></p></li>
+                            <li><p><m>9x \equiv 3 \pmod{5}</m></p></li>
+                            <li><p><m>5x \equiv 1 \pmod{6}</m></p></li>
+                            <li><p><m>3x \equiv 1 \pmod{6}</m></p></li>
+                        </ol>
+                    </statement>
+                    <hint>
+                        <p>(a) <m>3 + 7 \mathbb Z = \{ \ldots, -4, 3, 10, \ldots \}</m>;  (c) <m>18 + 26 \mathbb Z</m>;  (e) <m>5 + 6 \mathbb Z</m>.</p>
+                    </hint>
+                </exercise>
+
                 <p>Now for the general solution. For this we use the <code>desolve()</code> method - <em>
                     d</em>ifferential <em>e</em>quation <em>solve</em>.
                     Try using '<code>desolve?</code>' to list the built in documentation.
@@ -159,34 +177,6 @@
                 </sage>
                 <p>Spend some time studying the other options.</p>
             </subsubsection>
-
-            <subsubsection>
-                <title>Plotting the Vector Field</title>
-
-                <p>Lets re-write our original equation as:</p>
-
-                <men>\frac{dy}{dx} = 3 - y(x)</men>
-
-                <p>There is a nice function <code>plot_slope_field()</code> that can be used to plot this equation over a range of <m>x</m> and <m>y</m>.</p>
-
-                <p>Previously we defined <m>y</m> as a function.  Here we have to redefine it as a variable.</p>
-                <sage>
-                    <input>
-                        y = var('y')
-                        p_slope_field = plot_slope_field(3 - y, (x,0,5), (y,0,5))
-                        p_slope_field
-                    </input>
-                </sage>
-                <p>If you plot this together with exact plot from above you can see that slope plot gives us a view of all the whole equation and
-                not just a particular solution for a single set of initial conditions.</p>
-
-                <sage>
-                    <input>
-                        p_slope_field + p_exact
-                    </input>
-                </sage>
-            </subsubsection>
-
             <subsubsection>
                 <title>Numerical Solution</title>
 
@@ -234,6 +224,33 @@
                     </input>
                 </sage>
             </subsubsection>
+            <subsubsection>
+                <title>Plotting the Vector Field</title>
+
+                <p>Lets re-write our original equation as:</p>
+
+                <men>\frac{dy}{dx} = 3 - y(x)</men>
+
+                <p>There is a nice function <code>plot_slope_field()</code> that can be used to plot this equation over a range of <m>x</m> and <m>y</m>.</p>
+
+                <p>Previously we defined <m>y</m> as a function.  Here we have to redefine it as a variable.</p>
+                <sage>
+                    <input>
+                        y = var('y')
+                        p_slope_field = plot_slope_field(3 - y, (x,0,5), (y,0,5))
+                        p_slope_field
+                    </input>
+                </sage>
+                <p>If you plot this together with exact plot from above you can see that slope plot gives us a view of all the whole equation and
+                    not just a particular solution for a single set of initial conditions.</p>
+
+                <sage>
+                    <input>
+                        p_slope_field + p_exact
+                    </input>
+                </sage>
+            </subsubsection>
+
         </subsection>
 
         <subsection>
