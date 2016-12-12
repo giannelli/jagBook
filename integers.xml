@@ -1,30 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!--********************************************************************
-Copyright 2015 Robert A. Beezer
-
-This file is part of MathBook XML.
-
-MathBook XML is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 or version 3 of the
-License (at your option).
-
-MathBook XML is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
-*********************************************************************-->
-<!-- This file was originally part of the book     -->
-<!-- (as copied on 2015/07/12)                     -->
-<!--                                               -->
-<!--   Abstract Algebra: Theory and Applications   -->
-<!--                                               -->
-<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
-
 <chapter xml:id="integers" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>The Integers</title>
 
@@ -113,7 +87,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
             <statement>
                 <p>Let <m>S(n)</m> be a statement about integers for  <m>n \in {\mathbb N}</m> and suppose <m>S(n_0)</m> is true for some integer <m>n_0</m>.  If <m>S(n_0), S(n_0 + 1), \ldots, S(k)</m> imply that <m>S(k + 1)</m> for <m>k \geq n_0</m>, then the statement <m>S(n)</m> is true for all integers <m>n \geq n_0</m>. </p>
             </statement>
-        </principle>		
+        </principle>
 
         <!-- wording change.  Suggested by P. Diethelm.  TWJ 22/4/2013 -->
 
@@ -124,7 +98,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
             <statement>
                 <p>Every nonempty subset of the natural numbers is well-ordered.</p>
             </statement>
-        </principle>		
+        </principle>
 
         <p>The Principle of Well-Ordering is equivalent to the Principle of Mathematical Induction.</p> 
 

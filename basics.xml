@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<chapter xml:id="basics">
+    <title>Basic Sage Commands</title>
+
+    <introduction>
+        <p>Here you will find a hotch potch of some basic SageMath concepts</p>
+    </introduction>
+
+    <section>
+        <title>How to define functions</title>
+
+        <sage>
+            <input>
+                def f(z): return 2*z^3 - z^2 - 7*z + 2
+                type(f)
+            </input>
+            <output>
+                &lt;type 'function'&gt;
+            </output>
+        </sage>
+
+        <sage>
+            <input>
+                f(2)
+            </input>
+            <output>
+                0
+            </output>
+        </sage>
+
+        <sage>
+            <input>
+                plot(f, -2, 3)
+            </input>
+        </sage>
+
+        <sage>
+            <input>
+                f(x) = (cos(x)-1)/x^2
+                show(f)
+            </input>
+        </sage>
+        <sage>
+            <input>
+                f(3)
+            </input>
+            <output>
+                1/9*cos(3) - 1/9
+            </output>
+        </sage>
+        <sage>
+            <input>
+                show(f(pi))
+            </input>
+            <output>
+                -2/pi^2
+            </output>
+        </sage>
+        <sage>
+            <input>
+                plot(f(x), (-2*pi, 2*pi),ymin = -1, ymax = 1)
+            </input>
+        </sage>
+    </section>
+
+    <section>
+        <title>Symbolic Manipulation</title>
+
+        <p>Sage not only solves equations numerically but also allows for symbolic manipulation. The page will give several illustrative examples.</p>
+        <p>The expand method</p>
+        <sage>
+            <input>
+                z = (x+1)^3
+                show(z)
+            </input>
+            <output>(x+1)^3</output>
+        </sage>
+
+        <sage>
+            <input>
+                z2 = z.expand()
+                show(z2)
+            </input>
+            <output>x^3 + 3*x^2 + 3*x + 1</output>
+        </sage>
+        <p>Notice how the <code>show()</code> method displays the output in a nicer manner. Without it you will see the
+            less pretty output:
+            <pre>x^3 + 3*x^2 + 3*x + 1</pre>
+        </p>
+
+        <p>Now the reverse! Perform a <code>factor()</code> on the expanded equation.
+        </p>
+        <sage>
+            <input>
+                show(z2.factor())
+            </input>
+            <output>x^3 + 3*x^2 + 3*x + 1</output>
+        </sage>
+    </section>
+
+    <section>
+        <title>Declaring Variables and Plotting</title>
+
+        <p>Sage allows us to solve equations not only numerically but <en>symbolically</en>.
+            To make this possible we have to be able to define variables that are used in the symbolic manipulation.</p>
+        <p>We will demonstrate this using a complete differential equation example. Taking this approach has the additional
+        advantage of introducing some other Sage methods.</p>
+
+        <subsection>
+            <title>Use SageMath to solve differential equations</title>
+
+            <p>First we have to know how to describe a differential equation (DE) with Sage.
+                The syntax may not be obvious but the are ample examples in the documentation.</p>
+
+            <p>Sage can solve a large class of first-order and second-order Ordinary Differential Equations (ODEs) as
+                well as Initial Value Problems (IVPs). The chapter on differential equations <xref ref="differential" autoname="yes" /> will
+                go into more details.  This particular example just uses DE to illustrate how variables are declared and used.
+            </p>
+
+            <sage>
+                <input>
+                    var('a b c x y z')
+                </input>
+                <output>(a, b, c, x, y, z)</output>
+            </sage>
+
+            <p>For this first example, I'll express the differential equation using common mathematical notation, then
+                enter it into Sage using Sage's notation. Here's the mathematical notation for our example:
+            </p>
+
+            <men>y(t) + rcy'(t) = 0</men>
+            <men>y(0) = 1</men>
+
+            <p>This expression says that the unknown function (the function to be found) produces the sum of y(t) and r
+                c y'(t) for any time t, and that the initial value of the function at time zero is 1. (The meaning of r
+                and c will become clear after a bit.) This is an example of a differential equation that specifies an
+                initial value, as many do. In this case I intend to scale the result after acquiring the result, and
+                this initial value makes that easy. Here is how I submit this differential equation to Sage:
+            </p>
+
+
+        </subsection>
+        <p>(From
+            <url href="http://arachnoid.com/sage/differential1.html#Second_Example">P Lutus - Applying Sage to physics</url>)
+        </p>
+        <sage>
+            <input>
+                var('r c t')
+                y = function('y')(t)
+                de = y + r*c*diff(y,t) == 0
+                des = desolve(de,[y,t],[0,1]);des
+            </input>
+            <output>e^(-t/(c*r))</output>
+        </sage>
+
+        <p>Or in the prettier format:</p>
+        <sage>
+            <input>
+                show(des)
+            </input>
+            <output>e^(-t/(c*r))</output>
+        </sage>
+
+        <p>Let us break this entry down:
+
+            <ul>
+                <li>
+                    <code>var('r c t')</code> tells Sage to pre-declare the variables that will be used.
+                </li>
+                <li>
+                    <m>y = function('y')(t)</m>
+                    tells Sage that <m>y</m> is a function of <m>t</m>, e.g. as though every time we type <m>y</m> we mean <m>
+                    y(t)</m>.
+                    This is a way to identify <m>y</m> as a function, not just a variable, and associate it with <m>t</m>.
+                </li>
+                <li>
+                    <m>de = y + r*c*diff(y,t) == 0</m>
+                    creates a variable <m>de</m> that contains one of the statements of the DE.
+                </li>
+                <li>
+                    <m>des = desolve(de,[y,t],[0,1])</m>
+                    invokes the Sage DE solver using our definition <m>de</m> as an argument, and:
+                </li>
+
+                <li>
+                    <m>[y,t]</m>
+                    identifies <m>y</m> as the function of interest and <m>t</m> as the dependent variable
+                </li>
+                <li>
+                    <m>[0,1]</m>
+                    sets the initial conditions: at <m>t = 0, y = 1</m>, or as we expressed it above, "<m>y(0) =1</m>".
+                </li>
+            </ul>
+
+            <p>Now let us plot this</p>
+            <sage>
+                <input>
+                    f(t,r,c) = des
+                    plot(f(t,1,1),(t,0,5),figsize=(4,3))
+                </input>
+                <output>e^(-t/(c*r))</output>
+            </sage>
+
+            <p>Let us now take a more general solution.</p>
+            <sage>
+                <input>
+                    f(t,a,b,r,c) = (a-b) * des + b
+                    show(f)
+                    lbl = text("$RC \, Circuit, \, r = 10000\Omega, \, c = 100\mu f $",(3,3),fontsize=12,rgbcolor='#006000')
+                    p = plot(f(t,0,10,10000,100e-6),(t,0,5), figsize=(4,3),axes_labels=['time','v'])
+                    show(p+lbl)
+                </input>
+                <output>e^(-t/(c*r))</output>
+            </sage>
+        </p>
+    </section>
+
+</chapter>

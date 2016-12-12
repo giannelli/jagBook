@@ -3,15 +3,20 @@
 
     <xi:include href="./bookinfo.xml" /> <!-- ISBN, website, other metadata -->
     
-    <book xml:id="jag-book">
+    <book xml:id="index">
         <title>John Giannelli</title>
         <subtitle>Musings on Sage Math</subtitle>
 
-        <xi:include href="./frontmatter.xml" />
+        <xi:include href="frontmatter.xml" />
 
         <xi:include href="preliminaries.xml" />
-        <xi:include href="matrices.xml" />
 
-        <xi:include href="./backmatter.xml" />
+        <xi:include href="basics.xml" />
+
+        <xi:include href="differential.xml" />
+
+        <xi:include href="integers.xml" />
+
+        <xi:include href="backmatter.xml" />
     </book>
 </mathbook>
