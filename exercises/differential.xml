@@ -7,7 +7,31 @@
         <statement>
             <p>Exponential Response: Consider the following differential equation:</p>
             <men>\frac{dy}{dt} = ay + e^{st}</men>
-            <men>y=y(0) at t=0</men>
+            <men>y=y(0)\:at\:t=0</men>
+
+            <p>This is the standard growth equation  with an exponential forcing term <m>e^{st}</m>.</p>
+            <p>We look for a <em>particular</em> solutions of the form:</p>
+            <me>y_p = Ye^{st}</me>
+            <p>where <m>Y</m> is a constant.</p>
+            <p>Substituting we get:</p>
+            <me>Ys e^{st} = aY e^{st} + e^{st}</me>
+            <p>Rearranging gives:</p>
+            <me>Y=\frac{1}{s-a}</me>
+            <p>Full solution is the <em>particular</em> solution plus <em>null</em> (or <em>homogeneous</em>) solution:</p>
+            <me>y(t)=\frac{e^{st}}{s-a} + C e^{st}</me>
+            <p>From the initial conditions we get:</p>
+            <me>y(0) = \frac{1}{s-a} + C</me>
+            <p>Substituting in <m>y(t)</m> gives:</p>
+            <me>y(t)=\frac{e^{st}}{s-a} + \left[y(0) -\frac{1}{s-a}\right] e^{st}</me>
+            <p>Rearranging we can see the effect of the forcing in addition to the homogeneous term:</p>
+            <me>y(t)= y(0) e^{st} + \frac{e^{st}-e^{at}}{s-a}</me>
+            <p>In Strang's terminology:</p>
+            <men>y(t) = y_p + y_n = y(0) e^{st} + \frac{e^{st}-e^{at}}{s-a}</men>
+            <p>That is, the solution is a combination of the standard homogeneous term - the standard growth factor - plus an extra term coming from the forcing factor. Notice that this extra term has a singularity (division by zero) at <m>s=a</m>.</p>
+            <p>This singularity can be handled using  <em>L'Hopital's Rule</em></p>
+
+            <p>Now try and solve this using SageMath.</p>
+
         </statement>
         <hint>
             <p>(a) <m>3 + 7 \mathbb Z = \{ \ldots, -4, 3, 10, \ldots \}</m>;  (c) <m>18 + 26 \mathbb Z</m>;  (e) <m>5 + 6 \mathbb Z</m>.</p>
@@ -17,58 +41,30 @@
         </solution>
     </exercise>
 
+    <principle>
+        <title>L'Hôpital's Rule </title>
+        <index><main>L'Hôpital's Rule </main></index>
+        <p></p>
+        <statement>
+            <p>L'Hôpital's rule states that for functions {{math|{{var|f}}}} and {{math|{{var|g}}}} which are [[differentiable]] on an open interval {{math|{{var|I}}}} except possibly at a point {{math|{{var|c}}}} contained in {{math|{{var|I}}}}, if</p>
+
+        </statement>
+    </principle>
+
     <!--
-    %md
-# 1. Exponential Response
-
-Consider:
-
-$\frac{dy}{dt} = ay + e^{st}$
-
-$y=y(0)$ at $t=0$
-
-This is the sandard growth equation  with an exponencial forcing term $e^{st}$.
-
-We look for *particular* solutions of the form:
-
-$y_p = Ye^{st}$
-
-where Y is a constant.
-
-Substituting we get:
-
-$Ys e^{st} = aY e^{st} + e^{st}$
-
-Rearranging gives:
-
-$Y=\frac{1}{s-a}$
-
-Full solution is *particular* solution plus *null* (or *homogenous*) solution:
-
-$y(t)=\frac{e^{st}}{s-a} + C e^{st}$
-
-From the initial conditions we get:
-
-$y(0) = \frac{1}{s-a} + C$
-
-Substituting in $y(t)$ gives:
-
-$y(t)=\frac{e^{st}}{s-a} + \left[y(0) -\frac{1}{s-a}\right] e^{st}$
-
-Rearranging to bring out the meaning a bit clearer:
-
-$y(t)=\frac{e^{st}-e^{at}}{s-a} + y(0) e^{st}$
-
-In _Strang_'s terminology:
-
-$y_p + y_n = y(0) e^{st} + \frac{e^{st}-e^{at}}{s-a}$
-
-That is, the solution is a combination of the standard homogenous term - the standard growth factor - plus an extra term coming from the extra forcing factor.
-
-Notice that this extra term has a singularity (division by zero) at $s=a$.
 
 
-Now let us try and recreate this in SageMath.
+
+L'Hôpital's rule states that for functions {{math|{{var|f}}}} and {{math|{{var|g}}}} which are [[differentiable]] on an open interval {{math|{{var|I}}}} except possibly at a point {{math|{{var|c}}}} contained in {{math|{{var|I}}}}, if
+
+{{block indent|<math>\lim_{x\to c}f(x)=\lim_{x\to c}g(x)=0 \text{ or } \pm\infty,</math>}}
+{{block indent|<math>g'(x)\ne 0</math> for all {{math|{{var|x}}}} in {{math|{{var|I}}}} with {{math|1={{var|x}} ≠ {{var|c}}}}, and}}
+{{block indent|<math>\lim_{x\to c}\frac{f'(x)}{g'(x)}</math> exists, then}}
+{{block indent|<math>\lim_{x\to c}\frac{f(x)}{g(x)} = \lim_{x\to c}\frac{f'(x)}{g'(x)}.</math>}}
+
+The differentiation of the numerator and denominator often simplifies the quotient or converts it to a limit that can be evaluated
+
+
 
     -->
 </exercises>
