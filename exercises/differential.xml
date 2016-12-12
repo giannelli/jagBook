@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<exercises xml:id="exercises-de">
+    <title>Exercises</title>
+
+    <exercise number="1">
+        <statement>
+            <p>Exponential Response: Consider the following differential equation:</p>
+            <men>\frac{dy}{dt} = ay + e^{st}</men>
+            <men>y=y(0) at t=0</men>
+        </statement>
+        <hint>
+            <p>(a) <m>3 + 7 \mathbb Z = \{ \ldots, -4, 3, 10, \ldots \}</m>;  (c) <m>18 + 26 \mathbb Z</m>;  (e) <m>5 + 6 \mathbb Z</m>.</p>
+        </hint>
+        <solution>
+            <p>Such groups exist, but the answer is complicated.</p>
+        </solution>
+    </exercise>
+
+    <!--
+    %md
+# 1. Exponential Response
+
+Consider:
+
+$\frac{dy}{dt} = ay + e^{st}$
+
+$y=y(0)$ at $t=0$
+
+This is the sandard growth equation  with an exponencial forcing term $e^{st}$.
+
+We look for *particular* solutions of the form:
+
+$y_p = Ye^{st}$
+
+where Y is a constant.
+
+Substituting we get:
+
+$Ys e^{st} = aY e^{st} + e^{st}$
+
+Rearranging gives:
+
+$Y=\frac{1}{s-a}$
+
+Full solution is *particular* solution plus *null* (or *homogenous*) solution:
+
+$y(t)=\frac{e^{st}}{s-a} + C e^{st}$
+
+From the initial conditions we get:
+
+$y(0) = \frac{1}{s-a} + C$
+
+Substituting in $y(t)$ gives:
+
+$y(t)=\frac{e^{st}}{s-a} + \left[y(0) -\frac{1}{s-a}\right] e^{st}$
+
+Rearranging to bring out the meaning a bit clearer:
+
+$y(t)=\frac{e^{st}-e^{at}}{s-a} + y(0) e^{st}$
+
+In _Strang_'s terminology:
+
+$y_p + y_n = y(0) e^{st} + \frac{e^{st}-e^{at}}{s-a}$
+
+That is, the solution is a combination of the standard homogenous term - the standard growth factor - plus an extra term coming from the extra forcing factor.
+
+Notice that this extra term has a singularity (division by zero) at $s=a$.
+
+
+Now let us try and recreate this in SageMath.
+
+    -->
+</exercises>

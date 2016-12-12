@@ -161,7 +161,7 @@
             <output>e^(-t/(c*r))</output>
         </sage>
 
-        <p>Lets break this entry down:
+        <p>Let us break this entry down:
 
             <ul>
                 <li>
@@ -192,7 +192,7 @@
                 </li>
             </ul>
 
-            <p>Now lets plot this</p>
+            <p>Now let us plot this</p>
             <sage>
                 <input>
                     f(t,r,c) = des
@@ -201,7 +201,7 @@
                 <output>e^(-t/(c*r))</output>
             </sage>
 
-            <p>Lets now take a more general solution.</p>
+            <p>Let us now take a more general solution.</p>
             <sage>
                 <input>
                     f(t,a,b,r,c) = (a-b) * des + b

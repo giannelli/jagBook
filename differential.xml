@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<chapter xml:id="differential">
+<chapter xml:id="differential" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Differential Equations</title>
 
     <introduction>
@@ -117,7 +117,7 @@
 
                 <p>This is the general solution as can be seen by the <m>_C</m> constant.
                 </p>
-                <p>Lets now do two things: store the solution into a variable, and display the solution in a prettier
+                <p>Let us now do two things: store the solution into a variable, and display the solution in a prettier
                     format:
                 </p>
 
@@ -144,7 +144,7 @@
                         <li>for a first-order equation, specify the initial "x" and "y"</li>
                     </ul>
                 </p>
-                <p>So lets try it. Notice the [0,1] for the [x,y] initial conditions.</p>
+                <p>So let us try it. Notice the [0,1] for the [x,y] initial conditions.</p>
                 <sage>
                     <input>
                         sol_initial_con = desolve(de,y,ics=[0,1])
@@ -227,7 +227,7 @@
             <subsubsection>
                 <title>Plotting the Vector Field</title>
 
-                <p>Lets re-write our original equation as:</p>
+                <p>Let us re-write our original equation as:</p>
 
                 <men>\frac{dy}{dx} = 3 - y(x)</men>
 
@@ -379,7 +379,7 @@
                 <title>Initial Conditions</title>
 
                 <p>From the <em>Docstring</em> for <code>desolve</code> we find that <m>ics</m> should be <m>[0,0,1]</m> so
-                    lets try it.
+                    let us try it.
                 </p>
                 <sage>
                     <input>
@@ -420,7 +420,7 @@
             <subsubsection>
                 <title>Symbolic Differential Equations</title>
 
-                <p>Lets now try and solve the same equation this time with a mass <m>m</m> and spring constant <m>k</m>.
+                <p>Let us now try and solve the same equation this time with a mass <m>m</m> and spring constant <m>k</m>.
                 </p>
 
                 <men>m\frac{d^2 y}{dx^2} + ky(x) = 0</men>
@@ -465,7 +465,7 @@
         <subsection>
             <title>First Example</title>
 
-            <p>Lets look at the following pair of coupled first order differential equations:</p>
+            <p>Let us look at the following pair of coupled first order differential equations:</p>
 
             <men>\frac{dx}{dt} + y(t) = 0</men>
             <men>\frac{dy}{dt} - x(t) = 0</men>
@@ -475,7 +475,7 @@
             <men>x(0) = 2</men>
 
             <p>You should now be comfortable with defining the variables, the functions, and the initial conditions.
-                The only difference is the use of the <code>desolve_system()</code> method. So lets jump straight in:
+                The only difference is the use of the <code>desolve_system()</code> method. So let us jump straight in:
             </p>
 
             <sage>
@@ -521,6 +521,8 @@
         </subsection>
 
     </section>
+
+    <xi:include href="exercises/differential.xml" />
 
     <references>
         <title>References (places I plagiarized)</title>
