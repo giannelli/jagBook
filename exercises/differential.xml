@@ -34,37 +34,33 @@
 
         </statement>
         <hint>
-            <p>(a) <m>3 + 7 \mathbb Z = \{ \ldots, -4, 3, 10, \ldots \}</m>;  (c) <m>18 + 26 \mathbb Z</m>;  (e) <m>5 + 6 \mathbb Z</m>.</p>
+            <p>Remind yourself how to obtain the homogeneous (null) solution:</p>
+            <pre>
+                t,a = var('t,a')
+                y = function('y')(t)
+                de1 = diff(y,t) == a*y
+                sol1 = desolve(de1,y, ivar=t)
+                show(sol1)
+            </pre>
+            <p><m>C e^{\left(a t\right)}</m> and is the general solution to <m>\frac{dy}{dt} - ay = 0</m>.</p>
         </hint>
         <solution>
-            <p>Such groups exist, but the answer is complicated.</p>
+            <pre>
+                t, s, a, y0 = var ('t, s, a, y0')
+                y = function('y')(t)
+                de = diff(y,t) == a*y + e^(s*t)
+                sol=desolve(de,y, ivar=t, ics=[0,y0])
+                show(sol)
+            </pre>
+
+            <p>This results in:</p>
+            <me>\frac{{\left(a - s\right)} y_{0} e^{\left(a t\right)} + e^{\left(a t\right)} - e^{\left(s t\right)}}{a - s}</me>
+            <p>This is not quite the same format as Strang but it is easy to see that it is equivalent.</p>
+            <p>
+                As mentioned above this solution can be taken further by using L'Hopital's Rule.<xref ref="hospital"/>
+                We can circumvent the <m>0/0</m> catastrophe by differentiating the numerator and denominator.
+            </p>
         </solution>
     </exercise>
 
-    <principle>
-        <title>L'Hôpital's Rule </title>
-        <index><main>L'Hôpital's Rule </main></index>
-        <p></p>
-        <statement>
-            <p>L'Hôpital's rule states that for functions <m>f</m> and <m>g</m> which are <em>differentiable</em> on an open interval <m>I</m> except possibly at a point <m>c</m> contained in <m>I</m>, if</p>
-
-        </statement>
-    </principle>
-
-    <!--
-
-
-
-L'Hôpital's rule states that for functions {{math|{{var|f}}}} and {{math|{{var|g}}}} which are [[differentiable]] on an open interval {{math|{{var|I}}}} except possibly at a point {{math|{{var|c}}}} contained in {{math|{{var|I}}}}, if
-
-{{block indent|<math>\lim_{x\to c}f(x)=\lim_{x\to c}g(x)=0 \text{ or } \pm\infty,</math>}}
-{{block indent|<math>g'(x)\ne 0</math> for all {{math|{{var|x}}}} in {{math|{{var|I}}}} with {{math|1={{var|x}} ≠ {{var|c}}}}, and}}
-{{block indent|<math>\lim_{x\to c}\frac{f'(x)}{g'(x)}</math> exists, then}}
-{{block indent|<math>\lim_{x\to c}\frac{f(x)}{g(x)} = \lim_{x\to c}\frac{f'(x)}{g'(x)}.</math>}}
-
-The differentiation of the numerator and denominator often simplifies the quotient or converts it to a limit that can be evaluated
-
-
-
-    -->
 </exercises>

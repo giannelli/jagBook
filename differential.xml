@@ -523,6 +523,7 @@
     </section>
 
     <xi:include href="exercises/differential.xml" />
+    <xi:include href="principles/principles.xml" />
 
     <references>
         <title>References (places I plagiarized)</title>
