@@ -27,8 +27,14 @@
             <me>y(t)= y(0) e^{st} + \frac{e^{st}-e^{at}}{s-a}</me>
             <p>In Strang's terminology:</p>
             <men>y(t) = y_p + y_n = y(0) e^{st} + \frac{e^{st}-e^{at}}{s-a}</men>
-            <p>That is, the solution is a combination of the standard homogeneous term - the standard growth factor - plus an extra term coming from the forcing factor. Notice that this extra term has a singularity (division by zero) at <m>s=a</m>.</p>
+            <p>That is, the solution is a combination of the standard homogeneous term - the standard growth factor - plus an extra term coming from the forcing factor.
+                Notice that this extra term has a singularity (division by zero) at <m>s=a</m>. This is <em>Resonance</em>.</p>
             <p>This singularity can be handled using  <em>L'Hopital's Rule</em><xref ref="hospital"/></p>
+
+            <figure>
+                <image source="images/strang_exp_response.png"/>
+                <caption>Gilbert Strang In Action</caption>
+            </figure>
 
             <p>Now try and solve this using SageMath.</p>
 
@@ -61,6 +67,7 @@
                 We can circumvent the <m>0/0</m> catastrophe by differentiating the numerator and denominator.
             </p>
         </solution>
+
     </exercise>
 
 </exercises>
