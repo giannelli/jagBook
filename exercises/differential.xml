@@ -46,7 +46,7 @@
         <index><main>L'Hôpital's Rule </main></index>
         <p></p>
         <statement>
-            <p>L'Hôpital's rule states that for functions {{math|{{var|f}}}} and {{math|{{var|g}}}} which are [[differentiable]] on an open interval {{math|{{var|I}}}} except possibly at a point {{math|{{var|c}}}} contained in {{math|{{var|I}}}}, if</p>
+            <p>L'Hôpital's rule states that for functions <m>f</m> and <m>g</m> which are <em>differentiable</em> on an open interval <m>I</m> except possibly at a point <m>c</m> contained in <m>I</m>, if</p>
 
         </statement>
     </principle>
