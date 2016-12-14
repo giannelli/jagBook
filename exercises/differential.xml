@@ -2,10 +2,10 @@
 
 <exercises xml:id="exercises-de">
     <title>Exercises</title>
-
     <exercise number="1">
         <statement>
-            <p>Exponential Response: Consider the following differential equation:</p>
+            <p>Exponential Response</p>
+            <p>Consider the following differential equation:</p>
             <men>\frac{dy}{dt} = ay + e^{st}</men>
             <men>y=y(0)\:at\:t=0</men>
 
@@ -36,6 +36,10 @@
                 <caption>Gilbert Strang In Action</caption>
             </figure>
 
+            <p>The full solution, using L'Hopital, should match the final solution in
+                <url href="https://ocw.mit.edu/resources/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/differential-equations-and-linear-algebra/first-order-equations/response-to-exponential-input/">Strang's Lecture</url>.</p>
+            <men>y(t)=y_{0} e^{a t} + t e^{s t}</men>
+
             <p>Now try and solve this using SageMath.</p>
 
         </statement>
@@ -49,8 +53,10 @@
                 show(sol1)
             </pre>
             <p><m>C e^{\left(a t\right)}</m> and is the general solution to <m>\frac{dy}{dt} - ay = 0</m>.</p>
+            <p>Also have a look at the screenshot above!</p>
         </hint>
         <solution>
+            <p>Sage Commands:</p>
             <pre>
                 t, s, a, y0 = var ('t, s, a, y0')
                 y = function('y')(t)
@@ -66,8 +72,19 @@
                 As mentioned above this solution can be taken further by using L'Hopital's Rule.<xref ref="hospital"/>
                 We can circumvent the <m>0/0</m> catastrophe by differentiating the numerator and denominator.
             </p>
-        </solution>
 
+                <p>Sage Commands:</p>
+                <pre>
+                    numerator = e^(s*t) - e^(a*t)
+                    numerator.diff(s)
+                    denominator= s - a
+                    denominator.diff(s)
+                </pre>
+
+            <p>This results in <m>\frac{f'(x)}{g'(x)}=\frac{t e^{s t}}{1}=t e^{s t}</m></p>
+            <p>Hence the full solution using L'Hopital now matches Strang's final solution:</p>
+            <me>y(t)=y_{0} e^{a t} + t e^{s t}</me>
+        </solution>
     </exercise>
 
 </exercises>
