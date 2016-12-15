@@ -94,36 +94,10 @@
             <men>\frac{dy}{dt} = ay + \cos\left(\omega t\right)</men>
             <men>y=y(0)\:at\:t=0</men>
 
-            <p>This is the standard growth equation  with an exponential forcing term <m>e^{st}</m>.</p>
+            <p>This is the standard growth equation  with a sinuosoidal input term <m>\cos\left(\omega t\right)</m>.</p>
             <p>We look for a <em>particular</em> solutions of the form:</p>
-            <me>y_p = Ye^{st}</me>
-            <p>where <m>Y</m> is a constant.</p>
-            <p>Substituting we get:</p>
-            <me>Ys e^{st} = aY e^{st} + e^{st}</me>
-            <p>Rearranging gives:</p>
-            <me>Y=\frac{1}{s-a}</me>
-            <p>Full solution is the <em>particular</em> solution plus <em>null</em> (or <em>homogeneous</em>) solution:</p>
-            <me>y(t)=\frac{e^{st}}{s-a} + C e^{st}</me>
-            <p>From the initial conditions we get:</p>
-            <me>y(0) = \frac{1}{s-a} + C</me>
-            <p>Substituting in <m>y(t)</m> gives:</p>
-            <me>y(t)=\frac{e^{st}}{s-a} + \left[y(0) -\frac{1}{s-a}\right] e^{st}</me>
-            <p>Rearranging we can see the effect of the forcing in addition to the homogeneous term:</p>
-            <me>y(t)= y(0) e^{st} + \frac{e^{st}-e^{at}}{s-a}</me>
-            <p>In Strang's terminology:</p>
-            <men>y(t) = y_p + y_n = y(0) e^{st} + \frac{e^{st}-e^{at}}{s-a}</men>
-            <p>That is, the solution is a combination of the standard homogeneous term - the standard growth factor - plus an extra term coming from the forcing factor.
-                Notice that this extra term has a singularity (division by zero) at <m>s=a</m>. This is <em>Resonance</em>.</p>
-            <p>This singularity can be handled using  <em>L'Hopital's Rule</em><xref ref="hospital"/></p>
-
-            <figure>
-                <image source="images/strang_exp_response.png"/>
-                <caption>Gilbert Strang In Action</caption>
-            </figure>
-
-            <p>The full solution, using L'Hopital, should match the final solution in
-                <url href="https://ocw.mit.edu/resources/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/differential-equations-and-linear-algebra/first-order-equations/response-to-oscillating-input/">Strang's Lecture</url>.</p>
-            <men>y(t)=y_{0} e^{a t} + t e^{s t}</men>
+            <me>y_p = M\cos\left(\omega t\right) + N\sin\left(\omega t\right)</me>
+            <p>where <m>M</m> and <m>N</m> are constants.</p>
 
             <p>Now try and solve this using SageMath.</p>
 
@@ -131,32 +105,16 @@
         <solution>
             <p>Sage Commands:</p>
             <pre>
-                t, s, a, y0 = var ('t, s, a, y0')
+                t, omega, a, y0 = var ('t, omega, a, y0')
                 y = function('y')(t)
-                de = diff(y,t) == a*y + e^(s*t)
+                de = diff(y,t) == a*y + cos(omega*t)
                 sol=desolve(de,y, ivar=t, ics=[0,y0])
                 show(sol)
             </pre>
 
             <p>This results in:</p>
-            <me>\frac{{\left(a - s\right)} y_{0} e^{\left(a t\right)} + e^{\left(a t\right)} - e^{\left(s t\right)}}{a - s}</me>
-            <p>This is not quite the same format as Strang but it is easy to see that it is equivalent.</p>
-            <p>
-                As mentioned above this solution can be taken further by using L'Hopital's Rule.<xref ref="hospital"/>
-                We can circumvent the <m>0/0</m> catastrophe by differentiating the numerator and denominator.
-            </p>
+            <me>\frac{{\left(a^{2} + \omega^{2}\right)} y_{0} e^{\left(a t\right)} - a \cos\left(\omega t\right) + a e^{\left(a t\right)} + \omega \sin\left(\omega t\right)}{a^{2} + \omega^{2}}</me>
 
-            <p>Sage Commands:</p>
-            <pre>
-                numerator = e^(s*t) - e^(a*t)
-                numerator.diff(s)
-                denominator= s - a
-                denominator.diff(s)
-            </pre>
-
-            <p>This results in <m>\frac{f'(x)}{g'(x)}=\frac{t e^{s t}}{1}=t e^{s t}</m></p>
-            <p>Hence the full solution using L'Hopital now matches Strang's final solution:</p>
-            <me>y(t)=y_{0} e^{a t} + t e^{s t}</me>
         </solution>
     </exercise>
 
