@@ -13,9 +13,9 @@
 
         <xi:include href="basics.xml" />
 
-        <xi:include href="differential.xml" />
+        <xi:include href="calculus.xml" />
 
-        <xi:include href="integers.xml" />
+        <xi:include href="differential.xml" />
 
         <xi:include href="backmatter.xml" />
     </book>
