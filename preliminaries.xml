@@ -68,7 +68,7 @@
     <section>
         <title>Running From Source</title>
 
-        <p>The SageMath source is hosted on here <url href="https://git.sagemath.org/sage.git/">SageMath GitHub</url>.
+        <p>The SageMath source is hosted here <url href="https://git.sagemath.org/sage.git/">SageMath GitHub</url>.
             To download and build the source you will need the appropriate development environment set up. This is not detailed here
             and assumes some familiarity with git and make. Full details can be found <url href="http://doc.sagemath.org/html/en/installation/source.html">here</url>.
             At a minimum you will need a POSIX compliant shell with GCC, make, perl, and python.
@@ -178,12 +178,15 @@
     <section>
         <title>Executing Sage Commands</title>
 
-        <p>Most of your interaction will be by typing commands into a <em>compute cell</em>. If you are reading this in the Sage Notebook or as a webpage version of the book, then you will see a compute cell just below this paragraph. Click once inside the compute cell and if you are in the Sage Notebook, you will get a more distinctive border around it, a blinking cursor inside, plus a cute little <q>evaluate</q> link below.
+        <p>Most of your interaction will be by typing commands into a <em>sage cell</em>. Just below this paragraph is an empty cell.
+            Click once inside the compute cell and if you are in the Sage Notebook, you will get a more distinctive border around it,
+            a blinking cursor inside, plus an <q>evaluate</q> link below.
         </p>
 
         <sage/>
 
-        <p>At the cursor, type <c>2+2</c> and then click on the evaluate link. Did a <c>4</c> appear below the cell? If so, you have successfully sent a command off for Sage to evaluate and you have received back the (correct) answer.
+        <p>At the cursor, type <c>2+2</c> and then click on the evaluate link. Did a <c>4</c> appear below the cell?
+            If so, you have successfully sent a command off for Sage to evaluate and you have received back the (correct) answer.
         </p>
 
         <p>Here is another compute cell. Try evaluating the command <c>factorial(300)</c> here.
@@ -191,11 +194,15 @@
 
         <sage/>
 
-        <p>Hmmmmm. That is quite a big integer! If you see slashes at the end of each line, this means the result is continued onto the next line, since there are 615 total digits in the result.</p>
+        <p>That is quite a big integer! </p>
 
-        <p>To make new compute cells in the Sage Notebook (only), hover your mouse just above another compute cell, or just below some output from a compute cell. When you see a skinny blue bar across the width of your worksheet, click and you will open up a new compute cell, ready for input. Note that your worksheet will remember any calculations you make, in the order you make them, no matter where you put the cells, so it is best to stay organized and add new cells at the bottom.</p>
+        <p>To make new compute cells in the Sage Notebook (only), hover your mouse just above another compute cell,
+            or just below some output from a compute cell. When you see a skinny blue bar across the width of your worksheet,
+            click and you will open up a new compute cell, ready for input. Note that your worksheet will remember any calculations you make,
+            in the order you make them, no matter where you put the cells, so it is best to stay organized and add new cells at the bottom.</p>
 
-        <p>Try placing your cursor just below the monstrous value of <m>300!</m> that you have. Click on the blue bar and try another factorial computation in the new compute cell.
+        <p>Try placing your cursor just below the monstrous value of <m>300!</m> that you have.
+            Click on the blue bar and try another factorial computation in the new compute cell.
         </p>
 
         <p>Each compute cell will show output due to only the very last command in the cell. Try to predict the following output before evaluating the cell.</p>
@@ -297,7 +304,5 @@
 
         </subsection>
     </section>
-
-    <xi:include href="./sage/sets-sage.xml"/>
 
 </chapter>
