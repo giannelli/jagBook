@@ -9,6 +9,35 @@
     <section xml:id="calculus-limits">
         <title>Calculating Limits</title>
 
+        <p>Examples taken from <xref ref="james_stewart">Essential Calculus - James Stewart</xref>.</p>
+
+        <p>See this <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Anna.sagews">Cloud SageMath Worksheet</url> </p>
+        <p>Example 2, page 26
+        </p>
+        <sage>
+            <input>
+                f2 = (x-1)/(x^2-1)
+                show(f2)
+                f2.limit(x=1)
+            </input>
+            <output>1/2</output>
+        </sage>
+
+        <p>Plotting this function will give us a better picture of what is happening:</p>
+        <sage>
+            <input>
+                pt = point((1, 1/2), rgbcolor='white', pointsize=30, faceted=True)
+                p=plot(f2, -2,2, ymin=-5,ymax=5, exclude=[-1])
+                p+pt
+            </input>
+
+        </sage>
+
+        <figure>
+            <image source="images/limits_ex2.png"/>
+            <caption>Example 2, page 26</caption>
+        </figure>
+
     </section>
 
     <section xml:id="calculus-integration">
@@ -20,5 +49,19 @@
 
     <xi:include href="sage/calculus-sage.xml" />
     <xi:include href="sage/calculus-sage-exercises.xml" />
+
+    <references>
+        <title>References</title>
+
+        <biblio type="raw" xml:id="james_stewart">
+            Stuart, James <title>Essential Calculus: Early Transcendentals</title>.
+            Second Edition, 2013. ISBN-13: 978-1133112280, ISBN-10: 1133112285
+            <url
+                    href="https://www.amazon.co.uk/Essential-Calculus-Transcendentals-James-Stewart/dp/1133112285/ref=sr_1_1?ie=UTF8&amp;qid=1482949757&amp;sr=8-1&amp;keywords=9781133112280">
+                Amazon UK
+            </url>
+        </biblio>
+
+    </references>
 
 </chapter>
