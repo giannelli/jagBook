@@ -10,10 +10,10 @@
         <title>Calculating Limits</title>
 
         <p>Examples taken from <xref ref="james_stewart">Essential Calculus - James Stewart</xref>.</p>
+        <p>See also the <xref ref="sage_tutorial_limits">Sage Tutorial on Limits</xref>.</p>
 
-        <p>See this <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Anna.sagews">Cloud SageMath Worksheet</url> </p>
-        <p>Example 2, page 26
-        </p>
+        <p>The examples here have alll been entered into this (public) <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Calculus_Limits.sagews">Cloud SageMath Worksheet</url> </p>
+        <p>Example 2, page 26</p>
         <sage>
             <input>
                 f2 = (x-1)/(x^2-1)
@@ -37,6 +37,65 @@
             <image source="images/limits_ex2.png"/>
             <caption>Example 2, page 26</caption>
         </figure>
+
+        <p>Stewart : Section 1.3, Exercise 12, page 33</p>
+        <sage>
+            <input>
+                ex12=(x^2 - 2*x)/(x^2 - x - 2)
+                show(ex12)
+                #The show() method is not required in a sagemath worksheet
+                #- but is needed here to display multiple lines in the output?
+                show(ex12(x=0))
+                show(ex12(x=-0.5))
+                show(ex12(x=-0.9))
+                show(ex12(x=-0.95))
+                show(ex12(x=-0.99))
+                show(ex12(x=-0.999))
+                show(ex12.limit(x=-1))
+                show(ex12(x=-2.0))
+                show(ex12(x=-1.5))
+                show(ex12(x=-1.1))
+                show(ex12(x=-1.01))
+                show(ex12(x=-1.001))
+                show(ex12(x=-1.0001))
+                show(ex12.limit(x=-1))
+            </input>
+        </sage>
+
+        <p>From a plot or simplification of the equation you can visually see that there is an explosion at <m>-1</m>.</p>
+        <sage>
+            <input>
+                #show() is not needed if doing this on a SageMath worksheet
+                show(plot(ex12, -2,2, exclude=[-1], ymin=-10, ymax=10))
+                show(ex12.simplify_full())
+            </input>
+            <output>\frac{x}{x + 1}</output>
+        </sage>
+
+        <p>
+            Note that we have used an exclude list (square brackets is a list) with one entry, namely <m>-1</m>.
+            See what happens if you take this out. Also note that we have explicitly determined the upper and lower <m>y</m> values.
+            Again, experiment by taking these away or changing them.
+        </p>
+
+        <p>Stewart : Section 1.4, Exercise 14, page 44</p>
+        <sage>
+            <input>
+                y_limit=var('y_limit')
+                f=(x^2-4*x)/(x^2-3*x-4)
+                y_limit=f.limit(x=4)
+                show(f,"->",y_limit)
+                p1=(0,y_limit)
+                p2=(4,y_limit)
+                p3=(4,0)
+                pt1 = point(p1, rgbcolor='white', faceted=True, pointsize=30)
+                pt2 = point(p2, rgbcolor='black', pointsize=30)
+                l1 = line([p1, p2], linestyle='--')
+                l2 = line([p2, p3], linestyle='--')
+                pt1+pt2+l1+l2+plot(f, (x,0,5))
+            </input>
+        </sage>
+
 
     </section>
 
@@ -62,6 +121,25 @@
             </url>
         </biblio>
 
+        <biblio type="raw" xml:id="sage_tutorial_limits">
+            <url href="https://www.sagemath.org/calctut/limits.html">Sage Calculus Tutorial - Limits</url>
+        </biblio>
+
+        <biblio type="raw" xml:id="sage_tutorial_continuity">
+            <url href="https://www.sagemath.org/calctut/continuity.html">Sage Calculus Tutorial - Continuity</url>
+        </biblio>
+
+        <biblio type="raw" xml:id="sage_tutorial_onesided">
+            <url href="https://www.sagemath.org/calctut/onesided.html">Sage Calculus Tutorial - One Sided Limits</url>
+        </biblio>
+
+        <biblio type="raw" xml:id="sage_tutorial_inflimits">
+            <url href="https://www.sagemath.org/calctut/inflimits.html">Sage Calculus Tutorial - Limits At Infinity</url>
+        </biblio>
+
+        <biblio type="raw" xml:id="sage_tutorial_slantasymp">
+            <url href="https://www.sagemath.org/calctut/slantasymp.html">Sage Calculus Tutorial - Slant Asymptotes</url>
+        </biblio>
     </references>
 
 </chapter>
