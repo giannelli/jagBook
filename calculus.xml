@@ -12,7 +12,8 @@
         <p>Examples taken from <xref ref="james_stewart">Essential Calculus - James Stewart</xref>.</p>
         <p>See also the <xref ref="sage_tutorial_limits">Sage Tutorial on Limits</xref>.</p>
 
-        <p>The examples here have alll been entered into this (public) <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Calculus_Limits.sagews">Cloud SageMath Worksheet</url> </p>
+        <p>The examples here have all been entered into this (public) <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Calculus_Limits.sagews">Cloud SageMath Worksheet</url> </p>
+        <p>Some of the examples from that worksheet are recreated here.</p>
         <p>Example 2, page 26</p>
         <sage>
             <input>
@@ -100,10 +101,14 @@
     </section>
 
     <section xml:id="calculus-integration">
-        <title>Integration</title>
+        <title>Derivatives</title>
 
-        <introduction>TBD</introduction>
+        <p>Examples taken from <xref ref="james_stewart">Essential Calculus - James Stewart, Chapter 2</xref>.</p>
 
+        <p>The examples here have all been entered into this (public)
+            <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Calculus_Derivatives.sagews">
+                Cloud SageMath Worksheet</url>.</p>
+        <p>Some of the examples from that worksheet are recreated here.</p>
     </section>
 
     <xi:include href="sage/calculus-sage.xml" />
