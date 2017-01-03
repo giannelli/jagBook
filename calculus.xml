@@ -9,11 +9,29 @@
     <section xml:id="calculus-limits">
         <title>Calculating Limits</title>
 
-        <p>Examples taken from <xref ref="james_stewart">Essential Calculus - James Stewart</xref>.</p>
+        <p>The concept of the limit is often used to define the integral and the derivative of functions.</p>
+
+        <p>Here is an easy example to demonstrate Sage syntax for limits:</p>
+        <sage>
+            <input>
+                var('x')
+
+                f(x) = 1 / x
+                show("Limit of 1/x as x->0+: {0}".format(limit(f, x=0,dir='plus')))
+                show("Limit of 1/x as x->0-: {0}".format(limit(f, x=0,dir='minus')))
+                p1 = plot(f, (x, -1, 1), detect_poles='show')
+                p1.axes_range(-1, 1, -10, 10)
+                p1.show()
+            </input>
+        </sage>
+
+
+        <p>The following examples are taken from <xref ref="james_stewart">Essential Calculus - James Stewart</xref>.</p>
+
         <p>See also the <xref ref="sage_tutorial_limits">Sage Tutorial on Limits</xref>.</p>
 
-        <p>The examples here have all been entered into this (public) <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Calculus_Limits.sagews">Cloud SageMath Worksheet</url> </p>
-        <p>Some of the examples from that worksheet are recreated here.</p>
+        <p>The examples here (and some more can all been found in this (public) <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Calculus_Limits.sagews">Cloud SageMath Worksheet</url> </p>
+
         <p>Example 2, page 26</p>
         <sage>
             <input>
@@ -100,15 +118,92 @@
 
     </section>
 
-    <section xml:id="calculus-integration">
+    <section xml:id="calculus-derivatives">
         <title>Derivatives</title>
 
-        <p>Examples taken from <xref ref="james_stewart">Essential Calculus - James Stewart, Chapter 2</xref>.</p>
+        <p>Here are some basic examples to give a quick overview (without explanation) of how SageMath can be helpful
+            for calculating derivatives:</p>
+        <sage>
+            <input>
+                var('x, y')
+                f(x, y) = 4 * x^5 * y^3 + 7 * y * x^2 - 6 * x + 2 * y
+                show("f(x,y):",f)
 
-        <p>The examples here have all been entered into this (public)
+                dfdx(x, y) = f.diff(x)
+                show("df/dx:",dfdx)
+                dfdy(x, y) = diff(f, y)
+                show("df/dy:",dfdy)
+
+
+                d2fdx2(x, y) = derivative(f, x, 2)    # Alias for diff
+                show("Second x derivative :",d2fdx2)
+
+                # Trigonometric functions
+                g(x) = sqrt(x^3 + csc(x))
+                show("g(x):",g)
+                dgdx(x) = g.diff(x)
+                show("dg/dx:",dgdx)
+
+                # Implicit differentiation
+                # The next line tells Sage that y is a function of x
+                y(x) = function('y')(x)
+                expr = 4 * y^2 + sin(y) == x^2
+
+                show("Expression:",expr)
+
+                # take the derivative and solve for dy/dx
+                dydx = solve(diff(expr), diff(y))
+                show(dydx[0])
+            </input>
+        </sage>
+
+        <p>The following examples are taken from <xref ref="james_stewart">Essential Calculus - James Stewart, Chapter 2</xref>.</p>
+
+        <p>All the examples,and more, can been found in this (public)
             <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Calculus_Derivatives.sagews">
                 Cloud SageMath Worksheet</url>.</p>
         <p>Some of the examples from that worksheet are recreated here.</p>
+    </section>
+
+    <section xml:id="calculus-integration">
+        <title>Integration</title>
+
+        <p>Here are some examples of indefinite integrals to demonstarte the power of SageMath:</p>
+        <sage>
+            <input>
+                f = x^3
+                show("function:",f,", Indefinite Integral = ",f.integrate(x))
+                f= e^x
+                show("function:",f,", Indefinite Integral = ",integral(f,x))
+                f=1/x
+                show("function:",f,", Indefinite Integral = ",integral(f,x))
+                f=sinh(x)
+                show("function:",f,", Indefinite Integral = ",f.integral(x))
+                f=1/sqrt(1+x^2)
+                show("function:",f,", Indefinite Integral = ",integral(f,x))
+
+                show("Integration by parts:")
+                f=e^x*cos(x)
+                show("function:",f,", Indefinite Integral = ",f.integral(x))
+
+                f=sqrt(x^2-25)/x
+                show("function:",f,", Indefinite Integral = ",f.integral(x))
+            </input>
+        </sage>
+
+        <p>Now for some Definite Integrals. For example:</p>
+        <me>\int_{-1}^{1} \frac{1}{x^{2} + 1} dx = \frac{1}{2} \, \pi</me>
+        <p>This can be confirmed in SageMath quite simply:</p>
+        <sage>
+            <input>
+                f(x)=1/(1+x^2)
+                show(f)
+                f.integral(x, -1, 1).show()
+            </input>
+            <output>
+                1/2*pi
+            </output>
+        </sage>
     </section>
 
     <xi:include href="sage/calculus-sage.xml" />
