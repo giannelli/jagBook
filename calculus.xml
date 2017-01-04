@@ -163,6 +163,68 @@
             <url href="https://cloud.sagemath.com/projects/aab56d83-dc7e-435a-9c97-f420f3cfc10b/files/Calculus_Derivatives.sagews">
                 Cloud SageMath Worksheet</url>.</p>
         <p>Some of the examples from that worksheet are recreated here.</p>
+
+        <subsection>
+            <title>Implicit Differentiation</title>
+
+            <p>The following examples make use of this predefined function.  It is not very robust
+            and assumes that the <m>expr</m> argumnet is sage Expression type with variable <m>x</m> and <m>y</m>.</p>
+
+            <p>Make sure you run this before running the other examples.  There will be no output but the function
+            will be stored in memory available for use in other cells.</p>
+            <sage>
+                <input>
+                    def my_implicit_derivative(expr):
+                        show(expr)
+                        f(x,y) = expr.lhs() - expr.rhs()
+                        dydx = f.implicit_derivative(y,x)
+                        pretty_print(r'\frac {dy}{dx}='+LatexExpr(latex(dydx)))
+                        # show("Dy=",dydx) #Use this instead of the one above if you are using the online sage notebook.
+                        return dydx
+                </input>
+            </sage>
+
+            <p>Exercise 21 - Cardioid, Page 127</p>
+            <sage>
+                <input>
+                    x,y,m= var('x,y,m')
+                    expr=x^2+y^2 == (2*x^2+2*y^2-x)^2
+                    dydx = my_implicit_derivative(expr)
+
+                    pt=(0,1/2)
+
+                    m=dydx(x=pt[0],y=pt[1])
+                    #y=mx+c => c=y-mx (at point (1,1))
+                    c=pt[1]-m*pt[0]
+                    Y(x) = m*x + c
+                    tangent="y={}".format(Y(x))
+                    P1=point(pt,rgbcolor='black', pointsize=30)
+                    P2=implicit_plot(expr, (x,-1,1), (y,-1,1),axes="true")
+                    P3=plot(Y,(x,-1,1),color='red',legend_label=tangent,ymin=-1,ymax=1)
+                    P1+P2+P3
+                </input>
+            </sage>
+
+            <p>Exercise 23 - Lemniscate, Page 127</p>
+            <sage>
+                <input>
+                    x,y,m= var('x,y,m')
+                    expr=2*(x^2+y^2)^2 == 25*(x^2-y^2)
+                    dydx = my_implicit_derivative(expr)
+                    pt=(3,1)
+
+                    m=dydx(x=pt[0],y=pt[1])
+                    #y=mx+c => c=y-mx (at point (1,1))
+                    c=pt[1]-m*pt[0]
+                    Y(x) = m*x + c
+                    tangent="y={}".format(Y(x))
+                    P1=point(pt,rgbcolor='black', pointsize=30)
+                    P2=implicit_plot(expr, (x,-5,5), (y,-5,5),axes="true")
+                    P3=plot(Y,(x,-5,5),color='red',legend_label=tangent,ymin=-5,ymax=5)
+                    P1+P2+P3
+                </input>
+            </sage>
+        </subsection>
     </section>
 
     <section xml:id="calculus-integration">
