@@ -165,6 +165,97 @@
         <p>Some of the examples from that worksheet are recreated here.</p>
 
         <subsection>
+            <title>Examples From Chapter 2, Section 2.1</title>
+
+            <p>
+                Section 2.1, Exercise 25 - 30, Page 82
+            </p>
+            <sage>
+                <input>
+                    t=var('t')
+                    f=3*x^2-4*x+1
+                    show("f(t) = ", f, ", f'(t) = ", f.diff())
+
+                    f=2*t^3+t
+                    show("f(t) = ", f, ", f'(t) = ", f.diff())
+
+                    f=(2*t+1)/(t+3)
+                    show("f(t) = ", f, ", f'(t) = ", f.diff().simplify_full())
+
+                    f=1/x^2
+                    show("f(t) = ", f, ", f'(t) = ", f.diff())
+
+                    f=sqrt(1-2*x)
+                    show("f(t) = ", f, ", f'(t) = ", f.diff())
+
+                    f=4/sqrt(1-x)
+                    show("f(t) = ", f, ", f'(t) = ", f.diff())
+                </input>
+            </sage>
+
+            <p>
+                Section 2.1, Exercise 34, Page 82
+            </p>
+
+            <sage>
+                <input>
+                    f(x)=(tan(x)-1)/(x - pi/4)
+                    f.show()  #Strange format but the displayed equation is correct!
+                    limit=f.limit(x=pi/4);limit.show()
+                    F=f.plot(0,pi,ymin=-5,ymax=5,exclude=[pi/2])
+
+                    p1=(0,limit.n())
+                    p2=(pi/4,limit.n())
+                    p3=(pi/4,0)
+                    pt1 = point(p1, rgbcolor='white', faceted=True, pointsize=30)
+                    pt2 = point(p2, rgbcolor='black', pointsize=30)
+                    pt3 = point(p3, rgbcolor='black', pointsize=30)
+                    l1 = line([p1, p2], linestyle='--')
+                    l2 = line([p2, p3], linestyle='--')
+
+                    plt=F+pt2+l1+l2
+                    plt.axes_labels([r'$x$',r'$\frac{\tan x - 1}{x - \pi/4}$'])
+                    show(plt)
+                </input>
+            </sage>
+
+            <p>
+                Section 2.1, Exercise 49, Page 83
+            </p>
+            <sage>
+                <input>
+                    f(x)=x*sin(1/x)
+                    Df=f.diff().simplify_full()
+
+                    show("f(t) = ", f, ", f'(t) = ",Df)
+                    show(Df.limit(x=0), " = undefined")
+
+                    pltLargeScale=f.plot(-pi,pi)+Df.plot(-pi,pi,color='red',ymin=-2,ymax=2,detect_poles='show')
+                    pltSmallScale=f.plot(-pi/10,pi/10)+Df.plot(-pi/10,pi/10,color='red',ymin=-1,ymax=1,detect_poles='show')
+                    show(pltLargeScale)
+                    show(pltSmallScale)
+                </input>
+            </sage>
+            <p>
+                Section 2.1, Exercise 50, Page 83
+            </p>
+            <sage>
+                <input>
+                    f(x)=x^2*sin(1/x)
+                    Df=f.diff().simplify_full()
+
+                    show("f(t) = ", f, ", f'(t) = ",Df)
+                    show(Df.limit(x=0),  " = indeterminate")
+
+                    pltLargeScale=f.plot(-pi,pi)+Df.plot(-pi,pi,color='red',ymin=-2,ymax=2,detect_poles='show')
+                    pltSmallScale=f.plot(-pi/10,pi/10)+Df.plot(-pi/10,pi/10,color='red',ymin=-1,ymax=1,detect_poles='show')
+                    show(pltLargeScale)
+                    show(pltSmallScale)
+                </input>
+            </sage>
+        </subsection>
+
+        <subsection>
             <title>Implicit Differentiation</title>
 
             <p>The following examples make use of this predefined function.  It is not very robust
