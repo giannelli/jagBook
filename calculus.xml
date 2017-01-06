@@ -253,6 +253,190 @@
                     show(pltSmallScale)
                 </input>
             </sage>
+            <p>
+                Section 2.2, Exercise 44, Page 94
+            </p>
+            <sage>
+                <input>
+                    f=2*x^2-x^3
+                    f1=f.diff()
+                    f2=f1.diff()
+                    f3=f2.diff()
+                    f4=f3.diff()
+                    show("f = ",f)
+                    show("First Derivative = ",f1)
+                    show("Second Derivative = ", f2)
+                    show("Third Derivative = ", f3)
+                    show("Fourth Derivative = ", f4)
+
+                    p=plot(f, (x,-5,5), ymin=-8,ymax=5,color='blue')
+                    p += plot(f1, (x,-5,5),color='green')
+                    p += plot(f2, (x,-5,5),color='purple')
+                    p += plot(f3, (x,-5,5),color='red')
+                    p += plot(f4, (x,-5,5),color='orange',linestyle='--')
+                    p
+                </input>
+            </sage>
+
+            <p>
+                Section 2.3, Exercises 29, Page 105
+            </p>
+            <sage>
+                <input>
+                    f(x)=3*x^2-x^3
+                    Df=f.diff()
+                    show(f,Df)
+                    m,c=var('m c')
+                    pt1=(1,2)
+                    m=Df(x=1)
+                    #y=m*x+c => c=y-mx at (1,2)
+                    c=pt1[1]-m*pt1[0]  # pt1[0] is first element of (1,2) tuple = 1, pt2[1] = 2
+                    y(x)=m*x+c
+
+                    Plot=point(pt1,rgbcolor='black', pointsize=30)+plot(f,-1,3)+plot(y,-1,3,color='red')
+                    Plot.show(ymax=6,ymin=-2)
+                </input>
+            </sage>
+
+            <p>
+                Section 2.3, Exercises 30, Page 105
+            </p>
+
+            <sage>
+                <input>
+                    g(x)=x-sqrt(x)
+                    Dg=g.diff()
+                    show(g,Dg)
+                    m,c=var('m c')
+                    pt1=(1,0)
+                    m=Dg(x=1)
+                    #y=m*x+c => c=y-mx at (1,0)
+                    c=pt1[1]-m*pt1[0]  # pt1[0] is first element of (1,0) tuple = 1, pt2[1] = 0
+                    y(x)=m*x+c
+                    point(pt1,rgbcolor='black', pointsize=30)+plot(g,0,3)+plot(y,0,3,color='red')
+                </input>
+            </sage>
+
+            <p>
+                Section 2.4, Exercises 27, Page 112
+            </p>
+
+            <sage>
+                <input>
+                    y(x)=(x^2-1)/(x^2+x+1)
+                    y.show()
+                    dydx=y.diff(x).simplify_full()
+
+                    m,c=var('m c')
+                    pt1=(1,0)
+                    m=dydx(x=1)
+                    #y=m*x+c => c=y-mx at (1,0)
+                    c=pt1[1]-m*pt1[0]  # pt1[0] is first element of (1,0) tuple = 1, pt2[1] = 0
+                    y_line(x)=m*x+c
+                    point(pt1,rgbcolor='black', pointsize=30)+plot(y,-3,3)+plot(y_line,-3,3,color='red')+plot(dydx,-3,3, color='green')
+                </input>
+            </sage>
+
+            <p>
+                We have now performed the same action - plot a graph and its tangent line - several times now. Time to encapsulate it in our own function!
+                Run the next sage cell example to define the function <em>plot_tangentline</em>. This is a Python function that takes three arguments: <m>f</m>
+                the function we want to plot, <m>pt</m> the point on the function for which we want to draw the tangent line, and <m>xrange</m> the
+                range of x coordinates that we want the graph to span.  See the examples below for how these are defined.  Running the next sage cell
+                will not produce any results but just stores the result in memory for future use.  The next fex examples make use of this <em>user defined function</em>
+                to make life easier for ourselves.
+            </p>
+
+            <sage>
+                <input>
+                    def plot_tangentline(f, pt, xrange ):
+                        (a,b) = pt
+                        dydx=f.diff(x)
+                        m=dydx(x=a)
+                        c=b-m*a
+                        dydx=f.diff(x)
+                        y(x)=m*x+c
+                        tangent="y={}".format(y(x))
+                        return point(pt,rgbcolor='black', pointsize=30) \
+                            +plot(f,xrange,legend_label='f(x)',detect_poles='show') \
+                            +plot(dydx,xrange, color='green',legend_label='f\'(x)',linestyle='--',detect_poles='show') \
+                            +plot(y,xrange,color='red',legend_label=tangent)
+                </input>
+            </sage>
+
+            <p>Redo the previous example using our method:</p>
+            <sage>
+                <input>
+                    plot_tangentline(f=(x^2-1)/(x^2+x+1), pt=(1,0), xrange=(x,-3,3))
+                </input>
+            </sage>
+
+            <p>Now wasn't that a lot easier!  No for the rest.</p>
+            <p>
+                Section 2.4, Exercises 28 - 31, Page 112
+            </p>
+            <sage>
+                <input>
+                    f28=sqrt(x)/(x+1)
+                    show(f28)
+                    plot_tangentline(f28, pt=(4,0.4), xrange=(x,0,5)).show(ymax=1)
+
+                    f29=cos(x)-sin(x)
+                    show(f29)
+                    plot_tangentline(f29, pt=(pi,-1), xrange=(x,-2*pi,2*pi)).show(ymin=-5)
+
+                    f30=x-tan(x)
+                    show(f30)
+                    plot_tangentline(f30, pt=(pi,pi), xrange=(x,0,2*pi)).show(ymin=-5,ymax=5)
+
+                    f31=1/(1+x^2)
+                    show(f31)
+                    plot_tangentline(f31, pt=(-1,1/2), xrange=(x,-5,5)).show(ymin=-1,ymax=2)
+                </input>
+            </sage>
+
+            <p>
+                Section 2.4, Exercise 36, Page 113, Nth Derivative of a function
+            </p>
+
+            <p>The second argument to the diff method is the derivative order: 1 for 1st derivative, 2 for second derivative, etc.</p>
+            <sage>
+                <input>
+                    f=x*sin(x)
+                    f.show()
+                    f.diff(x,1).show()
+                    f.diff(x,2).show()
+                    f.diff(x,3).show()
+                    f.diff(x,10).show()
+                    f.diff(x,34).show()
+                    f.diff(x,35).show()
+                    f.diff(x,36).show()
+                </input>
+            </sage>
+
+            <p>
+                Section 2.4, Exercise 52, Page 114
+            </p>
+
+            <p>
+                This demonstrates the use of some predefined names: <em>omega</em> and <em>mu</em>. These will get formatted to
+                <m>\omega</m> and <m>\mu</m> when you use <em>show()</em>.  Find out about <em>LaTex</em> to see what the other possibilities
+                are, for example, <em>xi</em> for <m>\xi</m> and <em>Xi</em> for uppercase <m>\Xi</m>, and so on.
+            </p>
+            <sage>
+                <input>
+                    theta, mu, W = var('theta, mu, W')
+                    F(theta)= mu*W/(mu*sin(theta)+cos(theta))
+                    show(F)
+
+                    dF = F.diff(theta)
+                    show(dF)
+                    for solution in solve(dF,theta):
+                        show(solution)
+                    #[show(solution) for solution in solve(dF,theta)]
+
+                    plot(F(W=50, mu=0.6), (theta,-2*pi,2*pi),ymin=-1000,ymax=1000,detect_poles='show')
+                </input>
+            </sage>
         </subsection>
 
         <subsection>
