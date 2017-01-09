@@ -64,8 +64,7 @@
             So far this is not happening very quickly!</p>
 
         <p>This notebook is an online repository of some Sage Math techniques I have come across in the above pursuits.
-            It is at a very rudimentary level and is far from organised.  It is really just one big dumping ground for stuff I have found useful.
-            Over time it may become more coherent and be useful to others. </p>
+            It is at a very rudimentary level and is far from organised. Over time it may become more coherent and be useful to others. </p>
 
         <p>The format of this book is taken from Robert Beezer's wonderful work with <url href="http://mathbook.pugetsound.edu">MathBook XML</url>.</p>
         <p>Sage (<url href="http://sagemath.org">sagemath.org</url>) is a free, open source, software system for advanced mathematics,
