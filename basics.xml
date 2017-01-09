@@ -312,7 +312,7 @@
                         print("\nIndices start at '0'")
                         print("myList[0] = " + str(myList[0]))
 
-                        print("\nSecond item to the Fourth item (includes inex 1 upto but not including 4")
+                        print("\nSecond item to the Fourth item (includes index 1 up to but not including 4")
                         print("myList[1:4] = " + str(myList[1:4]))
 
 
@@ -363,21 +363,46 @@
                    A tuple is an immutable list. A tuple can not be changed in once it is created.
                </p>
 
-                   Example 3.15. Defining a tuple
-                   >>> t = ("a", "b", "mpilgrim", "z", "example") 1
-                   >>> t
-                   ('a', 'b', 'mpilgrim', 'z', 'example')
-                   >>> t[0]                                       2
-                   'a'
-                   >>> t[-1]                                      3
-                   'example'
-                   >>> t[1:3]                                     4
-                   ('b', 'mpilgrim')
-                   1	A tuple is defined in the same way as a list, except that the whole set of elements is enclosed in parentheses instead of square brackets.
-                   2	The elements of a tuple have a defined order, just like a list. Tuples indices are zero-based, just like a list, so the first element of a non-empty tuple is always t[0].
-                   3	Negative indices count from the end of the tuple, just as with a list.
-                   4	Slicing works too, just like a list. Note that when you slice a list, you get a new list; when you slice a tuple, you get a new tuple.
+                <p>
+                    Tuples are defined exactly like lists except by using <m>()</m> brackets rather than <m>[]</m> brackets.
                </p>
+                <sage>
+                    <input>
+                        t = ("First", "Second", "anna", "paula", "john")
+                        print("A tuple: " + str(t))
+
+                        print("\nFirst item")
+                        print("t[0] " + str(t[0]))
+
+                        print("\nLast item")
+                        print("t[-1] = " + str(t[-1]))
+
+                        print("\nThird to last item")
+                        print("t[2:5] = " + str(t[2:5]))
+
+                        print("\nThird to last items (alternate)")
+                        print("t[2:] = " + str(t[2:]))
+                    </input>
+                    <output>
+                        A tuple: ('First', 'Second', 'anna', 'paula', 'john')
+
+                        First item
+                        t[0] First
+
+                        Last item
+                        t[-1] = john
+
+                        Third to last item
+                        t[2:5] = ('anna', 'paula', 'john')
+
+                        Third to last items (alternate)
+                        t[2:] = ('anna', 'paula', 'john')
+                    </output>
+                </sage>
+
+                <p>Tuples are handy structures for thing like <m>(x,y,z)</m> coordinates and are used extensively
+                    in the examples and exercises in this manual.  For example, as co-ordinate ranges for plots.
+                    See for example <xref ref="plot_tangentline">the utility method <code>plot_tangentline()</code></xref>.</p>
             </subsubsection>
         </subsection>
     </section>

@@ -169,7 +169,7 @@
 
             <subsubsection>
                 <title>Section 2.1</title>
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.1, Exercise 25 - 30, Page 82</sub></index>
                     Section 2.1, Exercise 25 - 30, Page 82
                 </p>
                 <sage>
@@ -195,7 +195,7 @@
                     </input>
                 </sage>
 
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.1, Exercise 34, Page 82</sub></index>
                     Section 2.1, Exercise 34, Page 82
                 </p>
 
@@ -221,7 +221,7 @@
                     </input>
                 </sage>
 
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.1, Exercise 49, Page 83</sub></index>
                     Section 2.1, Exercise 49, Page 83
                 </p>
                 <sage>
@@ -238,7 +238,7 @@
                         show(pltSmallScale)
                     </input>
                 </sage>
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.1, Exercise 50, Page 83</sub></index>
                     Section 2.1, Exercise 50, Page 83
                 </p>
                 <sage>
@@ -259,7 +259,7 @@
 
             <subsubsection>
                 <title>Section 2.2</title>
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.2, Exercise 44, Page 94</sub></index>
                     Section 2.2, Exercise 44, Page 94
                 </p>
                 <sage>
@@ -287,7 +287,7 @@
 
             <subsubsection>
                 <title>Section 2.3</title>
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.3, Exercises 29, Page 105</sub></index>
                     Section 2.3, Exercises 29, Page 105
                 </p>
                 <sage>
@@ -307,7 +307,7 @@
                     </input>
                 </sage>
 
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.3, Exercises 30, Page 105</sub></index>
                     Section 2.3, Exercises 30, Page 105
                 </p>
 
@@ -329,7 +329,7 @@
 
             <subsubsection>
                 <title>Section 2.4</title>
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.4, Exercises 27, Page 112</sub></index>
                     Section 2.4, Exercises 27, Page 112
                 </p>
 
@@ -351,29 +351,42 @@
 
                 <p>
                     We have performed the same action - plot a graph and its tangent line - several times now. Time to encapsulate it in our own function!
-                    Run the next sage cell example to define the function <em>plot_tangentline</em>. This is a Python function that takes three arguments: <m>f</m>
-                    the function we want to plot, <m>pt</m> the point on the function for which we want to draw the tangent line, and <m>xrange</m> the
-                    range of x coordinates that we want the graph to span.  See the examples below for how these are defined.  Running the next sage cell
-                    will not produce any results but just stores the result in memory for future use.  The next fex examples make use of this <em>user defined function</em>
-                    to make life easier for ourselves.
+                    Run the next sage cell example to define the function <em>plot_tangentline</em>.
+                </p>
+                <p>
+                    This is a Python function that takes three arguments:
+                    <ol>
+                        <li><m>f</m> the function we want to plot.</li>
+                        <li><m>pt</m> the point on the function for which we want to draw the tangent line.</li>
+                        <li><m>xrange</m> the range of x coordinates that we want the graph to span.</li>
+                    </ol>
+                </p>
+                <p>
+                    See the examples below for how these are defined.  Running the next sage cell
+                    will not produce any results but just stores the result in memory for future use.
+                    The next few examples make use of this <em>user defined function</em>
+                    to save a bit of typing.
                 </p>
 
-                <sage>
-                    <input>
-                        def plot_tangentline(f, pt, xrange ):
-                            (a,b) = pt
-                            dydx=f.diff(x)
-                            m=dydx(x=a)
-                            c=b-m*a
-                            dydx=f.diff(x)
-                            y(x)=m*x+c
-                            tangent="y={}".format(y(x))
-                            return point(pt,rgbcolor='black', pointsize=30) \
-                                +plot(f,xrange,legend_label='f(x)',detect_poles='show') \
-                                +plot(dydx,xrange, color='green',legend_label='f\'(x)',linestyle='--',detect_poles='show') \
-                                +plot(y,xrange,color='red',legend_label=tangent)
-                    </input>
-                </sage>
+                <figure xml:id="plot_tangentline">
+                    <sage>
+                        <input>
+                            def plot_tangentline(f, pt, xrange ):
+                                (a,b) = pt
+                                dydx=f.diff(x)
+                                m=dydx(x=a)
+                                c=b-m*a
+                                dydx=f.diff(x)
+                                y(x)=m*x+c
+                                tangent="y={}".format(y(x))
+                                return point(pt,rgbcolor='black', pointsize=30) \
+                                    +plot(f,xrange,legend_label='f(x)',detect_poles='show') \
+                                    +plot(dydx,xrange, color='green',legend_label='f\'(x)',linestyle='--',detect_poles='show') \
+                                    +plot(y,xrange,color='red',legend_label=tangent)
+                        </input>
+                    </sage>
+                    <caption>Utility method <code>plot_tangentline()</code></caption>
+                </figure>
 
                 <p>Redo the previous example using our method:</p>
                 <sage>
@@ -383,7 +396,7 @@
                 </sage>
 
                 <p>Now wasn't that a lot easier!  No for the rest.</p>
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.4, Exercises 28 - 31, Page 112</sub></index>
                     Section 2.4, Exercises 28 - 31, Page 112
                 </p>
                 <sage>
@@ -406,7 +419,7 @@
                     </input>
                 </sage>
 
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.4, Exercise 36, Page 113</sub></index>
                     Section 2.4, Exercise 36, Page 113, Nth Derivative of a function
                 </p>
 
@@ -425,7 +438,7 @@
                     </input>
                 </sage>
 
-                <p>
+                <p><index><main>Sage Worked Examples</main><sub>Section 2.4, Exercise 52, Page 114</sub></index>
                     Section 2.4, Exercise 52, Page 114
                 </p>
 
@@ -455,7 +468,9 @@
         <subsection>
             <title>Section 2.6 Implicit Differentiation</title>
 
-            <p>Section 2.6, Example 2 - The Folium Of Descartes</p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Example 2</sub></index>
+                Section 2.6, Example 2 - The Folium Of Descartes
+            </p>
 
             <me>x^3+y^3 = 6 x y</me>
 
@@ -567,7 +582,9 @@
                 </input>
             </sage>
 
-            <p>Section 2.6, Exercise 3, Page 127</p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 3, Page 127</sub></index>
+                Section 2.6, Exercise 3, Page 127
+            </p>
             <sage>
                 <input>
                     x,y = var('x,y')
@@ -605,7 +622,7 @@
                 </input>
             </sage>
 
-            <p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 4, Page 127</sub></index>
                 Section 2.6, Exercise 4, Page 127
             </p>
             <sage>
@@ -619,7 +636,7 @@
                 </input>
             </sage>
 
-            <p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 5, Page 127</sub></index>
                 Section 2.6, Exercise 5, Page 127
             </p>
             <sage>
@@ -633,7 +650,7 @@
                 </input>
             </sage>
 
-            <p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 6, Page 127</sub></index>
                 Section 2.6, Exercise 6, Page 127
             </p>
             <sage>
@@ -647,7 +664,7 @@
                 </input>
             </sage>
 
-            <p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 7-16, Page 127</sub></index>
                 Section 2.6, Exercise 7 - 16, Page 127
             </p>
             <sage>
@@ -678,7 +695,7 @@
                 </input>
             </sage>
 
-            <p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 19, Page 127</sub></index>
                 Section 2.6, Exercise 19, Page 127
             </p>
             <sage>
@@ -701,7 +718,7 @@
                 </input>
             </sage>
 
-            <p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 20, Page 127</sub></index>
                 Section 2.6, Exercise 20, Page 127
             </p>
             <sage>
@@ -724,7 +741,9 @@
                 </input>
             </sage>
 
-            <p>Section 2.6, Exercise 21 - Cardioid, Page 127</p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 21, Page 127</sub></index>
+                Section 2.6, Exercise 21 - Cardioid, Page 127
+            </p>
             <sage>
                 <input>
                     x,y,m= var('x,y,m')
@@ -745,7 +764,9 @@
                 </input>
             </sage>
 
-            <p>Section 2.6, Exercise 23 - Lemniscate, Page 127</p>
+            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 23, Page 127</sub></index>
+                Section 2.6, Exercise 23 - Lemniscate, Page 127
+            </p>
             <sage>
                 <input>
                     x,y,m= var('x,y,m')
