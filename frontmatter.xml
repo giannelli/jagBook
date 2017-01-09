@@ -53,14 +53,25 @@
 
     <preface>
 
-        <p>I have a degree in Physics from many years ago and have recently taken to refreshing it.  First by working my way through the fine <url href="http://theoreticalminimum.com/courses">Theoretical Minimum</url> material by Leonard Susskind
-            and more recently the fantastic series of Linear Algebra lectures given by Gilbert Strang at MIT. These lectures are hosted at <url href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">MITOPENCOURSEWARE Linear Algebra</url></p>
+        <p>I have a degree in Physics from many years ago and have recently taken to refreshing my knowledge on it.
+            First by working my way through the fine <url href="http://theoreticalminimum.com/courses">Theoretical Minimum</url>
+            material by Leonard Susskind and more recently the fantastic series of Linear Algebra lectures given by Gilbert Strang at MIT.
+            These lectures are hosted at
+            <url href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">MITOPENCOURSEWARE Linear Algebra</url></p>
 
-        <p>This notebook is an online repository of some Sage Math techniques I have come across.  It is at a very rudimentary level and is far from organised.  It is really just one big dumping ground for stuff I have found useful.  Over time it may become more coherent and be useful to someone else. </p>
+        <p>I hope to be refreshed enough in my understanding so as to be able to get past the first chapter of
+            <url href="https://www.amazon.co.uk/Quantum-Field-Theory-Gifted-Amateur/dp/019969933X">Quantum Field Theory For the Gifted Amateur</url>.
+            So far this is not happening very quickly!</p>
 
-        <p>The format of this book is taken from Robert Beezer's wonderful work with <url href="http://mathbook.pugetsound.edu">MathBook XML</url>. Many of the examples I use may come directly from him.
-            Hopefully, if he ever sees this notebook, he will not be annoyed but instead take it as a complement that I have chosen his work a a fine starting point for my notes. Keep up the good work Robert!</p>
-        <p>Sage (<url href="http://sagemath.org">sagemath.org</url>) is a free, open source, software system for advanced mathematics, which is ideal for assisting with a study of abstract algebra. Sage can be used either on your own computer, a local server, or on SageMathCloud (<url href="https://cloud.sagemath.com">https://cloud.sagemath.com</url>). </p>
+        <p>This notebook is an online repository of some Sage Math techniques I have come across in the above pursuits.
+            It is at a very rudimentary level and is far from organised.  It is really just one big dumping ground for stuff I have found useful.
+            Over time it may become more coherent and be useful to others. </p>
+
+        <p>The format of this book is taken from Robert Beezer's wonderful work with <url href="http://mathbook.pugetsound.edu">MathBook XML</url>.</p>
+        <p>Sage (<url href="http://sagemath.org">sagemath.org</url>) is a free, open source, software system for advanced mathematics,
+            which is ideal for assisting with a study of abstract algebra.
+            Sage can be used either on your own computer, a local server, or on SageMathCloud
+            (<url href="https://cloud.sagemath.com">https://cloud.sagemath.com</url>). </p>
 
         <attribution>
             <line>John A Giannelli</line>

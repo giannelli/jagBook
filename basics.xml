@@ -7,6 +7,27 @@
     </introduction>
 
     <section>
+        <title>Executing Sage Commands</title>
+
+        <p>Most of your interaction will be by typing commands into a <em>sage cell</em>. Just below this paragraph is an empty cell.
+            Click once inside the compute cell and if you are in the Sage Notebook, you will get a more distinctive border around it,
+            a blinking cursor inside, plus an <q>evaluate</q> link below.
+        </p>
+
+        <sage/>
+
+        <p>At the cursor, type <c>2+2</c> and then click on the evaluate link. Did a <c>4</c> appear below the cell?
+            If so, you have successfully sent a command off for Sage to evaluate and you have received back the (correct) answer.
+        </p>
+
+        <p>Here is another compute cell. Try evaluating the command <c>factorial(300)</c> here.
+        </p>
+
+        <sage/>
+
+    </section>
+
+    <section>
         <title>How to define functions</title>
 
         <sage>
@@ -83,12 +104,12 @@
             </input>
             <output>x^3 + 3*x^2 + 3*x + 1</output>
         </sage>
-        <p>Notice how the <code>show()</code> method displays the output in a nicer manner. Without it you will see the
+        <p>Notice how the <c>show()</c> method displays the output in a nicer manner. Without it you will see the
             less pretty output:
             <pre>x^3 + 3*x^2 + 3*x + 1</pre>
         </p>
 
-        <p>Now the reverse! Perform a <code>factor()</code> on the expanded equation.
+        <p>Now the reverse! Perform a <c>factor()</c> on the expanded equation.
         </p>
         <sage>
             <input>
@@ -165,7 +186,7 @@
 
             <ul>
                 <li>
-                    <code>var('r c t')</code> tells Sage to pre-declare the variables that will be used.
+                    <c>var('r c t')</c> tells Sage to pre-declare the variables that will be used.
                 </li>
                 <li>
                     <m>y = function('y')(t)</m>
@@ -291,7 +312,7 @@
                             </output>
                         </sage>
                         <p>This is not a python tutorial so have a look <url href="https://docs.python.org/3/library/functions.html">here</url> for more information on
-                            <code>range()</code> and <code>append()</code>.</p>
+                            <c>range()</c> and <c>append()</c>.</p>
                     </li>
                 </ol>
 
@@ -402,7 +423,7 @@
 
                 <p>Tuples are handy structures for thing like <m>(x,y,z)</m> coordinates and are used extensively
                     in the examples and exercises in this manual.  For example, as co-ordinate ranges for plots.
-                    See for example <xref ref="plot_tangentline">the utility method <code>plot_tangentline()</code></xref>.</p>
+                    See for example <xref ref="plot_tangentline">the utility method <c>plot_tangentline()</c></xref>.</p>
             </subsubsection>
         </subsection>
     </section>

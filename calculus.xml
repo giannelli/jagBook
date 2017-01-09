@@ -57,7 +57,9 @@
             <caption>Example 2, page 26</caption>
         </figure>
 
-        <p>Stewart : Section 1.3, Exercise 12, page 33</p>
+        <p><index><main>Sage Worked Examples</main><sub>Stewart : Section 1.3, Exercise 12, page 33</sub></index>
+            Stewart : Section 1.3, Exercise 12, page 33
+        </p>
         <sage>
             <input>
                 ex12=(x^2 - 2*x)/(x^2 - x - 2)
@@ -97,7 +99,9 @@
             Again, experiment by taking these away or changing them.
         </p>
 
-        <p>Stewart : Section 1.4, Exercise 14, page 44</p>
+        <p><index><main>Sage Worked Examples</main><sub>Stewart : Section 1.4, Exercise 14, page 44</sub></index>
+            Stewart : Section 1.4, Exercise 14, page 44
+        </p>
         <sage>
             <input>
                 y_limit=var('y_limit')
@@ -169,7 +173,7 @@
 
             <subsubsection>
                 <title>Section 2.1</title>
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.1, Exercise 25 - 30, Page 82</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.1, Exercise 25 - 30, Page 82</sub></index>
                     Section 2.1, Exercise 25 - 30, Page 82
                 </p>
                 <sage>
@@ -195,7 +199,7 @@
                     </input>
                 </sage>
 
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.1, Exercise 34, Page 82</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.1, Exercise 34, Page 82</sub></index>
                     Section 2.1, Exercise 34, Page 82
                 </p>
 
@@ -221,7 +225,7 @@
                     </input>
                 </sage>
 
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.1, Exercise 49, Page 83</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.1, Exercise 49, Page 83</sub></index>
                     Section 2.1, Exercise 49, Page 83
                 </p>
                 <sage>
@@ -238,7 +242,7 @@
                         show(pltSmallScale)
                     </input>
                 </sage>
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.1, Exercise 50, Page 83</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.1, Exercise 50, Page 83</sub></index>
                     Section 2.1, Exercise 50, Page 83
                 </p>
                 <sage>
@@ -259,7 +263,7 @@
 
             <subsubsection>
                 <title>Section 2.2</title>
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.2, Exercise 44, Page 94</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.2, Exercise 44, Page 94</sub></index>
                     Section 2.2, Exercise 44, Page 94
                 </p>
                 <sage>
@@ -287,7 +291,7 @@
 
             <subsubsection>
                 <title>Section 2.3</title>
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.3, Exercises 29, Page 105</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.3, Exercises 29, Page 105</sub></index>
                     Section 2.3, Exercises 29, Page 105
                 </p>
                 <sage>
@@ -307,7 +311,7 @@
                     </input>
                 </sage>
 
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.3, Exercises 30, Page 105</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.3, Exercises 30, Page 105</sub></index>
                     Section 2.3, Exercises 30, Page 105
                 </p>
 
@@ -329,7 +333,7 @@
 
             <subsubsection>
                 <title>Section 2.4</title>
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.4, Exercises 27, Page 112</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.4, Exercises 27, Page 112</sub></index>
                     Section 2.4, Exercises 27, Page 112
                 </p>
 
@@ -361,14 +365,19 @@
                         <li><m>xrange</m> the range of x coordinates that we want the graph to span.</li>
                     </ol>
                 </p>
+
                 <p>
-                    See the examples below for how these are defined.  Running the next sage cell
-                    will not produce any results but just stores the result in memory for future use.
+                    Running the next sage cell will not produce any visible results but will just stores this
+                    user defined method in memory for use in other cells.
                     The next few examples make use of this <em>user defined function</em>
                     to save a bit of typing.
                 </p>
 
-                <figure xml:id="plot_tangentline">
+                <p>Remember to run this before running any other Sage Cell that makes use of it.</p>
+
+                <definition xml:id="plot_tangentline">
+                    <index><main>User Defined Functions</main><sub>plot_tangentline</sub></index>
+                    <title>Utility method <c>plot_tangentline()</c></title>
                     <sage>
                         <input>
                             def plot_tangentline(f, pt, xrange ):
@@ -385,8 +394,7 @@
                                     +plot(y,xrange,color='red',legend_label=tangent)
                         </input>
                     </sage>
-                    <caption>Utility method <code>plot_tangentline()</code></caption>
-                </figure>
+                </definition>
 
                 <p>Redo the previous example using our method:</p>
                 <sage>
@@ -396,7 +404,7 @@
                 </sage>
 
                 <p>Now wasn't that a lot easier!  No for the rest.</p>
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.4, Exercises 28 - 31, Page 112</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.4, Exercises 28 - 31, Page 112</sub></index>
                     Section 2.4, Exercises 28 - 31, Page 112
                 </p>
                 <sage>
@@ -419,7 +427,7 @@
                     </input>
                 </sage>
 
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.4, Exercise 36, Page 113</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.4, Exercise 36, Page 113</sub></index>
                     Section 2.4, Exercise 36, Page 113, Nth Derivative of a function
                 </p>
 
@@ -438,7 +446,7 @@
                     </input>
                 </sage>
 
-                <p><index><main>Sage Worked Examples</main><sub>Section 2.4, Exercise 52, Page 114</sub></index>
+                <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.4, Exercise 52, Page 114</sub></index>
                     Section 2.4, Exercise 52, Page 114
                 </p>
 
@@ -468,7 +476,7 @@
         <subsection>
             <title>Section 2.6 Implicit Differentiation</title>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Example 2</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Example 2</sub></index>
                 Section 2.6, Example 2 - The Folium Of Descartes
             </p>
 
@@ -528,6 +536,38 @@
                 which we can see from the plot that this is correct.  Take some time to understand the code used to do the plotting.
             </p>
 
+            <definition xml:id="point_with_coords">
+            <index><main>User Defined Functions</main><sub>point_with_coords</sub></index>
+            <title>Utility method <c>point_with_coords()</c></title>
+                <sage>
+                    <input>
+                        def point_with_coords(pt, xrange, yrange, color='black', pointsize=30):
+                            plt=point(pt,rgbcolor=color, pointsize=pointsize)
+                            pt_shifted=(pt[0]+(xrange[2]-xrange[1])/10,pt[1]+(yrange[2]-yrange[1])/10)
+                            plt +=text('({0:.2f},{1:.2f})'.format(float(pt[0]),float(pt[1])), pt_shifted, color=color)
+                            return plt
+                    </input>
+                </sage>
+            </definition>
+
+            <definition xml:id="cross_hair">
+                <index><main>User Defined Functions</main><sub>cross_hair</sub></index>
+                <title>Utility method <c>cross_hair()</c></title>
+                <sage>
+                    <input>
+                        def cross_hair(pt, xrange, yrange):
+                            plt=point_with_coords(pt,xrange,yrange)
+                            pt1=(xrange[1],pt[1])
+                            pt2=(xrange[2],pt[1])
+                            plt += line([pt1, pt2], linestyle='--')
+                            pt1=(pt[0], yrange[1])
+                            pt2=(pt[0],yrange[2])
+                            plt += line([pt1, pt2], linestyle='--')
+                            return plt
+                    </input>
+                </sage>
+            </definition>
+
             <sage>
                 <input>
                     x,y = var('x,y')
@@ -539,13 +579,6 @@
 
                     xrange = (x,-2,5)
                     yrange = (y,-2,5)
-
-                    def point_with_coords(pt, xrange, yrange, color='black', pointsize=30):
-                        plt=point(pt,rgbcolor=color, pointsize=pointsize)
-                        pt_shifted=(pt[0]+(xrange[2]-xrange[1])/10,pt[1]+(yrange[2]-yrange[1])/10)
-                        plt +=text('({0:.2f},{1:.2f})'.format(float(pt[0]),float(pt[1])), pt_shifted, color=color)
-                        return plt
-
 
                     pt=(3,3)
                     m=dydx(x=pt[0],y=pt[1])
@@ -563,17 +596,6 @@
                             print("x = {0}   y = {1}".format(solution[x], solution[y]))
                             pts.append((solution[x],solution[y]))
 
-
-                    def cross_hair(pt, xrange, yrange):
-                        plt=point_with_coords(pt,xrange,yrange)
-                        pt1=(xrange[1],pt[1])
-                        pt2=(xrange[2],pt[1])
-                        plt += line([pt1, pt2], linestyle='--')
-                        pt1=(pt[0], yrange[1])
-                        pt2=(pt[0],yrange[2])
-                        plt += line([pt1, pt2], linestyle='--')
-                        return plt
-
                     P += implicit_plot(expr, xrange, yrange, axes="true" )
                     for pt in pts:
                         P += cross_hair(pt, xrange, yrange)
@@ -582,7 +604,7 @@
                 </input>
             </sage>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 3, Page 127</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Exercise 3, Page 127</sub></index>
                 Section 2.6, Exercise 3, Page 127
             </p>
             <sage>
@@ -610,19 +632,23 @@
 
             <p>Make sure you run this before running the other examples.  There will be no output but the function
             will be stored in memory available for use in other cells.</p>
-            <sage>
-                <input>
-                    def my_implicit_derivative(expr):
-                        show(expr)
-                        f(x,y) = expr.lhs() - expr.rhs()
-                        dydx = f.implicit_derivative(y,x)
-                        pretty_print(r'\frac {dy}{dx}='+LatexExpr(latex(dydx)))
-                        # show("Dy=",dydx) #Use this instead of the one above if you are using the online sage notebook.
-                        return dydx
-                </input>
-            </sage>
+            <definition xml:id="my_implicit_derivative">
+                <index><main>User Defined Functions</main><sub>my_implicit_derivative</sub></index>
+                <tittle>Utility method <c>my_implicit_derivative()</c></tittle>
+                <sage>
+                    <input>
+                        def my_implicit_derivative(expr):
+                            show(expr)
+                            f(x,y) = expr.lhs() - expr.rhs()
+                            dydx = f.implicit_derivative(y,x)
+                            pretty_print(r'\frac {dy}{dx}='+LatexExpr(latex(dydx)))
+                            # show("Dy=",dydx) #Use this instead of the one above if you are using the online sage notebook.
+                            return dydx
+                    </input>
+                </sage>
+            </definition>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 4, Page 127</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Exercise 4, Page 127</sub></index>
                 Section 2.6, Exercise 4, Page 127
             </p>
             <sage>
@@ -636,7 +662,7 @@
                 </input>
             </sage>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 5, Page 127</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Exercise 5, Page 127</sub></index>
                 Section 2.6, Exercise 5, Page 127
             </p>
             <sage>
@@ -650,7 +676,7 @@
                 </input>
             </sage>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 6, Page 127</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Exercise 6, Page 127</sub></index>
                 Section 2.6, Exercise 6, Page 127
             </p>
             <sage>
@@ -664,7 +690,7 @@
                 </input>
             </sage>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 7-16, Page 127</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Exercise 7-16, Page 127</sub></index>
                 Section 2.6, Exercise 7 - 16, Page 127
             </p>
             <sage>
@@ -695,7 +721,7 @@
                 </input>
             </sage>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 19, Page 127</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Exercise 19, Page 127</sub></index>
                 Section 2.6, Exercise 19, Page 127
             </p>
             <sage>
@@ -718,7 +744,7 @@
                 </input>
             </sage>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 20, Page 127</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Exercise 20, Page 127</sub></index>
                 Section 2.6, Exercise 20, Page 127
             </p>
             <sage>
@@ -741,7 +767,7 @@
                 </input>
             </sage>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 21, Page 127</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Exercise 21, Page 127</sub></index>
                 Section 2.6, Exercise 21 - Cardioid, Page 127
             </p>
             <sage>
@@ -764,7 +790,7 @@
                 </input>
             </sage>
 
-            <p><index><main>Sage Worked Examples</main><sub>Section 2.6, Exercise 23, Page 127</sub></index>
+            <p><index><main>Sage Worked Examples</main><sub>Stewart : Section  2.6, Exercise 23, Page 127</sub></index>
                 Section 2.6, Exercise 23 - Lemniscate, Page 127
             </p>
             <sage>

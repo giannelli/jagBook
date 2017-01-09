@@ -41,11 +41,11 @@
                     <output>y(x)</output>
                 </sage>
 
-                <p>Next define our DE. Notice the '<code>==</code>' rather than the '<code>=</code>' when setting the
+                <p>Next define our DE. Notice the '<c>==</c>' rather than the '<c>=</c>' when setting the
                     RHS to
                     zero.
                     We are defining a Sage variable '<m>de</m>' to <em>hold</em> the differential equation. The first
-                    '<code>=</code>'
+                    '<c>=</c>'
                     is to set the variable <m>de</m> equal to our DE.
                 </p>
 
@@ -57,10 +57,10 @@
                     <output>y(x) + diff(y(x), x) - 3 == 0</output>
                 </sage>
 
-                <p>The <code>derivative(y,x)</code> is a Sage <em>method</em> that is passed a <em>function</em>, in
+                <p>The <c>derivative(y,x)</c> is a Sage <em>method</em> that is passed a <em>function</em>, in
                     this
                     case <m>y</m>.
-                    Of course, this has been defined above as <m>y(x)</m>. The <code>derivative()</code> method also
+                    Of course, this has been defined above as <m>y(x)</m>. The <c>derivative()</c> method also
                     takes
                     one or more additional
                     arguments for the equation variable, in this case <m>x</m>.
@@ -80,14 +80,14 @@
                     details on how to use the method.
                 </p>
 
-                <p>Notice that an alias for this method id <code>diff</code>. In other words an alias for <code>
+                <p>Notice that an alias for this method id <c>diff</c>. In other words an alias for <c>
                     derivative(y,x)
-                </code> would be <code>diff(y,x)</code>.
+                </c> would be <c>diff(y,x)</c>.
                 </p>
 
-                <p>Now for the general solution. For this we use the <code>desolve()</code> method - <em>
+                <p>Now for the general solution. For this we use the <c>desolve()</c> method - <em>
                     d</em>ifferential <em>e</em>quation <em>solve</em>.
-                    Try using '<code>desolve?</code>' to list the built in documentation.
+                    Try using '<c>desolve?</c>' to list the built in documentation.
                 </p>
 
                 <sage>
@@ -120,7 +120,7 @@
                 <p>The initial condition for this equation is <m>y(0) = 1</m>. That is, at <m>x = 0, y = 1</m>.
                 </p>
 
-                <p>From the <em>Docstring</em> for <code>desolve()</code> you can see :
+                <p>From the <em>Docstring</em> for <c>desolve()</c> you can see :
                     <ul>
                         <li>"ics" - (optional) the initial or boundary conditions</li>
                         <li>for a first-order equation, specify the initial "x" and "y"</li>
@@ -138,15 +138,15 @@
                 <p>
                     <men>{\left(3 \, e^{x} - 2\right)} e^{\left(-x\right)}</men>
                 </p>
-                <p>Here we have again stored the solution to a variable <code>sol_initial_con</code> and used <code>
+                <p>Here we have again stored the solution to a variable <c>sol_initial_con</c> and used <c>
                     show()
-                </code> to pretty=print the output.
+                </c> to pretty=print the output.
                 </p>
             </subsubsection>
             <subsubsection>
                 <title>Plotting the Solution</title>
 
-                <p>Have a look at the <em>Docstring</em> for method <code>plot()</code> (plot?).
+                <p>Have a look at the <em>Docstring</em> for method <c>plot()</c> (plot?).
                 </p>
 
                 <p>From this you can see that how to graph from <m>x=0..5</m> and set the minimum y using <m>ymin</m>:
@@ -180,7 +180,7 @@
                     <caption>Tab completion from a Sage Cloud Session.</caption>
                 </figure>
 
-                <p>From the dropdown select the <code>desolve_rk4</code> method. If required, now type '?' to display a
+                <p>From the dropdown select the <c>desolve_rk4</c> method. If required, now type '?' to display a
                     description of this method.
                 </p>
                 <sage>
@@ -213,7 +213,7 @@
 
                 <men>\frac{dy}{dx} = 3 - y(x)</men>
 
-                <p>There is a nice function <code>plot_slope_field()</code> that can be used to plot this equation over a range of <m>x</m> and <m>y</m>.</p>
+                <p>There is a nice function <c>plot_slope_field()</c> that can be used to plot this equation over a range of <m>x</m> and <m>y</m>.</p>
 
                 <p>Previously we defined <m>y</m> as a function.  Here we have to redefine it as a variable.</p>
                 <sage>
@@ -274,11 +274,11 @@
             </p>
 
             <p>
-                First, when the <code>desolve()</code> function does not get an explicit initial value specification as
+                First, when the <c>desolve()</c> function does not get an explicit initial value specification as
                 in this case,
                 Sage automatically assigns a variable to represent it. In the result shown the initial value variable is <m>
                 c</m>.
-                The <m>c</m> variable assigned by <code>desolve()</code> is key to creating the desired equation.
+                The <m>c</m> variable assigned by <c>desolve()</c> is key to creating the desired equation.
             </p>
 
             <p>
@@ -324,10 +324,10 @@
             <subsubsection>
                 <title>The General Solution</title>
 
-                <p>As before, we define <m>y(x)</m> and our DE. Notice the <m>2</m> as the third argument to the <code>
+                <p>As before, we define <m>y(x)</m> and our DE. Notice the <m>2</m> as the third argument to the <c>
                     diff()
-                </code> method.
-                    This tells the method to differentiate twice. We could have used <code>diff(y,x,x)</code> instead.
+                </c> method.
+                    This tells the method to differentiate twice. We could have used <c>diff(y,x,x)</c> instead.
                     Notice also we are using the alias <em>diff</em> for <em>derivative</em>.
                 </p>
 
@@ -360,7 +360,7 @@
             <subsubsection>
                 <title>Initial Conditions</title>
 
-                <p>From the <em>Docstring</em> for <code>desolve</code> we find that <m>ics</m> should be <m>[0,0,1]</m> so
+                <p>From the <em>Docstring</em> for <c>desolve</c> we find that <m>ics</m> should be <m>[0,0,1]</m> so
                     let us try it.
                 </p>
                 <sage>
@@ -374,9 +374,9 @@
                 <p>
                     <men>\sin\left(x\right)</men>
                 </p>
-                <p>Here we have again stored the solution to a variable <code>sol_initial_con</code> and used <code>
+                <p>Here we have again stored the solution to a variable <c>sol_initial_con</c> and used <c>
                     show()
-                </code> to pretty=print the output.
+                </c> to pretty=print the output.
                 </p>
 
                 <p>Try using some other initial conditions, for example,
@@ -409,7 +409,7 @@
 
                 <p>Now we have to define additional variables for the two constants. It is also useful to add some
                     constraints onto these variables.
-                    We do this using the <code>assume()</code> method:
+                    We do this using the <c>assume()</c> method:
                 </p>
                 <sage>
                     <input>
@@ -432,7 +432,7 @@
                 </p>
 
                 <p>Notice that we had to specify which of the variables <m>(x,m,k)</m> is the independent variable using
-                    the <code>ivar=x</code> argument.
+                    the <c>ivar=x</c> argument.
                 </p>
 
             </subsubsection>
@@ -457,7 +457,7 @@
             <men>x(0) = 2</men>
 
             <p>You should now be comfortable with defining the variables, the functions, and the initial conditions.
-                The only difference is the use of the <code>desolve_system()</code> method. So let us jump straight in:
+                The only difference is the use of the <c>desolve_system()</c> method. So let us jump straight in:
             </p>
 
             <sage>
