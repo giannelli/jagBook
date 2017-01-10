@@ -47,34 +47,51 @@
         <ul>
             <li><p>Gilbert Strang, MIT</p></li>
             <li><p>Robert Beezer, University of Puget Sound</p></li>
+            <li><p><url href="https://en.wikipedia.org/wiki/James_Stewart_(mathematician)#References"></url> (The Late) James Stewart, McMaster University</p></li>
         </ul>
 
     </acknowledgement>
 
     <preface>
 
-        <p>I have a degree in Physics from many years ago and have recently taken to refreshing my knowledge on it.
-            First by working my way through the fine <url href="http://theoreticalminimum.com/courses">Theoretical Minimum</url>
-            material by Leonard Susskind and more recently the fantastic series of Linear Algebra lectures given by Gilbert Strang at MIT.
+        <p>
+            I have a degree in Physics from many years ago and have recently taken to refreshing my knowledge and bring it up to date
+            with recent developments.  This is exactly what <url href="https://en.wikipedia.org/wiki/Leonard_Susskind">Leonard Susskind</url>'s
+            is trying to help people like me with his fine set <url href="http://theoreticalminimum.com/courses">Theoretical Minimum</url>
+            material. Each step of the way I have had to go further and further back into my past studies - almost back to high school!
+            On refreshing my maths knowledge I came across the fantastic series of Linear Algebra lectures given by Gilbert Strang at MIT.
             These lectures are hosted at
             <url href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">MITOPENCOURSEWARE Linear Algebra</url></p>
 
-        <p>I hope to be refreshed enough in my understanding so as to be able to get past the first chapter of
+        <p>
+            My aim is to eventually have refreshed my maths to such an extent that I can get past the first couple of chapters of
             <url href="https://www.amazon.co.uk/Quantum-Field-Theory-Gifted-Amateur/dp/019969933X">Quantum Field Theory For the Gifted Amateur</url>.
-            So far this is not happening very quickly!</p>
+            This is not happening very quickly but with all this wonderful material available for free I am slowly getting there!</p>
 
-        <p>This notebook is an online repository of some Sage Math techniques I have come across in the above pursuits.
-            It is at a very rudimentary level and is far from organised. Over time it may become more coherent and be useful to others. </p>
+        <p>
+            This notebook is an online repository of some Sage Math techniques I have come across in the above pursuits.
+            It is at a very rudimentary level and is far from organised. Over time it may become more coherent and be useful to others.
+        </p>
 
-        <p>The format of this book is taken from Robert Beezer's wonderful work with <url href="http://mathbook.pugetsound.edu">MathBook XML</url>.</p>
-        <p>Sage (<url href="http://sagemath.org">sagemath.org</url>) is a free, open source, software system for advanced mathematics,
+        <p>
+            Another motivating factor is that my daughter, Anna, has just  embarked on a four year
+            <url href="http://www.ed.ac.uk/studying/undergraduate/degrees/index.php?action=view&amp;code=B64Z"> Maths and Biology Degree at Edinburgh University</url>.
+            I'm hoping that this manual may provide here with some useful material to make here learning experience more fruitful.
+        </p>
+        <p>
+            The format of this book is taken from Robert Beezer's wonderful work with <url href="http://mathbook.pugetsound.edu">MathBook XML</url>.
+        </p>
+
+        <p>
+            Sage (<url href="http://sagemath.org">sagemath.org</url>) is a free, open source, software system for advanced mathematics,
             which is ideal for assisting with a study of abstract algebra.
             Sage can be used either on your own computer, a local server, or on SageMathCloud
-            (<url href="https://cloud.sagemath.com">https://cloud.sagemath.com</url>). </p>
+            (<url href="https://cloud.sagemath.com">https://cloud.sagemath.com</url>).
+        </p>
 
         <attribution>
             <line>John A Giannelli</line>
-            <line>Linlithgow, Scotland 2016</line>
+            <line>Linlithgow, Scotland 2017</line>
         </attribution>
 
     </preface>
