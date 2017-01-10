@@ -122,10 +122,14 @@
     <section>
         <title>Declaring Variables and Plotting</title>
 
-        <p>Sage allows us to solve equations not only numerically but <en>symbolically</en>.
-            To make this possible we have to be able to define variables that are used in the symbolic manipulation.</p>
+        <p>Sage allows us to solve equations <en>symbolically</en>.
+            To make this possible we must define variables that are used in the symbolic manipulation.</p>
         <p>We will demonstrate this using a complete differential equation example. Taking this approach has the additional
-        advantage of introducing some other Sage methods.</p>
+        advantage of introducing some other Sage features.</p>
+
+        <p>Don't worry if you have not yet covered differential equations in your studies.  What follows is
+        more to demonstrate SageMath capabilities rather than the maths.  Come back here once you
+        have solved some DE and it will  then make more sense.</p>
 
         <subsection>
             <title>Use SageMath to solve differential equations</title>
@@ -258,7 +262,7 @@
 
                 <ol>
                     <li>
-                        <p>To create a list of items then use the <em>[]</em> operator filled with the items:</p>
+                        <p>To create a list of items then use the <c>[]</c> operator filled with the items:</p>
                         <sage>
                             <input>
                                 # Creating lists with Python
@@ -385,7 +389,7 @@
                </p>
 
                 <p>
-                    Tuples are defined exactly like lists except by using <m>()</m> brackets rather than <m>[]</m> brackets.
+                    Tuples are defined exactly like lists except by using <c>()</c> brackets rather than <c>[]</c> brackets.
                </p>
                 <sage>
                     <input>
@@ -424,6 +428,69 @@
                 <p>Tuples are handy structures for thing like <m>(x,y,z)</m> coordinates and are used extensively
                     in the examples and exercises in this manual.  For example, as co-ordinate ranges for plots.
                     See for example <xref ref="plot_tangentline">the utility method <c>plot_tangentline()</c></xref>.</p>
+            </subsubsection>
+            <subsubsection>
+                <title>Dictionaries (Associative Arrays)
+                    <index>
+                        <main>Python</main>
+                        <sub>Dictionaries</sub>
+                    </index>
+                </title>
+
+                <p>
+                    Unlike lists, which are indexed by a numbers, dictionaries are indexed by keys,
+                    which can be any immutable type.
+                </p>
+
+                <p>
+                    A dictionary is an <em>unordered</em> set of key : value pairs, with the requirement
+                    that the keys are unique (within the dictionary). A pair of braces creates an empty
+                    dictionary: <c>{}</c>. Placing a comma-separated list of key:value pairs within the braces
+                    adds initial key:value pairs to the dictionary.
+                </p>
+                <sage>
+                    <input>
+                        print("Creating a dictionary")
+                        ids = {'jack': 123, 'john': 345}
+                        ids['gill'] = 456
+                        print("ids = " + str(ids))
+
+                        print("\nAccess an item using the key 'jack'")
+                        print(ids['jack'])
+
+                        print("\nDelete item with key 'john'")
+                        del ids['john']
+                        print(ids)
+
+                        print("\nCheck if jack is present")
+                        print('jack' in ids)
+
+                        print("\nCheck if john is present")
+                        print('john' in ids)
+
+                        print("\nList all the keys")
+                        print(ids.keys())
+                    </input>
+                    <output>
+                        Creating a dictionary
+                        ids = {'gill': 456, 'john': 345, 'jack': 123}
+
+                        Access an item using the key 'jack'
+                        123
+
+                        Delete item with key 'john'
+                        {'gill': 456, 'jack': 123}
+
+                        Check if jack is present
+                        True
+
+                        Check if john is present
+                        False
+
+                        List all the keys
+                        ['gill', 'jack']
+                    </output>
+                </sage>
             </subsubsection>
         </subsection>
     </section>
