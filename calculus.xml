@@ -87,7 +87,7 @@
         <sage>
             <input>
                 #show() is not needed if doing this on a SageMath worksheet
-                show(plot(ex12, -2,2, exclude=[-1], ymin=-10, ymax=10))
+                show(plot(ex12, -2,2, exclude=[-1], ymin=-10, ymax=10, detect_poles='show'))
                 show(ex12.simplify_full())
             </input>
             <output>\frac{x}{x + 1}</output>
