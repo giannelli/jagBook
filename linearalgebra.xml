@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<chapter xml:id="differential" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Linear Algebra</title>
+
+    <introduction>
+        <p>
+            MATH08057: Introduction to Linear Algebra : December 2016
+        </p>
+    </introduction>
+
+    <section>
+        <title>A1</title>
+
+        <example xml:id="exam_a1">
+            <p>
+                Let <m>T</m> be a linear transformation from <m>\mathbb{R}2 \mapsto \mathbb{R}2</m>
+                which is a projection and suppose that
+                <me>T \left(\begin{array}{r}
+                    3 \\
+                    1
+                    \end{array}\right) = \left(\begin{array}{r}
+                    1 \\
+                    2
+                    \end{array}\right)</me>
+                Find the standard matrix of <m>T</m> (The Projection Matrix).
+                <div style="text-align: right"> [ 6 marks] </div>
+            </p>
+        </example>
+
+
+        <p>
+            We will use the techniques detailed by Professor Strang in the lecture series 18.06 Linear Algebra
+            <url href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-15-projections-onto-subspaces/">
+                Lecture 15: Projections onto subspaces</url>
+        </p>
+        <figure>
+            <image source="images/strang_projection_1.png"/>
+            <caption>Diagram Of The Problem</caption>
+        </figure>
+        <figure>
+            <image source="images/strang_projection_2.png"/>
+            <caption>Professor Strang In Action</caption>
+        </figure>
+
+        <figure>
+            <image source="images/strang_projection_3.png"/>
+            <caption>Projection Matrix Formula</caption>
+        </figure>
+
+        <p>
+            In these screenshots we can see that vector <m>\vec{p}</m> is the projection of vector <m>\vec{b}</m> onto <m>\vec{a}</m>.
+        </p>
+        <p>
+            <m>\vec{p}</m> is a multiple,<m>x</m>, of <m>\vec{a}</m>:
+            <me>\vec{p} = x \vec{a}</me>
+            The error vector <m>\vec{e}</m> is given by:
+            <me>\vec{e}=\vec{b}-\vec{p}</me>
+            The other piece of information we require is that <m>\vec{e}</m> is perpendicular to <m>\vec{p}</m>.
+            In other words, the dot product of these two vectors is zero. Recall that the dot product of two vectors is
+            the same as the <em>transpose</em> of one with the other.</p>
+        <p>
+            Combining the above gives us:
+        </p>
+        <me>\vec{a}^T (\vec{b} - x \vec{a}) = 0</me>
+        <me>\implies x = \frac{\vec{a}^T \vec{b}}{\vec{a}^T \vec{a}}</me>
+        <p>
+            Since <m>\vec{p} = x \vec{a}</m> then:
+        </p>
+        <men>\vec{p} = \frac{\vec{a} \vec{a}^T}{\vec{a}^T \vec{a}} \vec{b}</men>
+        <p>
+            From this we can see that the Projection Matrix, <m>\textbf{P}</m>, is given by:
+        </p>
+
+        <men>\textbf{P} = \frac{\vec{a} \vec{a}^T}{\vec{a}^T \vec{a}}</men>
+
+        <p>
+            Now lets see how we can solve this example using SageMath.
+        </p>
+
+        <p>
+            One of the most annoying points is that vectors are represented as rows.
+            Usually, we prefer to write them in column form.  However, we can switch the view by
+            using the <c>column()</c> method on the vector.
+        </p>
+
+        <sage>
+            <input>
+                a=vector([1,2])
+                b=vector([3,1])
+                show(a)
+                show("a = ", a.column())
+                show(b)
+                show("b = ", b.column())
+            </input>
+        </sage>
+
+        <p>
+            The vector <m>\vec{a}</m> times the transpose of itself can be found by taking the <c>outer_product()</c>:
+        </p>
+        <sage>
+            <input>
+                show(a.outer_product(a))
+            </input>
+        </sage>
+
+        <p>The dot product (inner product) given by <m>\vec{a}^T \vec{a}</m> is easily found by either of these two:</p>
+        <sage>
+            <input>
+                show(a*a)
+                show(a.inner_product(a))
+            </input>
+        </sage>
+
+        <p>
+            Combining these we get the complete solution for <m>\textbf{T}</m>,
+            what Strang calls <m>\textbf{P}</m> as:
+        </p>
+        <sage>
+            <input>
+                T=a.outer_product(a)/(a*a)
+                show("Projection Matrix, T = ",T)
+            </input>
+        </sage>
+
+        <p>
+            These concepts are combined with some fancy plotting methods to give us a nice visualisation of the problem:
+        </p>
+        <sage>
+            <input>
+                def plot2d_vector(v,name,color='blue'):
+                    p=plot(v,color=color)
+                    delta=v*v/40
+                    midpoint=(v[0]/2+delta,v[1]/2+delta)
+                    p += text(name, midpoint,fontweight='extra bold',fontsize=14,color='black')
+                    return p
+
+                b=vector([3,1])
+                a=vector([1,2])*2
+                show("a = ", a.column())
+                show("b = ", b.column())
+
+                T=a.outer_product(a)/(a*a)
+                show("Projection Matrix, T = ",T)
+
+                p=T*b
+                show("projection, Tb = ", p.column())
+                e=b-p
+                show("error = ",e.column())
+
+                e_midpoint = ((b[0]+p[0])/2 + e*e/20, (b[1]+p[1])/2 + e*e/20)
+
+                show("Projection of b onto a:")
+
+                plt=plot2d_vector(a, "a")+plot2d_vector(b, "b")+ plot2d_vector(p,"p",color='red')+arrow(p, b, linestyle='--', color='green',aspect_ratio='1')
+                plt += text("e", e_midpoint,fontweight='extra bold',fontsize=14,color='black')
+                plt
+            </input>
+        </sage>
+        <p>
+            Notice that the diagram is <em>upside down</em> compared with Strang's and that we multiplied
+            <m>\vec{a}</m> by a factor of 2 so that we could see <m>\vec{p}</m> as lying along <m>\vec{a}</m>.
+        </p>
+    </section>
+
+
+
+</chapter>

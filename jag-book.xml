@@ -17,6 +17,8 @@
 
         <xi:include href="differential.xml" />
 
+        <xi:include href="linearalgebra.xml" />
+
         <xi:include href="backmatter.xml" />
     </book>
 </mathbook>
