@@ -44,7 +44,7 @@
             <caption>Professor Strang In Action</caption>
         </figure>
 
-        <figure>
+        <figure xml:id="fig_projection_matrix">
             <image source="images/strang_projection_3.png"/>
             <caption>Projection Matrix Formula</caption>
         </figure>
@@ -76,6 +76,10 @@
         <men>\textbf{P} = \frac{\vec{a} \vec{a}^T}{\vec{a}^T \vec{a}}</men>
 
         <p>
+            This matches the formula in the screenshot shown in <xref ref="fig_projection_matrix">figure</xref> above.
+            In our exercise <m>\textbf{P}</m> becomes <m>\textbf{T}</m>.
+        </p>
+        <p>
             Now lets see how we can solve this example using SageMath.
         </p>
 
@@ -105,7 +109,7 @@
             </input>
         </sage>
 
-        <p>The dot product (inner product) given by <m>\vec{a}^T \vec{a}</m> is easily found by either of these two:</p>
+        <p>The dot product (inner product) given by <m>\vec{a}^T \vec{a}</m> is easily found by either of these two steps:</p>
         <sage>
             <input>
                 show(a*a)
@@ -160,7 +164,7 @@
         </sage>
         <p>
             Notice that the diagram is <em>upside down</em> compared with Strang's and that we multiplied
-            <m>\vec{a}</m> by a factor of 2 so that we could see <m>\vec{p}</m> as lying along <m>\vec{a}</m>.
+            <m>\vec{a}</m> by a factor of 2 so that we could more clearly see that <m>\vec{p}</m> lies on the same line as <m>\vec{a}</m>.
         </p>
 
         <p>Let us now check some other properties of the projection matrix <m>\textbf{T}</m></p>
@@ -197,10 +201,13 @@
             </p>
         </example>
 
-
         <p>
-            If b ∈ A then it is a linear combination of vectors already in A and for all a ∈ A it follows thata+b∈A. HenceA′ ⊆A. Leta∈Athensinceb∈Aitfollowsthata−b∈A. Therefore (a−b)+b ∈ A′. Hence A ⊆ A′. Thus A′ = A. Since A is a subspace, it follows that A′ is a subspace.
-            Ifb̸∈Aandb̸=0thenfornovalueofa∈Ais−a=b. Inparticulara+b̸=0. Thisshows that 0 ̸= A′ and so A′ cannot be a subspace.
+            If b ∈ A then it is a linear combination of vectors already in A and for all a ∈ A it follows that
+            a+b∈A.
+            Hence A′ ⊆ A. Let a ∈A then since b ∈ A it follows that a−b ∈ A. Therefore (a−b)+b ∈ A′. Hence A ⊆ A′.
+            Thus A′ = A. Since A is a subspace, it follows that A′ is a subspace.
+            If b ̸ ∈A and b ̸= 0 then for no value of a ∈ A is −a=b. In particular a+b ̸= 0. This
+            shows that 0 ̸= A′ and so A′ cannot be a subspace.
         </p>
     </section>
 
