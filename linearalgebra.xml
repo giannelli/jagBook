@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<chapter xml:id="differential" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="linear-algebra-exam" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Linear Algebra</title>
 
     <introduction>
@@ -12,6 +12,7 @@
         <title>A1</title>
 
         <example xml:id="exam_a1">
+            <index><main>Linear Algebra Exam</main><sub>A1</sub></index>
             <p>
                 Let <m>T</m> be a linear transformation from <m>\mathbb{R}2 \mapsto \mathbb{R}2</m>
                 which is a projection and suppose that
@@ -23,10 +24,11 @@
                     2
                     \end{array}\right)</me>
                 Find the standard matrix of <m>T</m> (The Projection Matrix).
-                <div style="text-align: right"> [ 6 marks] </div>
+            </p>
+            <p>
+                <div style="text-align: right"> [6 marks] </div>
             </p>
         </example>
-
 
         <p>
             We will use the techniques detailed by Professor Strang in the lecture series 18.06 Linear Algebra
@@ -160,8 +162,47 @@
             Notice that the diagram is <em>upside down</em> compared with Strang's and that we multiplied
             <m>\vec{a}</m> by a factor of 2 so that we could see <m>\vec{p}</m> as lying along <m>\vec{a}</m>.
         </p>
+
+        <p>Let us now check some other properties of the projection matrix <m>\textbf{T}</m></p>
+        <sage>
+            <input>
+                show("Is invertible = ", T.is_invertible())
+                show("Is symmetric = ", T.is_symmetric())
+                show("Is the same as its transpose = ", T.transpose() == T)
+                show("Is the same as its square = ", T*T == T)
+            </input>
+        </sage>
     </section>
 
+    <section>
+        <title>A2</title>
+
+        <example xml:id="exam_a2">
+            <index><main>Linear Algebra Exam</main><sub>A2</sub></index>
+            <p>
+
+                Let <m>A</m> be a subspace of <m>\mathbb{R}3</m> of dimension 2 and let <m>\vec{b}</m> be
+                a fixed non-zero vector in <m>\mathbb{R}3</m>.
+            </p>
+            <p>
+                Let <m>A′</m> denote the subset of <m>\mathbb{R}3</m> consisting of all vectors of the
+                form <m>\vec{a} + \vec{b}</m> where <m>\vec{a}</m> is in the
+                subspace <m>A</m>.
+            </p>
+            <p>
+                For which vectors <m>\vec{b}</m> is <m>A′</m> also a subspace? Justify your answer.
+            </p>
+            <p>
+                <div style="text-align: right"> [7 marks] </div>
+            </p>
+        </example>
+
+
+        <p>
+            If b ∈ A then it is a linear combination of vectors already in A and for all a ∈ A it follows thata+b∈A. HenceA′ ⊆A. Leta∈Athensinceb∈Aitfollowsthata−b∈A. Therefore (a−b)+b ∈ A′. Hence A ⊆ A′. Thus A′ = A. Since A is a subspace, it follows that A′ is a subspace.
+            Ifb̸∈Aandb̸=0thenfornovalueofa∈Ais−a=b. Inparticulara+b̸=0. Thisshows that 0 ̸= A′ and so A′ cannot be a subspace.
+        </p>
+    </section>
 
 
 </chapter>
