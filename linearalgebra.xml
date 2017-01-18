@@ -209,6 +209,52 @@
             If b ̸ ∈A and b ̸= 0 then for no value of a ∈ A is −a=b. In particular a+b ̸= 0. This
             shows that 0 ̸= A′ and so A′ cannot be a subspace.
         </p>
+        <p>
+            Before grappling this problem it helps  to get a picture.  I believe this is the best way to approach any problem.
+            (Maybe this is just the old physicist in me).  Sometimes it is not possible but not very often.
+        </p>
+        <p>
+            So lets first look at how SageMath can help us here. Since <m>A</m> is a subspace <m>\mathbb{R}3</m> then it must
+            be a plane passing through the origin; subspaces must contain the <m>\left\{0\right\}</m> vector and pass through the origin.
+        </p>
+
+        <p>
+            Take, for example, the plane passing through the origin given by:
+            <me>2x+3y-z = 0</me>
+        </p>
+
+        <p>
+            Consider the case where our vector <m>\vec{a}</m> is the direction vector starting at position <m>(2,2,2)</m>
+            and extending to <m>(3,4,5)</m>. This lies on the plane going through the origin and is our subspace <m>A</m>.
+        </p>
+        <p>
+            There are several ways of plotting this plane in SageMath. The first one is to find the normal to the plane and use it
+            in an  <code>implicit_plot3d()</code>.
+        </p>
+        <p>
+            Lets call the start point of <m>\vec{a}</m> <m>P</m> and the endpoint <m>Q</m>.  These points are also the position
+            vectors <m>\vec{OP}</m> and <m>\vec{OQ}</m> and also lie on the plane (since the origin is on the plane).  Hence,
+            a normal to the plane is given by: <me>\vec{n} = \vec{OP} \times \vec{OQ}</me>.
+            We know that the dot product of the normal <m>\vec{n}</m> with any of our three vectors should be zero. This
+            enables us to use <code>implicit_plot3d()</code> with an implicit equation for any point on the plane.
+        </p>
+
+        <sage>
+            <input>
+                P=vector([2,2,2]);
+                Q=vector([3,4,5]);
+
+                n=P.cross_product(Q)
+
+                var ('x,y,z')
+                pv = vector([x, y, z])
+                AQ = pv - Q; AQ;
+
+
+                #plane=implicit_plot3d(n.dot_product(AQ), (x, -2, 3), (y, -1, 7), (z, -3, 4), color = 'blue',opacity=0.6)
+                #plane
+            </input>
+        </sage>
     </section>
 
 
