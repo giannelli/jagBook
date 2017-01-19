@@ -241,18 +241,73 @@
 
         <sage>
             <input>
-                P=vector([2,2,2]);
-                Q=vector([3,4,5]);
-
-                n=P.cross_product(Q)
-
                 var ('x,y,z')
+                ptP=(2,2,2)
+                ptQ=(3,4,5)
+                ptR=(5,0,7)
+                ptS=(-2,4,10)
+
+                P=vector(ptP);
+                Q=vector(ptQ);
+                R=vector(ptR)
+                S=vector(ptS)
+
+                nPQ=P.cross_product(Q);
+                show("nPQ = ", nPQ.normalized())
+
+                nPR=P.cross_product(R);
+                show("nPR = ", nPR.normalized())
+
+                nPS=P.cross_product(S);
+                show("nPS = ", nPS.normalized())
+
+                nQR=Q.cross_product(R);
+                show("nQR = ", nQR.normalized())
+
+                nQS=Q.cross_product(S);
+                show("nQS = ", nQS.normalized())
+
+                nRS=R.cross_product(S);
+                show("nRS = ", nRS.normalized())
+
+
+                a=Q-P
+                b=S-P
+                b2=R-P
+
+                show("a X b = ", a.cross_product(b))
+                show("a X b2 = ", a.cross_product(b2))
+
+                n=P.cross_product(Q);
+                show(n.normalized())
+
+                f=n[0]*x+n[1]*y+n[2]*z==0
+                f(x=1,y=3,z=5)
+                f(x=-1,y=2,z=5)
+
+                n2=P.cross_product(S)
+                show(n2.normalized())
+                n3=a.cross_product(b2)
+                show(n3.normalized())
+
+
                 pv = vector([x, y, z])
                 AQ = pv - Q; AQ;
+                BR = pv - R; BR;
+
+                P0 = point3d((0, 0, 0), color = 'black', size = 10)
+                a_arrow=arrow(P,Q,color='red',width=10)
+                b_arrow=arrow(P,S,color='green',width=10)
+                b2_arrow=arrow(P,R,color='black',width=10)
+                n_arrow=arrow((0,0,0),n,color='purple',width=10)
+                n3_arrow=arrow((5,0,7),n3,color='purple',width=10)
+                show("n3 dot BR = ", n3.dot_product(BR))
 
 
-                #plane=implicit_plot3d(n.dot_product(AQ), (x, -2, 3), (y, -1, 7), (z, -3, 4), color = 'blue',opacity=0.6)
-                #plane
+                plane=implicit_plot3d(n.dot_product(AQ), (x, -10, 10), (y, -10, 10), (z, -10, 10), color = 'blue',opacity=0.6,aspect_ratio=1)
+                plane2=implicit_plot3d(n3.dot_product(BR), (x, -10, 10), (y, -10, 10), (z, -10, 10), color = 'green',opacity=0.6,aspect_ratio=1)
+                final_plot=P0+a_arrow+b_arrow+b2_arrow+n_arrow+plane+n_arrow+plane2+n3_arrow
+                final_plot.show(aspect_ratio=1)
             </input>
         </sage>
     </section>
