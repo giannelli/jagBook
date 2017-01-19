@@ -300,7 +300,7 @@
                 b_arrow=arrow(P,S,color='green',width=10)
                 b2_arrow=arrow(P,R,color='black',width=10)
                 n_arrow=arrow((0,0,0),n,color='purple',width=10)
-                n3_arrow=arrow((5,0,7),n3,color='purple',width=10)
+                n3_arrow=arrow(P,n3,color='purple',width=10)
                 show("n3 dot BR = ", n3.dot_product(BR))
 
 
