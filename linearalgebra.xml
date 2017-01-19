@@ -202,14 +202,6 @@
         </example>
 
         <p>
-            If b ∈ A then it is a linear combination of vectors already in A and for all a ∈ A it follows that
-            a+b∈A.
-            Hence A′ ⊆ A. Let a ∈A then since b ∈ A it follows that a−b ∈ A. Therefore (a−b)+b ∈ A′. Hence A ⊆ A′.
-            Thus A′ = A. Since A is a subspace, it follows that A′ is a subspace.
-            If b ̸ ∈A and b ̸= 0 then for no value of a ∈ A is −a=b. In particular a+b ̸= 0. This
-            shows that 0 ̸= A′ and so A′ cannot be a subspace.
-        </p>
-        <p>
             Before grappling this problem it helps  to get a picture.  I believe this is the best way to approach any problem.
             (Maybe this is just the old physicist in me).  Sometimes it is not possible but not very often.
         </p>
@@ -227,17 +219,142 @@
             Consider the case where our vector <m>\vec{a}</m> is the direction vector starting at position <m>(2,2,2)</m>
             and extending to <m>(3,4,5)</m>. This lies on the plane going through the origin and is our subspace <m>A</m>.
         </p>
+
         <p>
-            There are several ways of plotting this plane in SageMath. The first one is to find the normal to the plane and use it
-            in an  <code>implicit_plot3d()</code>.
+            Let the point <m>P</m>  be the start of <m>\vec{a}</m> and the point <m>Q</m> be the endpoint.
+            These points are also the position vectors <m>\vec{OP}</m> and <m>\vec{OQ}</m> and also lie on the
+            plane (since the origin is on the plane).  Hence, a normal to the plane is given by the cross-product:
         </p>
+
+        <me>\vec{n} = \vec{OP} \times \vec{a}</me>
+
         <p>
-            Lets call the start point of <m>\vec{a}</m> <m>P</m> and the endpoint <m>Q</m>.  These points are also the position
-            vectors <m>\vec{OP}</m> and <m>\vec{OQ}</m> and also lie on the plane (since the origin is on the plane).  Hence,
-            a normal to the plane is given by: <me>\vec{n} = \vec{OP} \times \vec{OQ}</me>.
+            (We could have taken the cross product of any of these three vectors since they are all in the same plane.)
+        </p>
+
+        <p>
             We know that the dot product of the normal <m>\vec{n}</m> with any of our three vectors should be zero. This
             enables us to use <code>implicit_plot3d()</code> with an implicit equation for any point on the plane.
+            We have defined <m>f(x,y,z)</m> as the function to represent any point on this plane. In the sage cell
+            this is achieved by the following technique:
+            <pre>
+                p = vector([x, y, z])
+                pA = a - p
+                f(x,y,z) = n.dot_product(pA)
+            </pre>
+
+            The resultant function is:
+            <me>2 x - 4 y + 2 z = 0</me>
         </p>
+
+        <p>
+            Now we have all we need to plot the plane. There are several ways of plotting this plane in SageMath.
+            The one adopted here is to use <code>implicit_plot3d()</code>.  We pass into this method the above
+            function <m>f</m> set equal to zero and the <m>x,y,z</m> ranges. The next Sage Cell brings this together.
+            Our vector <m>\vec{a}</m> is the yellow arrow,  the origin is shown as the black dot in the centre,
+            the plane is drawn in blue, and the normal vector is the blue arrow.
+        </p>
+
+        <p>
+            Now add another vector <m>\vec{b}</m> which is also on the same plane. This shown as the green arrow.
+            To do this we introduce another point <m>S=(-1,2,5)</m>.  You might wonder how we know that this
+            point lies on our plane.  It was found using the following trick.
+            <pre>
+                f=n[0]*x+n[1]*y+n[2]*z==0
+                show(f(x=-1,y=2))
+            </pre>
+            Here <m>n[0]</m> is the <m>x</m>-coordinate of the normal, <m>n[1]</m> is the <m>y</m>-coordinate, and so on.
+            They are the coefficients of the standard equation of a plane (<m>a x + b y + c z = d</m>). With <m>d = 0</m>
+            is the plane case when the plane passes through the origin.  The results are: <me>2 z - 10 = 0</me>
+
+            From this, we can find the <m>z</m>-coordinate of <m>S</m> which ensure that the point fits onto
+            our plane.
+        </p>
+
+        <p>
+            Now for the full picture.  Lets find another vector <m>\vec{c}</m> that does not lie on our plane.
+            Lets also form another plane which contains this new vector and vector <m>\vec{a}</m> (the yellow arrow).
+        </p>
+
+        <p>
+            Lets try the point <m>R=(5,0,3)</m>.
+        </p>
+
+        <sage>
+            <input>
+                var ('x,y,z')
+                ptP=(2,2,2)
+                ptQ=(3,4,5)
+
+                OP=vector(ptP);
+                OQ=vector(ptQ);
+
+                show("OP = ",OP.column())
+                show("OQ = ",OQ.column())
+
+                a=OQ-OP
+                show("a = OQ - OP =",a.column())
+
+                n=OP.cross_product(a);
+                show("Normal to plane = ", n.normalized().column())
+
+                f=n[0]*x+n[1]*y+n[2]*z==0
+                show(f(x=1,y=3))
+                show(f(x=-1,y=2))
+
+                # p (lower case) is any position vector on the plane. Since 'a' is on the plane
+                # we can write an general equation for the plane by this trick:
+                p = vector([x, y, z])
+                pA = a - p;
+                f(x,y,z) = n.dot_product(pA)
+                show("f(x,y,z) = ", f)
+
+                #The Origin
+                P0 = point3d((0, 0, 0), color = 'black', size = 15)
+
+                # Vector a
+                a_arrow=arrow(OP,OQ,color='yellow',width=10)
+                n_arrow=arrow((0,0,0),n,color='blue',width=10)
+
+                ptS=(-1,2,5)
+                OS=vector(ptS);
+
+                show("OS = ",OS.column())
+
+                b=OS-OP
+                show("b = OS - OP =",b.column())
+                b_arrow=arrow(OQ,OS,color='green',width=10)
+
+
+                ptR=(5,0,3)
+                OR=vector(ptR)
+                show("OR = ",OR.column())
+
+                c=OR-OP
+                show("c = OR - OP =",c.column())
+                c_arrow=arrow(OQ,OR,color='black',width=10)
+
+                n2=a.cross_product(c)
+
+                pC = c - p;
+                g(x,y,z) = n2.dot_product(pC)
+                show("g(x,y,z) = ", g)
+
+                plane=implicit_plot3d(f, (x, -10, 10), (y, -10, 10), (z, -10, 10), color = 'blue',opacity=0.6)
+                plane2=implicit_plot3d(g, (x, -10, 10), (y, -10, 10), (z, -10, 10), color = 'green',opacity=0.6)
+                final_plot = P0 + a_arrow + b_arrow + c_arrow + n_arrow + plane + plane2
+                final_plot.show(aspect_ratio=1)
+            </input>
+        </sage>
+
+        <p>
+            From this plot you can see that <m>\vec{a}</m> is indeed on a plan passing through the origin.
+        </p>
+        <p>
+            If you have java activated in your browser you should then be able to click on the plot and rotate it
+            and get a better view of the setup.
+        </p>
+
 
         <sage>
             <input>
