@@ -314,7 +314,9 @@
 
                 # Vector a
                 a_arrow=arrow(OP,OQ,color='yellow',width=10)
-                n_arrow=arrow((0,0,0),n,color='blue',width=10)
+
+                # normal vector for plane through the origin
+                n_arrow=arrow((0,0,0),n.normalized(),color='blue',width=10)
 
                 ptS=(-1,2,5)
                 OS=vector(ptS);
@@ -334,6 +336,7 @@
                 show("c = OR - OP =",c.column())
                 c_arrow=arrow(OQ,OR,color='black',width=10)
 
+                # normal to plane containing a and c
                 n2=a.cross_product(c)
 
                 pC = c - p;
