@@ -212,7 +212,7 @@
 
         <p>
             Take, for example, the plane passing through the origin given by:
-            <me>2x+3y-z = 0</me>
+            <me>2 x - 4 y + 2 z = 0</me>
         </p>
 
         <p>
@@ -234,7 +234,7 @@
 
         <p>
             We know that the dot product of the normal <m>\vec{n}</m> with any of our three vectors should be zero. This
-            enables us to use <code>implicit_plot3d()</code> with an implicit equation for any point on the plane.
+            enables us to use <code>implicit_plot3d()</code> passing in an equation for any point on the plane.
             We have defined <m>f(x,y,z)</m> as the function to represent any point on this plane. In the sage cell
             this is achieved by the following technique:
             <pre>
@@ -245,6 +245,7 @@
 
             The resultant function is:
             <me>2 x - 4 y + 2 z = 0</me>
+            This confirms our initial equation above.
         </p>
 
         <p>
@@ -252,7 +253,7 @@
             The one adopted here is to use <code>implicit_plot3d()</code>.  We pass into this method the above
             function <m>f</m> set equal to zero and the <m>x,y,z</m> ranges. The next Sage Cell brings this together.
             Our vector <m>\vec{a}</m> is the yellow arrow,  the origin is shown as the black dot in the centre,
-            the plane is drawn in blue, and the normal vector is the blue arrow.
+            the plane is drawn in blue.
         </p>
 
         <p>
@@ -277,7 +278,12 @@
         </p>
 
         <p>
-            Lets try the point <m>R=(5,0,3)</m>.
+            Try the point <m>R=(5,0,3)</m>.
+        </p>
+
+        <p>
+            Evaluating the following SageCell and playing with the resultant plot (zooming in and out and rotating)
+            should convince you of the official Edinburgh University <xref ref="a2_solution">solution</xref> to the problem.
         </p>
 
         <sage>
@@ -315,9 +321,6 @@
                 # Vector a
                 a_arrow=arrow(OP,OQ,color='yellow',width=10)
 
-                # normal vector for plane through the origin
-                n_arrow=arrow((0,0,0),n.normalized(),color='blue',width=10)
-
                 ptS=(-1,2,5)
                 OS=vector(ptS);
 
@@ -339,98 +342,75 @@
                 # normal to plane containing a and c
                 n2=a.cross_product(c)
 
-                pC = c - p;
+                pC = p - OR;
                 g(x,y,z) = n2.dot_product(pC)
                 show("g(x,y,z) = ", g)
 
-                plane=implicit_plot3d(f, (x, -10, 10), (y, -10, 10), (z, -10, 10), color = 'blue',opacity=0.6)
-                plane2=implicit_plot3d(g, (x, -10, 10), (y, -10, 10), (z, -10, 10), color = 'green',opacity=0.6)
-                final_plot = P0 + a_arrow + b_arrow + c_arrow + n_arrow + plane + plane2
+                plane=implicit_plot3d(f, (x, -7, 7), (y, -7, 7), (z, -7, 7), color = 'blue',opacity=0.6)
+                plane2=implicit_plot3d(g, (x, -7, 7), (y, -7, 7), (z, -7, 7), color = 'red',opacity=0.6)
+                final_plot = P0 + a_arrow + b_arrow + c_arrow + plane + plane2
                 final_plot.show(aspect_ratio=1)
             </input>
         </sage>
 
-        <p>
-            From this plot you can see that <m>\vec{a}</m> is indeed on a plan passing through the origin.
-        </p>
-        <p>
-            If you have java activated in your browser you should then be able to click on the plot and rotate it
-            and get a better view of the setup.
-        </p>
+        <solution xml:id="a2_solution">
+            <proposition>
+
+                <statement>
+                    <p><m>A'</m> is a subspace if and only if <m>\vec{b} \in A</m>.</p>
+                </statement>
+
+                <proof>
+                    <p>
+                        If <m>A \subset \mathbb{R}3</m> be a subspace of rank 2 then it is a plane through the origin.
+                        If <m>\vec{x} \in A</m> then
+                        <me>\vec{x} = t_1 \vec{v_1} + t_2 \vec{v_2}</me>
+                        for direction vectors <m>\vec{v_1},\vec{v_2}</m>.
+                    </p>
+
+                    <p>
+                        If <m>\vec{b} \in A</m>and <m>\vec{b} \ne 0</m> then
+                        <me>\vec{b} = b_1 \vec{v_1} + b_2 \vec{v_2}</me>
+                        and so <m>A'</m> is
 
 
-        <sage>
-            <input>
-                var ('x,y,z')
-                ptP=(2,2,2)
-                ptQ=(3,4,5)
-                ptR=(5,0,7)
-                ptS=(-2,4,10)
+                        <me>A′ = \{ t_1\vec{v_1} + t_2 \vec{v_2} + b_1 \vec{v_1} + b_2 \vec{v_2} | t_1,t_2 \in \mathbb{R} \}</me>
+                        <me> = \{ (t_1 + b_1)\vec{v_1} + (t_2 + b_2)\vec{v_2}  | t_1,t_2 \in \mathbb{R} \}</me>
+                        <me> = \{ s_1 \vec{v_1} + s_2 \vec{v_2}  | s_1,s_2 \in \mathbb{R} \}</me>
+                        <me> = A</me>
 
-                P=vector(ptP);
-                Q=vector(ptQ);
-                R=vector(ptR)
-                S=vector(ptS)
+                        Hence <m>A'</m> is also a plane through the origin.
+                    </p>
+                    <p>
+                        If <m>\vec{b} \notin A</m> then
+                        <me>A′ = \{ \vec{b} + t_1 \vec{v_1} + t_2 \vec{v_2} | t_1,t_2 \in \mathbb{R} \}</me>
+                        which is a plane <em>not</em> through the origin, and so is not a subspace.
+                    </p>
 
-                nPQ=P.cross_product(Q);
-                show("nPQ = ", nPQ.normalized())
+                    <p>(This is hopefully illustrated with the Sage Cell simulation.)</p>
+                </proof>
+            </proposition>
+        </solution>
 
-                nPR=P.cross_product(R);
-                show("nPR = ", nPR.normalized())
-
-                nPS=P.cross_product(S);
-                show("nPS = ", nPS.normalized())
-
-                nQR=Q.cross_product(R);
-                show("nQR = ", nQR.normalized())
-
-                nQS=Q.cross_product(S);
-                show("nQS = ", nQS.normalized())
-
-                nRS=R.cross_product(S);
-                show("nRS = ", nRS.normalized())
-
-
-                a=Q-P
-                b=S-P
-                b2=R-P
-
-                show("a X b = ", a.cross_product(b))
-                show("a X b2 = ", a.cross_product(b2))
-
-                n=P.cross_product(Q);
-                show(n.normalized())
-
-                f=n[0]*x+n[1]*y+n[2]*z==0
-                f(x=1,y=3,z=5)
-                f(x=-1,y=2,z=5)
-
-                n2=P.cross_product(S)
-                show(n2.normalized())
-                n3=a.cross_product(b2)
-                show(n3.normalized())
-
-
-                pv = vector([x, y, z])
-                AQ = pv - Q; AQ;
-                BR = pv - R; BR;
-
-                P0 = point3d((0, 0, 0), color = 'black', size = 10)
-                a_arrow=arrow(P,Q,color='red',width=10)
-                b_arrow=arrow(P,S,color='green',width=10)
-                b2_arrow=arrow(P,R,color='black',width=10)
-                n_arrow=arrow((0,0,0),n,color='purple',width=10)
-                n3_arrow=arrow(P,n3,color='purple',width=10)
-                show("n3 dot BR = ", n3.dot_product(BR))
-
-
-                plane=implicit_plot3d(n.dot_product(AQ), (x, -10, 10), (y, -10, 10), (z, -10, 10), color = 'blue',opacity=0.6,aspect_ratio=1)
-                plane2=implicit_plot3d(n3.dot_product(BR), (x, -10, 10), (y, -10, 10), (z, -10, 10), color = 'green',opacity=0.6,aspect_ratio=1)
-                final_plot=P0+a_arrow+b_arrow+b2_arrow+n_arrow+plane+n_arrow+plane2+n3_arrow
-                final_plot.show(aspect_ratio=1)
-            </input>
-        </sage>
     </section>
 
+    <section>
+        <title>A3</title>
 
+        <example xml:id="exam_a3">
+            <index><main>Linear Algebra Exam</main><sub>A3</sub></index>
+            <p>
+                Suppose that the non-zero vector<m>\vec{c}</m> is in <m>span(\vec{a}, \vec{b})</m>.
+                Show that <m>\vec{a}</m> is in <m>span(\vec{b}, \vec{c})</m> or
+                <m>\vec{b}</m>
+                is in <m>span(\vec{a}, \vec{c})</m>.
+                Is the condition that <m>\vec{c} \neq 0</m> necessary?
+            </p>
+            <p>
+                <div style="text-align: right">[7 marks]</div>
+            </p>
+        </example>
+    </section>
+
+    <xi:include href="./product-rule.xml" />
 </chapter>
