@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+
+    <xi:include href="./bookinfo.mbx" /> <!-- ISBN, website, other metadata -->
+    
+    <book xml:id="index">
+        <title>John Giannelli</title>
+        <subtitle>Musings on Sage Math</subtitle>
+
+        <xi:include href="frontmatter.mbx" />
+
+        <xi:include href="preliminaries.mbx" />
+
+        <xi:include href="basics.mbx" />
+
+        <xi:include href="calculus.mbx" />
+
+        <xi:include href="differential.mbx" />
+
+        <xi:include href="linearalgebra.mbx" />
+
+        <xi:include href="backmatter.mbx" />
+    </book>
+</mathbook>

@@ -412,5 +412,5 @@
         </example>
     </section>
 
-    <xi:include href="./product-rule.xml" />
+    <xi:include href="product-rule.mbx" />
 </chapter>
