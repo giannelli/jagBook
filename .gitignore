@@ -3,3 +3,4 @@
 output/**
 Makefile.paths
 .idea
+*.iml
