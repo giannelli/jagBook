@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+
+
+<section xml:id="introduction-first-derivative-supplementary-exercises">
+    <title>CAP 2017, HW 2 due January 31</title>
+    <exercises>
+        <definition xml:id="definition-derivative">
+            <title>The Definition of a Derivative</title>
+            <statement>
+                <p>The computation of the slope of a tangent line, the <em>instantaneous</em> rate of change of a function,
+                    at <m>x=a</m> can be found from the following limit:</p>
+                <men>f'(x)=\lim_{a \to x} \frac {f(x) - f(a)} {x-a}</men>
+                <p>With a small adjustment in notation this limit can be rephrased.</p>
+                <p>The derivative of <m>f(x)</m> with respect to <m>x</m> is the function <m>f'(x)</m> and is defined as:</p>
+                <men>f'(x)=\lim_{h \to 0} \frac {f(x+h) - f(x)} {h}</men>
+            </statement>
+        </definition>
+        <definition xml:id="definition-derivative-power">
+            <title>The Power Rule</title>
+            <statement>
+                <p>
+                    If <m>f: \mathbb{R} \rightarrow \mathbb{R}</m> is a function such that <m>f(x) = x^r</m>, and <m>f</m> is differentiable at <m>x</m>, then,
+                    : <men>f'(x) = rx^{r-1}</men>
+                </p>
+            </statement>
+        </definition>
+        <exercise>
+            <statement>
+                <p>From first principles find the derivative of <m>\fe{f}{x}=\sqrt{3x+1}</m></p>
+            </statement>
+            <answer>
+                <p>Both methods yield <m>\fe{\fd{f}}{x}=\frac{3}{2\sqrt{3x+1}}</m>.</p>
+            </answer>
+            <solution>
+                <p>First Method:</p>
+                <p>
+                    <md>
+                    <mrow>\fe{\fd{f}}{x}&amp;=\lim_{a\to x}\frac{\fe{f}{x}-\fe{f}{a}}{x-a}</mrow>
+                    <mrow>&amp;=\lim_{a\to x}\frac{\sqrt{3x+1}-\sqrt{3a+1}}{x-a}</mrow>
+                    <mrow>&amp;=\lim_{a\to x}\frac{\sqrt{3x+1}-\sqrt{3a+1}}{x-a}\cdot\frac{\sqrt{3x+1}+\sqrt{3a+1}}{\sqrt{3x+1}+\sqrt{3a+1}}</mrow>
+                    <mrow>&amp;=\lim_{a\to x}\frac{(3x+1)-(3a+1)}{(x-a)\left(\sqrt{3x+1}+\sqrt{3a+1}\right)}</mrow>
+                    <mrow>&amp;=\lim_{a\to x}\frac{3(x-a)}{(x-a)\left(\sqrt{3x+1}+\sqrt{3a+1}\right)}</mrow>
+                    <mrow>&amp;=\lim_{a\to x}\frac{3}{\sqrt{3x+1}+\sqrt{3a+1}}</mrow>
+                    <mrow>&amp;=\frac{3}{\sqrt{3x+1}+\sqrt{3x+1}}</mrow>
+                    <mrow>&amp;=\frac{3}{2\sqrt{3x+1}}</mrow>
+                    </md>
+                </p>
+                <p>Second Method:</p>
+                <p>
+                    <md>
+                        <mrow>\fe{\fd{f}}{x}&amp;=\lim_{h\to0}\frac{\fe{f}{x+h}-\fe{f}{x}}{h}</mrow>
+                        <mrow>&amp;=\lim_{h\to0}\frac{\sqrt{3(x+h)+1}-\sqrt{3x+1}}{h}</mrow>
+                        <mrow>&amp;=\lim_{h\to0}\frac{\sqrt{3(x+h)+1}-\sqrt{3x+1}}{h}\cdot\frac{\sqrt{3(x+h)+1}+\sqrt{3x+1}}{\sqrt{3(x+h)+1}+\sqrt{3x+1}}</mrow>
+                        <mrow>&amp;=\lim_{h\to0}\frac{\left(3(x+h)+1\right)-(3x+1)}{h\left(\sqrt{3(x+h)+1}+\sqrt{3x+1}\right)}</mrow>
+                        <mrow>&amp;=\lim_{h\to0}\frac{3h}{h\left(\sqrt{3(x+h)+1}+\sqrt{3x+1}\right)}</mrow>
+                        <mrow>&amp;=\lim_{h\to0}\frac{3}{\left(\sqrt{3(x+h)+1}+\sqrt{3x+1}\right)}</mrow>
+                        <mrow>&amp;=\frac{3}{\sqrt{3x+1}+\sqrt{3x+1}}</mrow>
+                        <mrow>&amp;=\frac{3}{2\sqrt{3x+1}}</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>
+                    Differentiate <m>\frac{x^{2} - 2 \, \sqrt{x}}{x}</m> showing each step and stating which rules are used.
+                </p>
+            </statement>
+            <answer>
+                <p>
+                    <m>1+\dfrac{1}{\sqrt{x^3}}</m>
+                </p>
+            </answer>
+            <solution>
+                <p>
+                    <md>
+                        <mrow>\fe{f}{x}&amp;=\frac{x^{2} - 2 \, \sqrt{x}}{x}</mrow>
+                        <mrow>\text{Expand this to:}</mrow>
+                        <mrow>\fe{f}{x}&amp;=x - \frac{2}{\sqrt{x}}</mrow>
+                        <mrow>\text{Differentiate each part using the power law: } \de {x^r}x = r x^{r-1}</mrow>
+                        <mrow>\fe{\fd{f}}{x}&amp;=1+\dfrac{1}{\sqrt{x^3}}</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
+    </exercises>
+
+    <p>Exercise 2.1</p>
+    <sage>
+        <input>
+            f=(x^2-2*sqrt(x))/x
+            show("f(x) = ", f)
+            show("f(x) = ", f.expand())
+            show("f'(x) = ", f.expand().diff())
+        </input>
+    </sage>
+
+    <p>Exercise 2.2</p>
+    <sage>
+        <input>
+            f=x^2*sin(x)*tan(x)
+            show("f(x) = ", f)
+            show("f'(x) = ", f.diff())
+            show("f'(x) = ",f.diff().simplify_full())
+        </input>
+    </sage>
+
+    <p>Exercise 2.3</p>
+    <sage>
+        <input>
+            var('t')
+            f=(1+tan(t))^(1/3)
+            show("f(t) = ", f)
+            show("f'(t) = ", f.diff(t))
+        </input>
+    </sage>
+
+    <p>Exercise 2.4</p>
+    <sage>
+        <input>
+            f=x*sin(1/x)
+            show("f(x) = ", f)
+            show("f'(x) = ", f.diff())
+            show("f'(x) = ",f.diff().simplify_full())
+        </input>
+    </sage>
+
+    <p>Exercise 2.5</p>
+    <sage>
+        <input>
+            var('v')
+            f=(v/(v^3+1))^6
+            show("f(v) = ", f)
+            show("f'(v) = ", f.diff(v))
+            show("f'(v) = ",f.diff(v).simplify_full())
+        </input>
+    </sage>
+
+    <p>Exercise 3.1</p>
+    <sage>
+        <input>
+            f(x)=x+tan(x)
+            Df=f.diff()
+            show(f,Df)
+            m,c=var('m c')
+            pt1=(pi,pi)
+            m=Df(x=pi)
+            #y=m*x+c => c=y-mx at (1,2)
+            c=pt1[1]-m*pt1[0]  # pt1[0] is first element of (pi,pi), pt2[1]  is the second
+            y(x)=m*x+c
+
+            Plot=point(pt1,rgbcolor='black', pointsize=30)+plot(f,-1,3)+plot(y,-1,3,color='red')
+            Plot.show(ymax=6,ymin=-2)
+        </input>
+    </sage>
+
+</section>
