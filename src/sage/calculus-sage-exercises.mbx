@@ -24,6 +24,29 @@
                 </p>
             </statement>
         </definition>
+        <definition xml:id="definition-linear-approx">
+            <title>Linear Approximation</title>
+            <statement>
+                <p>
+                    Given a twice continuously differentiable function <m>f</m> of one real number variable,
+                    Taylor's theorem for the case <m>n = 1 </m> states that:
+                    <me> f(x) = f(a) + f'(a)(x - a) + R_2\ </me>
+
+                    where <m>R_2</m> is the remainder term. The linear approximation is obtained by dropping the remainder:
+                    <men> f(x) \approx f(a) + f'(a)(x - a)</men>.
+
+                    This is a good approximation for <m>x</m> when it is close enough to <m>a</m>;
+                    since a curve, when closely observed, will begin to resemble a straight line.
+                    Therefore, the expression on the right-hand side is just the equation for the tangent line
+                    to the graph of <m>f</m> at <m>(a,f(a))</m>.  For this reason, this process is also called
+                    the <em>tangent line approximation</em>.
+
+                </p>
+            </statement>
+        </definition>
+
+
+
         <exercise>
             <statement>
                 <p>From first principles find the derivative of <m>\fe{f}{x}=\sqrt{3x+1}</m></p>
@@ -99,10 +122,13 @@
     <p>Exercise 2.2</p>
     <sage>
         <input>
-            f=x^2*sin(x)*tan(x)
-            show("f(x) = ", f)
-            show("f'(x) = ", f.diff())
-            show("f'(x) = ",f.diff().simplify_full())
+            f=x^2*tan(x)*sin(x)
+            show(f.diff().simplify_trig())
+            show(f.diff().simplify_full())
+            show(f.diff())
+            show(f.diff().expand())
+            show("Which is simpler?")
+            show("Note that Sage doesn't seem to like sec() cosec()")
         </input>
     </sage>
 
@@ -140,18 +166,51 @@
     <p>Exercise 3.1</p>
     <sage>
         <input>
-            f(x)=x+tan(x)
-            Df=f.diff()
-            show(f,Df)
+            y(x)=x + tan(x)
+            y.show()
+            dydx=y.diff(x).simplify_full()
+
             m,c=var('m c')
             pt1=(pi,pi)
-            m=Df(x=pi)
-            #y=m*x+c => c=y-mx at (1,2)
-            c=pt1[1]-m*pt1[0]  # pt1[0] is first element of (pi,pi), pt2[1]  is the second
-            y(x)=m*x+c
+            m=dydx(x=pi)
+            #y=m*x+c => c=y-mx at x = pi
+            c=pt1[1]-m*pt1[0]  # pt1[0] is first element of (pi,pi) tuple = pi, pt2[1] = pi
+            y_line(x)=m*x+c
+            tangent="y={}".format(y_line(x))
+            p1=point(pt1,rgbcolor='black', pointsize=30)
+            p2=plot(y,0,2*pi, ymin=-10,ymax=10,detect_poles='show')
+            p3=plot(y_line,0,2*pi,color='red', legend_label=tangent)
+            p4=plot(dydx,0,2*pi, color='green',detect_poles='show')
+            p1+p2+p3+p4
+        </input>
+    </sage>
 
-            Plot=point(pt1,rgbcolor='black', pointsize=30)+plot(f,-1,3)+plot(y,-1,3,color='red')
-            Plot.show(ymax=6,ymin=-2)
+    <p>Exercise 3.2</p>
+    <sage>
+        <input>
+            y(x)=sqrt(x)/(x+1)
+            y.show()
+            dydx=y.diff(x).simplify_full()
+
+            m,c=var('m c')
+            pt1=(4,0.4)
+            m=dydx(x=4)
+            #y=m*x+c => c=y-mx at x = 4
+            c=pt1[1]-m*pt1[0]  # pt1[0] is first element of (4,0.4) tuple = 4, pt2[1] = 0.4
+            y_line(x)=m*x+c
+            tangent="y={}".format(y_line(x))
+            p1=point(pt1,rgbcolor='black', pointsize=30)
+            p2=plot(y,0,2*pi, ymin=-0.1,ymax=1,detect_poles='show')
+            p3=plot(y_line,0,2*pi,color='red', legend_label=tangent)
+            p4=plot(dydx,0,2*pi, color='green',detect_poles='show')
+            p1+p2+p3+p4
+        </input>
+    </sage>
+
+    <p>Exercise 4</p>
+    <sage>
+        <input>
+
         </input>
     </sage>
 
