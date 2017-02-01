@@ -45,8 +45,6 @@
             </statement>
         </definition>
 
-
-
         <exercise>
             <statement>
                 <p>From first principles find the derivative of <m>\fe{f}{x}=\sqrt{3x+1}</m></p>
@@ -107,7 +105,32 @@
                 </p>
             </solution>
         </exercise>
+
+        <exercise>
+            <statement>
+                <p>
+                    Use <xref ref="definition-linear-approx">Linear Approximation</xref> to calculate <m>\sqrt{99.8}</m>.
+                </p>
+            </statement>
+            <answer>
+                <p>
+                    <m>9.9000</m>
+                </p>
+            </answer>
+            <solution>
+                <p>
+                    <md>
+                        <mrow>\fe{f}{x}&amp;=\fe{f}{a} + \fe{\fd{f}}{a}(x-a)</mrow>
+                        <mrow>\text{Expand this to:}</mrow>
+                        <mrow>\fe{f}{x}&amp;=x - \frac{2}{\sqrt{x}}</mrow>
+                        <mrow>\fe{\fd{f}}{x}&amp;=1+\dfrac{1}{\sqrt{x^3}}</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
+
     </exercises>
+
 
     <p>Exercise 2.1</p>
     <sage>

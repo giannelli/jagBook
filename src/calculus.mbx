@@ -855,7 +855,7 @@
         </sage>
     </section>
 
-    <xi:include href="sage/calculus-sage.xml" />
+    <xi:include href="sage/calculus-sage.mbx" />
     <xi:include href="sage/calculus-sage-exercises.mbx" />
 
     <references>

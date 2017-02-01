@@ -504,7 +504,7 @@
 
     </section>
 
-    <xi:include href="exercises/differential.xml" />
+    <xi:include href="exercises/differential.mbx" />
     <xi:include href="principles/principles.mbx" />
 
     <references>
