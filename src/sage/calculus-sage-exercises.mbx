@@ -121,13 +121,49 @@
                 <p>
                     <md>
                         <mrow>\fe{f}{x}&amp;=\fe{f}{a} + \fe{\fd{f}}{a}(x-a)</mrow>
-                        <mrow>\text{Expand this to:}</mrow>
-                        <mrow>\fe{f}{x}&amp;=x - \frac{2}{\sqrt{x}}</mrow>
-                        <mrow>\fe{\fd{f}}{x}&amp;=1+\dfrac{1}{\sqrt{x^3}}</mrow>
+                        <mrow>TBD</mrow>
                     </md>
                 </p>
             </solution>
         </exercise>
+
+
+        <exercise>
+            <statement>
+                <p>Implicit Differentiation</p>
+                <p> <m>xy+2x+3x^2 = 4</m></p>
+            </statement>
+            <answer>
+                <p>
+                    <m>\fe{\fd{y}}{x} = \frac{y}{x} - \frac{2}{x} - 6</m>
+                </p>
+            </answer>
+            <solution>
+                <p>
+                    Implicit:
+                    <md>
+                        <mrow>xy+2x+3x^2 = 4</mrow>
+                        <mrow>\text{Differentiate each part using the product rule for } xy</mrow>
+                        <mrow>x\frac{dy}{dx} + y\frac{dx}{dx} + 2 + 6x = 0</mrow>
+                        <mrow>x\frac{dy}{dx} + y + 2 + 6x = 0</mrow>
+                        <mrow>\text{Rearranging gives:} </mrow>
+                        <mrow>\fe{\fd{y}}{x} = \frac{y}{x} - \frac{2}{x} - 6</mrow>
+                    </md>
+                </p>
+                <p>
+                    Explicit:
+                    <md>
+                        <mrow>xy+2x+3x^2 = 4</mrow>
+                        <mrow>\text{Solve for } y</mrow>
+                        <mrow>x\frac{dy}{dx} + y\frac{dx}{dx} + 2 + 6x = 0</mrow>
+                        <mrow>x\frac{dy}{dx} + y + 2 + 6x = 0</mrow>
+                        <mrow>\text{Rearranging gives:} </mrow>
+                        <mrow>\fe{\fd{y}}{x} = \frac{y}{x} - \frac{2}{x} - 6</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
+
 
     </exercises>
 
@@ -236,5 +272,7 @@
 
         </input>
     </sage>
+
+
 
 </section>
