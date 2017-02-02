@@ -147,7 +147,12 @@
                         <mrow>x\frac{dy}{dx} + y\frac{dx}{dx} + 2 + 6x = 0</mrow>
                         <mrow>x\frac{dy}{dx} + y + 2 + 6x = 0</mrow>
                         <mrow>\text{Rearranging gives:} </mrow>
-                        <mrow>\fe{\fd{y}}{x} = \frac{y}{x} - \frac{2}{x} - 6</mrow>
+                        <mrow>\frac{dy}{dx} = -\frac{\left(y+2+6x\right)}{x}</mrow>
+                        <mrow>\text{Rearranging original equation for } y</mrow>
+                        <mrow>y = \frac{4}{x} -2 -3x</mrow>
+                        <mrow>\text{Substituting gives } y</mrow>
+                        <mrow>\frac{dy}{dx} = -\frac{\left(\frac{4}{x} -2 -3x+2+6x\right)}{x}</mrow>
+                        <mrow>\frac{dy}{dx} = -\frac{4}{x^2}-3</mrow>
                     </md>
                 </p>
                 <p>
@@ -155,18 +160,32 @@
                     <md>
                         <mrow>xy+2x+3x^2 = 4</mrow>
                         <mrow>\text{Solve for } y</mrow>
-                        <mrow>x\frac{dy}{dx} + y\frac{dx}{dx} + 2 + 6x = 0</mrow>
-                        <mrow>x\frac{dy}{dx} + y + 2 + 6x = 0</mrow>
-                        <mrow>\text{Rearranging gives:} </mrow>
-                        <mrow>\fe{\fd{y}}{x} = \frac{y}{x} - \frac{2}{x} - 6</mrow>
+                        <mrow>y = \frac{4}{x} -2 -3x</mrow>
+                        <mrow>\text{And differentiate } y</mrow>
+                        <mrow>\frac{dy}{dx} = -\frac{4}{x^2} -3</mrow>
                     </md>
                 </p>
+
+                <p>As you can see the results are the same for each method.</p>
+                <p>The problem that implicit differentiation solves is that it is often difficult or
+                    impossible to rearrange to have <m>y</m> on the left by its own.</p>
             </solution>
         </exercise>
 
 
     </exercises>
 
+    <p>Implicit Differentiation of <m>xy+2x+3x^2 = 4</m></p>
+    <sage>
+        <input>
+            x,y = var('x,y')
+            expr = x*y+2*x+3*x^2 == 4
+            show(expr)
+            f(x,y) = expr.lhs() - expr.rhs() # We want f(x,y) = 0.
+            dydx(x,y) = f.implicit_derivative(y,x).expand()
+            show(dydx)
+        </input>
+    </sage>
 
     <p>Exercise 2.1</p>
     <sage>
