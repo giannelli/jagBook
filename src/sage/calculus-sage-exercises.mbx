@@ -139,43 +139,30 @@
             </answer>
             <solution>
                 <p>
-                    Implicit:
                     <md>
                         <mrow>y \cos\left(x\right)&amp;=1 + \sin\left(x y\right)</mrow>
                         <mrow>\text{Differentiate through:}</mrow>
                         <mrow>y \frac{d\left(\cos\left(x\right)\right)}{dx} + \frac{dy}{dx}\cos\left(x\right)&amp;=
-                         \frac{d\left(\cos\left(xy\right)\right)}{dx}</mrow>
+                         \frac{d\left(\sin\left(xy\right)\right)}{dx}</mrow>
                         <mrow>
                             - y \sin\left(x\right) + \frac{dy}{dx}\cos\left(x\right)&amp;=
-                            \frac{d\left(\cos\left(xy\right)\right)}{dx}
+                            \frac{d\left(\sin\left(xy\right)\right)}{dx}
                         </mrow>
                         <mrow>\text{Now set } u = xy</mrow>
-                        <mrow>\frac{d\left(\cos\left(u\right)\right)}{dx}&amp;= \frac{d\left(\cos\left(u\right)\right)}{du}\frac{du}{dx}</mrow>
-                        <mrow>&amp;= -\sin\left(u\right)\frac{du}{dx}</mrow>
-                        <mrow>&amp;= -\sin\left(u\right)\left(x\frac{dy}{dx} + y\frac{dx}{dx}\right)</mrow>
-                        <mrow>&amp;= -x\sin\left(xy\right)\frac{dy}{dx} - y\sin\left(xy\right)</mrow>
+                        <mrow>\frac{d\left(\sin\left(u\right)\right)}{dx}&amp;= \frac{d\left(\sin\left(u\right)\right)}{du}\frac{du}{dx}</mrow>
+                        <mrow>&amp;= \cos\left(u\right)\frac{du}{dx}</mrow>
+                        <mrow>&amp;= \cos\left(u\right)\left(x\frac{dy}{dx} + y\frac{dx}{dx}\right)</mrow>
+                        <mrow>&amp;= x\cos\left(xy\right)\frac{dy}{dx} + y\cos\left(xy\right)</mrow>
                         <mrow>\text{Substituting this into our main equation:}</mrow>
                         <mrow>
                             - y \sin\left(x\right) + \frac{dy}{dx}\cos\left(x\right)&amp;=
-                            -x\sin\left(xy\right)\frac{dy}{dx} - y\sin\left(xy\right)
+                            x\cos\left(xy\right)\frac{dy}{dx} + y\cos\left(xy\right)
                         </mrow>
                         <mrow>\text{Rearranging:}</mrow>
+                        <mrow>\frac{dy}{dx}&amp;= \frac{y \cos\left(x y\right) + y \sin\left(x\right)}{ \cos\left(x\right) - x \cos\left(x y\right) }</mrow>
 
                     </md>
-
                 </p>
-                <p>
-                    Explicit:
-                    <md>
-                        <mrow>y \cos\left(x\right)&amp;=\sin\left(x y\right) + 1</mrow>
-                        <mrow>\text{Solve for } y</mrow>
-                        <mrow>TBD</mrow>
-                    </md>
-                </p>
-
-                <p>As you can see the results are the same for each method.</p>
-                <p>The problem that implicit differentiation solves is that it is often difficult or
-                    impossible to rearrange to have <m>y</m> on the left by its own.</p>
             </solution>
         </exercise>
 
@@ -231,11 +218,11 @@
             expr = y*cos(x) == 1 + sin(x*y)
             show(expr)
             f(x,y) = expr.lhs() - expr.rhs() # We want f(x,y) = 0.
-            dydx(x,y) = f.implicit_derivative(y,x).expand()
+            dydx(x,y) = f.implicit_derivative(y,x)
             show(dydx)
         </input>
         <output>
-            <m>\frac{dy}{dx} = -\frac{y \cos\left(x y\right)}{x \cos\left(x y\right) - \cos\left(x\right)} - \frac{y \sin\left(x\right)}{x \cos\left(x y\right) - \cos\left(x\right)}</m>
+            <m>\frac{dy}{dx} = \frac{y \cos\left(x y\right) + y \sin\left(x\right)}{ \cos\left(x\right) - x \cos\left(x y\right) }</m>
         </output>
     </sage>
 
