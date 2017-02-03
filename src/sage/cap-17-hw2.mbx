@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-
-<section xml:id="introduction-first-derivative-supplementary-exercises">
+<section xml:id="cap-2017-hw2">
     <title>CAP 2017, HW 2 due January 31</title>
     <exercises>
         <definition xml:id="definition-derivative">
@@ -218,8 +217,8 @@
             expr = y*cos(x) == 1 + sin(x*y)
             show(expr)
             f(x,y) = expr.lhs() - expr.rhs() # We want f(x,y) = 0.
-            dydx(x,y) = f.implicit_derivative(y,x)
-            show(dydx)
+            dydx = f.implicit_derivative(y,x)
+            show(LatexExpr(r"\frac{dy}{dx} = "), dydx)
         </input>
         <output>
             <m>\frac{dy}{dx} = \frac{y \cos\left(x y\right) + y \sin\left(x\right)}{ \cos\left(x\right) - x \cos\left(x y\right) }</m>
@@ -234,8 +233,8 @@
             expr = x*y+2*x+3*x^2 == 4
             show(expr)
             f(x,y) = expr.lhs() - expr.rhs() # We want f(x,y) = 0.
-            dydx(x,y) = f.implicit_derivative(y,x).expand()
-            show(dydx)
+            dydx = f.implicit_derivative(y,x).expand()
+            show(LatexExpr(r"\frac{dy}{dx} = "), dydx)
         </input>
     </sage>
 
@@ -343,7 +342,4 @@
 
         </input>
     </sage>
-
-
-
 </section>
