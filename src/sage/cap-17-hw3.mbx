@@ -3,9 +3,376 @@
 <section xml:id="cap-2017-hw3">
     <title>CAP 2017, HW 3 due February 7</title>
 
-    <sage>
-        <input>
+    <p>
+        Give complete explanations of what you are doing, written in full sentences.
+        Solutions that have all the correct calculations and computations, but lack explanations,
+        will not get full marks!
+    </p>
+    <exercises>
+        <statement>
+            Under certain circumstances a rumour spreads according to the equation
+            <me>\fe{p}{t} = \frac{1}{1+ a e^{-kt}}</me>
+            where <m>\fe{p}{t} </m> is the proportion of the population that knows the rumor at
+            time <m>t</m> (in days) and <m>a</m> and <m>k</m> are positive constants.
+        </statement>
 
+        <p>
+            Note that this is an example of the <em>Logistic Function</em>.  When you get to differential
+        equations this equation is quite important.
+            <url href="https://ocw.mit.edu/resources/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/differential-equations-and-linear-algebra/first-order-equations/the-logistic-equation/">Gilbert Strang </url>
+         gives a good presentation on this subject.
+        </p>
+
+        <p>It is a very important equation and comes up often.
+            See <url href="https://en.wikipedia.org/wiki/Logistic_function">Logistic function (wiki)</url></p>
+
+        <p>
+            The inverse function is an example of a <url href="https://en.wikipedia.org/wiki/Logit">Logit function (wiki)</url>.
+        </p>
+        <exercise number="a)">
+            <statement>
+                Find <m>\lim_{t \to \infty} p(t)</m>. What does this mean for the rumor?
+            </statement>
+            <answer>
+                <m>p(\infty) = 1</m>
+                <p>After a long period of time everyone knows the rumour!</p>
+            </answer>
+            <solution>
+                <p>
+                    <md>
+                        <mrow>lim_{t \to \infty}\fe{p}{t}&amp;=\frac{1}{1+ a e^{-k\infty}}</mrow>
+                        <mrow>\text{Since }e^{-k\infty} = 0, \{ k \in \mathbb{R} | k \ge 0 \}</mrow>
+                        <mrow>\therefore lim_{t \to \infty} p(t)&amp;= \frac{1}{1+0}</mrow>
+                        <mrow>&amp;=1</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise number="b)">
+            <statement>
+                Find the rate of spread of the rumor.
+            </statement>
+            <answer>
+                <m>\frac{dp}{dt}=\frac{ak e^{-kt}}{(1+a e^{-kt})^2}</m>
+            </answer>
+            <solution>
+                <p>
+                    <md>
+                        <mrow>u&amp;= 1 + a e^{-kt}</mrow>
+                        <mrow>\frac{dp}{dt}&amp;=\frac{dp}{du}\frac{du}{dt}&amp;\text{(Chain Rule)}</mrow>
+                        <mrow>&amp;=\frac{-1}{u^2}\left(-ak e^{-kt}\right)</mrow>
+                        <mrow>&amp;=\frac{ak e^{-kt}}{(1+a e^{-kt})^2}</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise number="c)">
+            <statement>
+                Find the inverse function of <m>p(t)</m> and give an interpretation of the meaning.
+            </statement>
+            <answer>
+                <m>\frac{1}{k}\ln\left(\frac{at}{1-t}\right)</m>
+            </answer>
+            <solution>
+                <p>
+                    <md>
+                        <mrow>p&amp;= \frac{1}{1+ a e^{-kt}}</mrow>
+                        <mrow>\text{Substitute p's for t's, and vice versa:}</mrow>
+                        <mrow>t&amp;= \frac{1}{1+ a e^{-kp}}</mrow>
+                        <mrow>\text{Solve for p:}</mrow>
+                        <mrow>1 + a e^{-kp}&amp;=\frac{1}{t}</mrow>
+                        <mrow>a e^{-kp}&amp;=\frac{1}{t} - 1</mrow>
+                        <mrow>e^{-kp}&amp;=\frac{1}{at} - \frac{1}{a}</mrow>
+                        <mrow>-kp&amp;=\ln \left(\frac{1}{at} - \frac{1}{a}\right)</mrow>
+                        <mrow>p&amp;=-\frac{1}{k}\ln \left(\frac{1-t}{at}\right)</mrow>
+                        <mrow>p&amp;=\frac{1}{k}\ln \left(\frac{at}{1-t}\right)</mrow>
+                        <mrow>\text{In other words the inverse is:}</mrow>
+                        <mrow>p^{-1}&amp;=\frac{1}{k}\ln \left(\frac{at}{1-t}\right)</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise number="d)">
+            <statement>
+                Graph <m>p</m> for the case <m>a=10,k=0.5</m> and use your graph to estimate how
+                long it will take for 80% of the population to hear the rumor.
+                Can you also calculate this time?
+            </statement>
+            <answer>
+                <p>
+                    <m>7.38</m> days.
+                </p>
+                <p>See <xref ref="hm3_1d_pt1">Sage plot</xref> of <m>p(t)</m> below.</p>
+            </answer>
+            <solution>
+                <p>
+                    Use the inverse function with a value of <m>0.8</m>
+
+                    <md>
+                        <mrow>p^{-1}&amp;=\frac{1}{k}\ln \left(\frac{at}{1-t}\right)</mrow>
+                        <mrow>p^{-1}(0.8)&amp;=7.378</mrow>
+                    </md>
+                </p>
+                <p>See <xref ref="hm3_1d_pt2">Sage plot</xref> of inverse <m>p(t)</m> below.</p>
+            </solution>
+        </exercise>
+    </exercises>
+
+    <p xml:id="hm3_1d_pt1">
+        Plot of <m>p(t)</m>.
+    </p>
+    <sage >
+        <input>
+            p = 1/(1+10*e^(-0.5*x))
+            dpdx=p.diff(x)
+
+            Plt=plot(p,(x,-5,20), ymin=0, ymax=1, legend_label='$p(t)=\\frac{1}{1+10e^{-0.5t}}$',detect_poles='show')
+            Plt += plot(dpdx,(x,-5,20), ymin=0, ymax=1, color='green',legend_label='$p\'(t)$',linestyle='--',detect_poles='show')
+
+            Plt
         </input>
     </sage>
+    <p>From the sage plot we can see that the time to get to 80% is about <m>7.5</m> days.</p>
+
+    <p xml:id="hm3_1d_pt2">
+        Plot of <m>p^{-1}(t)</m> (the inverse of <m>p(t)</m>).
+    </p>
+    <sage >
+        <input>
+            p = 2*log(10*x/(1-x))
+
+            show(p(x=0.8))
+
+            dpdx=p.diff(x)
+
+            Plt=plot(p,(x,0,1), ymin=-10, ymax=20, legend_label='$p^{-1}(t)=2log(10t/(1-t))$', detect_poles='show', exclude=[1])
+            Plt += plot(dpdx,(x,0,1), ymin=-10, ymax=20, color='green',legend_label='$p^{-1}\'(t)$',linestyle='--',detect_poles='show')
+
+            Plt
+        </input>
+    </sage>
+    <p>From the sage calculation we can see that the time to get to 80% is <m>7.37775890822787</m> days.</p>
+
+
+    <exercises>
+        <statement>
+            Bismuth-210 has a half-life of 5.0 days.
+        </statement>
+
+        <exercise number="a)">
+            <statement>
+                A sample originally has a mass of <m>800 mg</m>.
+                Find a formula for the mass remaining after <m>t</m> days.
+            </statement>
+            <answer>
+                <p>
+                    The mass (in <m>mg</m>) after time <m>t</m> (in days) is:
+                    <me>M_t=800 e^{-0.1386t}</me>
+                </p>
+            </answer>
+            <solution>
+                <p>
+                    The rate of change of mass is proportional to the current mass:
+                    <me>\frac{dM}{dt} \propto M</me>
+                    Lets call the constant of proportionality <m>\lambda</m>.
+                    <me>\frac{dM}{dt} = -\lambda M</me>
+                    The negative is because this is a decay.
+                </p>
+
+                <p>
+                    The solution of this equation is:
+                    <me>M_t = M_0 e^{-\lambda t}</me>
+                    (where <m>M_0</m> is the mass at <m>t=0</m>.)
+                </p>
+                <p>
+                    At the half-life <m>t=T_{\frac{1}{2}}</m> and <m>M_t = \frac{M_0}{2}</m>:
+                    <me>\frac{M_0}{2} = M_0 \exp\left({-\lambda T_{\frac{1}{2}}}\right)</me>
+                    <me>2 = \exp\left({\lambda T_{\frac{1}{2}}}\right)</me>
+                    <me>\log{2} = \lambda T_{\frac{1}{2}}</me>
+                    <me>\lambda = \frac{log2}{T_{\frac{1}{2}}}</me>
+                </p>
+                <p>
+                    We are told that the half-life is <m>5</m> days.
+                    <me>\lambda \approx 0.1386</me>
+                </p>
+                <p>
+                    Substituting with the original mass gives us:
+                    <me>M_t = 800 e^{-0.1386t}</me>
+                    where <m>M_t</m> is the mass in <m>mg</m> and <m>t</m> is the time in days.
+                </p>
+            </solution>
+        </exercise>
+        <exercise number="b)">
+            <statement>
+                Find the mass remaining after <m>30</m> days.
+            </statement>
+            <answer>
+                <p>
+                    <m>N(30) = 12.5 mg</m>
+                </p>
+            </answer>
+            <solution>
+                <p>
+                    <me>N(30) = 800 e^{-0.1386 \times 30} = 800 e^{-4.1589} = 800 \times 0.015625 = 12.5 </me>
+                </p>
+            </solution>
+        </exercise>
+        <exercise number="c)">
+            <statement>
+                When is the mass reduced to <m>1mg</m>?
+            </statement>
+            <answer>
+                <p>
+                    <m>48.2</m> days.
+                </p>
+            </answer>
+            <solution>
+                <p>
+                    <md>
+                        <mrow>M_t&amp;=M_0 e^{-\lambda t}</mrow>
+                        <mrow>1&amp;=800e^{-\lambda t}</mrow>
+                        <mrow>\frac{1}{800}&amp;=e^{-\lambda t}</mrow>
+                        <mrow>800&amp;=e^{\lambda t}</mrow>
+                        <mrow>log{800}&amp;=\lambda t</mrow>
+                        <mrow>t&amp;=\frac{log{800}}{\lambda}</mrow>
+                        <mrow>&amp;=\frac{log{800}}{0.1386}</mrow>
+                        <mrow>&amp; \approx 48.2</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
+        <exercise number="d)">
+            <statement>
+                Sketch a graph of the mass function.
+            </statement>
+            <answer>
+                <p>
+                    <p>See <xref ref="hm3_2d">Sage plot</xref> of mass function below.</p>
+                </p>
+            </answer>
+        </exercise>
+    </exercises>
+
+    <p xml:id="hm3_2d">
+        Sketch of the mass function. (Note <m>x,y</m> are easier for plots)
+    </p>
+    <sage >
+        <input>
+            def point_with_coords(pt, xrange, yrange, color='black', pointsize=30):
+                plt=point(pt,rgbcolor=color, pointsize=pointsize)
+                pt_shifted=(pt[0]+(xrange[2]-xrange[1])/10,pt[1]+(yrange[2]-yrange[1])/10)
+                plt +=text('({0:.2f},{1:.2f})'.format(float(pt[0]),float(pt[1])), pt_shifted, color=color)
+                return plt
+
+            def cross_hair(pt, xrange, yrange):
+                plt=point_with_coords(pt,xrange,yrange)
+                pt1=(xrange[1],pt[1])
+                pt2=(xrange[2],pt[1])
+                plt += line([pt1, pt2], linestyle='--')
+                pt1=(pt[0], yrange[1])
+                pt2=(pt[0],yrange[2])
+                plt += line([pt1, pt2], linestyle='--')
+                return plt
+
+            y=800*exp(-0.1386*x)
+
+            xrange = (x,0,50)
+            yrange = (y,0,800)
+
+            halflife=(5,y(x=5))
+            thirtydays=(30,y(x=30))
+
+            P= plot(y,(x,0,50))
+            P += point_with_coords(halflife, xrange, yrange, color='red', pointsize=60)
+            P += cross_hair(halflife, xrange, yrange)
+            P += point_with_coords(thirtydays, xrange, yrange, color='red', pointsize=60)
+            P += cross_hair(thirtydays, xrange, yrange)
+            P
+        </input>
+    </sage>
+
+    <exercises>
+        <statement>
+            If <m>f''</m> is continuous, show that:
+            <me>\lim_{h \to 0}\frac{\fe{f}{x+h} - 2\fe{f}{x} + \fe{f}{x-h}}{h^2} = \fe{f''}{x}</me>
+
+        </statement>
+
+        <exercise number="a)">
+            <statement>
+                From first principles.
+            </statement>
+
+            <solution>
+                <p>
+                    The first derivative is given by:
+                    <me>\frac{\Delta f(x)}{\Delta x} = \lim_{h \to 0}\frac{f(x+h)-f(x)}{(x+h)-(x)} = \lim_{h \to 0}\frac{f(x+h)-f(x)}{h}</me>
+                </p>
+                <p>The solution is to apply this twice. The trick here is to start with the correct increments
+                    (see <xref ref="second-diff-math-stack">Math Stack Q&amp;A</xref>).
+                </p>
+                <p>
+                    <md>
+                        <mrow>\fe{f''}{x}&amp;=\lim_{h \to 0} \frac{\fe{f'}{x} - \fe{f'}{x-h}}{h}</mrow>
+                        <mrow>&amp;=\lim_{h \to 0}\frac{\frac{f(x+h)-f(x)}{h}-\frac{f(x)-f(x-h)}{h}}{h}</mrow>
+                        <mrow>&amp;=\lim_{h \to 0}\frac{f(x+h)-2f(x)+f(x-h)}{h^2}</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise number="b)">
+            <statement>
+                Using <xref ref="taylor-series-wiki">Taylor Series</xref>.
+            </statement>
+            <solution>
+                <p>
+                    TBD
+                </p>
+            </solution>
+        </exercise>
+
+        <references>
+
+            <biblio type="raw" xml:id="second-diff-math-stack">
+                Brian M. Scott <title>Second derivative “formula derivation”</title>.
+                <url
+                        href="http://math.stackexchange.com/questions/210264/second-derivative-formula-derivation">
+                    Math StackExchange
+                </url>
+            </biblio>
+
+            <biblio type="raw" xml:id="taylor-series-wiki">
+                Wiki <title>Taylor Series.<url href="https://en.wikipedia.org/wiki/Taylor_series"></url>
+                </title>
+            </biblio>
+        </references>
+    </exercises>
+
+
+    <exercises>
+        <statement>
+            Suppose that <m>3 \leq \fe{f'}{x} \leq 5</m> for all values of <m>x</m>, where
+            <m>f</m> is a function defined on all of the real numbers and differentiable everywhere.
+            Show that
+            <me>18 \leq \fe{f}{8} - \fe{f}{2} \leq 30</me>
+
+        </statement>
+
+        <exercise number="a)">
+            <statement>
+                TBD
+            </statement>
+
+            <solution>
+                TBD
+            </solution>
+        </exercise>
+
+
+
+    </exercises>
 </section>
