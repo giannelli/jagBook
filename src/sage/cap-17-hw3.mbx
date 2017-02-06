@@ -326,8 +326,27 @@
 
         <exercise number="b)">
             <statement>
-                Using <xref ref="taylor-series-wiki">Taylor Series</xref>.
+                <p>Using <xref ref="taylor-series-wiki">Taylor Series</xref>.</p>
+
             </statement>
+            <definition xml:id="definition-taylor-series">
+                <title>The Definition of Taylor Series</title>
+                <statement>
+                    <p>
+                        Given a smooth function <m>f</m>, we can always write down a Taylor series;
+                        there is no guarantee that the series converges to anything, let alone
+                        to the function.  Given a smooth function <m>f : \mathbb{R} \to \mathbb{R}</m>, its Taylor
+                        series (around <m>0</m>) is
+                        <me>\sum_{n=0}^\infty \frac{f^{(n)}(0) \, x^n}{n!}</me>
+                        A common mistake is to use <m>f^{(n)}(x)</m> instead of <m>f^{(n)}(0)</m>.
+
+                        Given a smooth function <m>f : \mathbb{R} \to \mathbb{R}</m>, its Taylor series expanded
+                        around <m>a</m> is
+                        <me>\sum_{n=0}^\infty \frac{f^{(n)}(a) \, (x-a)^n}{n!}</me>
+                    </p>
+                </statement>
+            </definition>
+
             <solution>
                 <p>
                     TBD
