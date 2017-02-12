@@ -107,7 +107,7 @@
         \newcommand \de[2]  { \frac{\mathrm d{#1}}{\mathrm d{#2}}   }   % first order derivative
         \newcommand \intl[4]{ \int\limits_{#1}^{#2}{#3}\dd{#4}      }   % integral with limits
 
-
+        \newcommand\at[2]{\left.#1\right|_{#2}}
 
     </macros>
     <!-- tikz package and libraries for images -->

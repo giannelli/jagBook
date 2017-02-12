@@ -9,4 +9,94 @@
         will not get full marks!
     </p>
 
+    <exercise number="1">
+        <statement>
+            <p>Using the guidelines of <xref ref="james_stewart">Stewart section 4.4</xref>, sketch the graph of the curve <m>\tan ^{-1} \left(\frac{x-1}{x+1}\right)</m>.</p>
+
+
+        </statement>
+
+
+        <solution>
+
+            <p>
+                <p>First thing to note is we have a problem at <m>x=-1</m>:
+                    <me>\at{\left(\frac{x-1}{x+1}\right)}{x=-1} = \frac{-1 -1}{-1 + 1} = \frac{-2}{0}</me>
+                </p>
+
+                <p>
+                    The sage calculations below calculate finite limits at <m>x=-1</m>.  The graph does <em>not</em>
+                    shoot of to <m>\pm\infty</m> at this value.
+                </p>
+                <p>
+                    Next see how the gradient behaves:
+                </p>
+                <md>
+                    <mrow>f(x)&amp;=\tan ^{-1} \left(\frac{x-1}{x+1}\right)</mrow>
+                    <mrow>\text{Let }u&amp;=\left(\frac{x-1}{x+1}\right)</mrow>
+                    <mrow>\frac{df}{dx}&amp;=\frac{df}{du}\frac{du}{dx}</mrow>
+                    <mrow>\frac{d}{du}\tan ^{ - 1} u&amp;=\frac{1}{1 + u^2 }</mrow>
+                    <mrow>\frac{du}{dx}&amp;=\frac{2}{(x+1)^2} \text{(Using quotient rule)}</mrow>
+                    <mrow>\therefore \frac{df}{dx}&amp;=\frac{1}{1 + u^2 }.\frac{2}{(x+1)^2}</mrow>
+                    <mrow>&amp;=\frac{1}{1+{\left(\frac{x-1}{x+1}\right)}^2}.\frac{2}{(x+1)^2}</mrow>
+                    <mrow>&amp;=\frac{(x+1)^2}{(x+1)^2+(x-1)^2}.\frac{2}{(x+1)^2}</mrow>
+                    <mrow>&amp;=\frac{1}{x^2+1}</mrow>
+                </md>
+
+                <p>Strange!  This function seems to have a continous and well defined gradient at <m>x=-1</m>.</p>
+                <p>
+                    The sage commands below plot the graph and gardient, and also calculates the limits as <m>x \to -1</m>
+                </p>
+            </p>
+        </solution>
+    </exercise>
+    <sage>
+        <input>
+            y=arctan((x-1)/(x+1))
+            show("Function: ", y)
+            show("Limit from right:", y.limit(x=-1, dir='+'))
+            show("Limit from left:", y.limit(x=-1, dir='-'))
+
+            dydx=y.diff(x).simplify_full()
+            show("Gradient: ", dydx)
+
+            p1=plot(y,-10,10,exclude=[-1])
+            p2=plot(dydx,-10,10, color='green')
+            p1+p2
+        </input>
+    </sage>
+
+    <p>Out of interest lets plot some variants on this:</p>
+
+    <sage>
+        <input>
+            y=arctan((x-3)/(x+3))
+            show("Function: ", y)
+            show("Limit from right:", y.limit(x=-1, dir='+'))
+            show("Limit from left:", y.limit(x=-1, dir='-'))
+
+            dydx=y.diff(x).simplify_full()
+            show("Gradient: ", dydx)
+
+            p1=plot(y,-10,10,exclude=[-3])
+            p2=plot(dydx,-10,10, color='green')
+            p1+p2
+        </input>
+    </sage>
+
+    <sage>
+        <input>
+            y=arctan((x+1)/(x-1))
+            show("Function: ", y)
+            show("Limit from right:", y.limit(x=-1, dir='+'))
+            show("Limit from left:", y.limit(x=-1, dir='-'))
+
+            dydx=y.diff(x).simplify_full()
+            show("Gradient: ", dydx)
+
+            p1=plot(y,-10,10,exclude=[1])
+            p2=plot(dydx,-10,10, color='green')
+            p1+p2
+        </input>
+    </sage>
  </section>
