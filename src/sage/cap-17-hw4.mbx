@@ -258,4 +258,33 @@
         </input>
     </sage>
 
+    <exercise number="4">
+        <statement>
+            <p>
+                At <em>2:00</em> PM a car’s speedometer reads <m>50 km/h</m>. At <em>2:10</em> PM it reads
+                <m>50 km/h</m>. Show that at some time between <em>2:00</em> and <em>2:10</em> the
+                acceleration is exactly <m>90 km h^{-2}</m>.
+            </p>
+        </statement>
+
+        <solution>
+            <p>
+                All we can say about the acceleration in the interval is that its average has taken us from
+                <m>50 km/h</m> to <m>65 km/h</m> in a time of <m>10</m> minutes.
+            </p>
+            <p>
+                The only thing we have to be careful with is to keep the <em>units</em> consistent
+                <m>\frac{km/hr}{hr} = km hr^{-2}</m>.
+                <md>
+                    <mrow>acc_{av} &amp;=\frac{\text{change in speed}}{\text{change in time}}</mrow>
+                    <mrow>acc_{av} &amp;=\frac{65 - 50 \text{ km/hr}}{\frac{10}{60}\text{ hr}}</mrow>
+                    <mrow>&amp;=90 km h^{-2}\text{ (km per hour per hour)}</mrow>
+                </md>
+            </p>
+
+            <p>
+                But to show this mathematically you probably have to give a bigger explanation!
+            </p>
+        </solution>
+    </exercise>
  </section>
