@@ -317,8 +317,11 @@
                     <me>\sum_{n=0}^\infty \frac{f^{(n)}(a) \, (x-a)^n}{n!}</me>
                 </p>
 
+                <p>
+                    The first few entries are
+                    <me>f(a)+\frac {f'(a)}{1!} (x-a)+ \frac{f''(a)}{2!} (x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+ \cdots</me>
+                </p>
 
-                <me>f(a)+\frac {f'(a)}{1!} (x-a)+ \frac{f''(a)}{2!} (x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+ \cdots</me>
             </statement>
         </definition>
 
@@ -354,19 +357,9 @@
 
             <solution>
                 <p>
-                    Expand the Taylor series at
-                    <p>
-                        <md>
-                            <mrow>M_t&amp;=M_0 e^{-\lambda t}</mrow>
-                            <mrow>1&amp;=800e^{-\lambda t}</mrow>
-                            <mrow>\frac{1}{800}&amp;=e^{-\lambda t}</mrow>
-                            <mrow>800&amp;=e^{\lambda t}</mrow>
-                            <mrow>log{800}&amp;=\lambda t</mrow>
-                            <mrow>t&amp;=\frac{log{800}}{\lambda}</mrow>
-                            <mrow>&amp;=\frac{log{800}}{0.1386}</mrow>
-                            <mrow>&amp; \approx 48.2</mrow>
-                        </md>
-                    </p>
+                    First set <m>a=x+h</m>:
+                    <me>f(x)f(a)+\frac {f'(a)}{1!} (x-a)+ \frac{f''(a)}{2!} (x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+ \cdots</me>
+
                     TBD
 
                 </p>
@@ -402,11 +395,24 @@
 
         <exercise number="a)">
             <statement>
-                TBD
+                The <em>Mean Value Theorem</em> states that if <m>f(x)</m> is defined and continuous
+                on the interval <m>[a,b]</m> and differentiable on <m>(a,b)</m>, then there is <em>at least</em>
+                one number <m>c</m> in the interval <m>(a,b)</m> (that is <m>a &lt; c &lt; b</m>) such that
+                <me>f'(c)=\frac{f(b) - f(a)}{b-a}</me>
             </statement>
 
             <solution>
-                TBD
+                <p>
+                    <md>
+                        <mrow>\text{Apply the mean value theorem}</mrow>
+                        <mrow>&amp;f'(c)=\frac{f(8) - f(2)}{8-2}</mrow>
+                        <mrow>\text{Since we know}</mrow>
+                        <mrow>&amp;3 \leq \fe{f'}{x} \leq 5</mrow>
+                        <mrow>\text{We get}</mrow>
+                        <mrow>&amp;3 \leq \frac{f(8) - f(2)}{6} \leq 5</mrow>
+                        <mrow>&amp;18 \leq f(8) - f(2) \leq 30</mrow>
+                    </md>
+                </p>
             </solution>
         </exercise>
 
