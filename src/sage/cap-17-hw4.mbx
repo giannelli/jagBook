@@ -99,4 +99,163 @@
             p1+p2
         </input>
     </sage>
+
+    <exercise number="2">
+        <statement>
+            <p>
+                The manager of a 100-unit apartment complex knows from experience that all units will be occupied
+                if the rent is £800 per month. A market survey suggests that, on average, one additional unit will
+                remain vacant for each £10 increase in rent. What rent should the manager charge to maximise profit?
+            </p>
+
+        </statement>
+
+
+        <answer>
+            <m>900</m>
+        </answer>
+        <solution>
+
+            <p>
+                Let <m>r</m> be the rent per unit and <m>R</m> be the total rental income.  We want to maximise <m>R</m>.
+                <me>
+                    \begin{cases}
+                    R = 100r &amp; r\leq 800 \\
+                    R = \left[100 - \frac{r-800}{10}\right]r &amp; r > 800
+                    \end{cases}
+                </me>
+            </p>
+
+            <p>Rearranging the second part of this piecewise equation gives us the following equation to maximise:</p>
+            <me>R = 180r-\frac{r^2}{10}</me>
+            <p>Differentiate gives:</p>
+            <me>0=180-\frac{r}{5}</me>
+            <p>Solving gives us the stationary point (maxima):</p>
+            <me>r=900</me>
+
+            <p>Double check that the second derivative is negative for a maximum:</p>
+            <me>f''=-1/5</me>
+            <p>In this case this is easy to see because our equation is an upside down parabola.</p>
+
+            <p>
+                Since this is a <em>discrete</em> problem and we solved using a <em>continous</em> derivative it is always
+                wise to check with some values:
+
+                <md>
+                    <mrow>\text{ Rent } = 880 \leadsto&amp;R=880 \times 92 = 80960</mrow>
+                    <mrow>\text{ Rent } = 890 \leadsto&amp;R=890 \times 91 = 80990</mrow>
+                    <mrow>\text{ Rent } = 900 \leadsto&amp;R=900 \times 90 = 81000</mrow>
+                    <mrow>\text{ Rent } = 910 \leadsto&amp;R=910 \times 89 = 80990</mrow>
+                    <mrow>\text{ Rent } = 920 \leadsto&amp;R=920 \times 88 = 80960</mrow>
+                </md>
+            </p>
+        </solution>
+    </exercise>
+
+    <exercise number="3">
+        <statement>
+            <p>
+                Two balls are thrown upward from the edge of a cliff <m>140</m> meters above the ground.
+                The first is thrown with a speed of <m>15 m/s</m>, the other is thrown a second later with
+                a speed of <m>8 m/s</m>. Do the balls ever pass each other?
+            </p>
+        </statement>
+
+        <answer>
+            <p>
+                The balls crossover below the cliff edge at the time <m>4.33</m> seconds and
+                at a distance of <m>28.89</m> metres below the cliff edge.
+            </p>
+        </answer>
+        <solution>
+            <p>
+                The acceleration of the ball is a <em>downward</em> (negative) force due to
+                the gravitational force on the earth's surface. This is commonly known as <m>g</m>
+                (units of <m>m/s/s</m> or <m>ms^{-2}</m>. Normally distance is represented by <m>s</m>.
+            </p>
+            <p>The acceleration is the second derivative of distance. Speed is the first derivative.</p>
+
+            <md>
+                <mrow>\frac{d^2 s}{dt^2}&amp;=a</mrow>
+                <mrow>\frac{ds}{dt}&amp;=at+u_0</mrow>
+                <mrow>s&amp;=\frac{at^2}{2}+u_0 t + s_0</mrow>
+            </md>
+            <p>
+                (where <m>u_0</m> is an integration constant representing the initial speed
+               and <m>s_0</m> is an integration constant representing the initial position.)
+            </p>
+            <p>
+                This is normally written as
+                <me>s(t)=u_0t + \frac{1}{2}at^2</me>
+            </p>
+
+            <p>
+                For both balls <m>s_0=0</m> since we are free to set the zero of our
+                vertical axis to the height of the cliff edge.
+            </p>
+            <p>
+                For the first ball <m>u_0=15</m> and for the second ball <m>u_0=8</m>.
+            </p>
+            <p>
+                Hence we have
+                <me>s_1(t)=15t-\frac{1}{2}gt^2</me>
+                <me>s_2(t)=8t-\frac{1}{2}gt^2</me>
+            </p>
+            <p>
+                <m>g \approx 10</m> hence
+                <me>s_1(t)=15t-5t^2</me>
+                <me>s_2(t)=8t-5t^2</me>
+            </p>
+            <p>
+                Since ball two is one second behind the first we can represent this as
+                <me>s_1(t)=15t-5t^2</me>
+                <me>s_2(t-1)=8(t-1)-5(t-1)^2</me>
+            </p>
+            <p>
+                These can be set equal to each other and solved
+                <md>
+                    <mrow>15t-5t^2&amp;=8(t-1)-5(t-1)^2</mrow>
+                    <mrow>15t-5t^2&amp;=8t-8-5(t^2-2t+1)</mrow>
+                    <mrow>15t-5t^2&amp;=8t-8-5t^2+10t-5</mrow>
+                    <mrow>15t&amp;=18t-13</mrow>
+                    <mrow>t&amp;=\frac{13}{3}</mrow>
+                </md>
+            </p>
+            <p>In other words there is a solution and the balls cross over.</p>
+            <p>See the sage plots below for a visual display of what is happening</p>
+        </solution>
+    </exercise>
+
+    <sage>
+        <input>
+            var ('t')
+
+            s_1(t)=15*t-5*t^2
+
+            s_2(t)=8*(t-1)-5*(t-1)^2
+            show(s_1)
+            show(s_2)
+
+            solution = solve(s_1==s_2,t)
+            t_crossover = solution[0].right()
+
+            p1=(t_crossover, s_1(t_crossover))
+            show("Crossover Point (t,s) = ", p1)
+
+            # For the dotted lines
+            p2=(0, s_1(t_crossover))
+            p3=(t_crossover, 0)
+
+            pt1 = point(p1, rgbcolor='white', faceted=True, pointsize=30)
+
+
+            P=plot(s_1,0,5)
+            P += plot(s_2,1,5, color='green')
+            P += pt1
+            P += line([p1, p2], linestyle='--')
+            P += line([p1, p3], linestyle='--')
+            P
+        </input>
+    </sage>
+
  </section>
